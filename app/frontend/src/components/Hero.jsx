@@ -6,7 +6,6 @@ const item = { hidden: { y: 14 }, visible: { y: 0 } };
 export const Hero = ({ data, contact }) => (
   <section className="hero" id="inicio">
     <motion.div className="hero-shell" initial="hidden" animate="visible" transition={{ staggerChildren: 0.1 }}>
-      <div className="hero-code" aria-hidden="true">// portfolio<br />v2.0.26</div>
       <div className="hero-copy">
         <motion.p className="hero-label" variants={item}>{data.role}</motion.p>
         <motion.h1 variants={item}>{data.name}</motion.h1>
