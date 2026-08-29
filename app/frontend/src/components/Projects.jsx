@@ -14,7 +14,10 @@ export const Projects = ({ data }) => (
             <div className="project-content">
               <div className="project-title">
                 <div><p><span>tipo:</span> {project.type}</p><h3>{project.name}</h3></div>
-                <a href={project.github} target="_blank" rel="noreferrer" aria-label={`Abrir repositorio de ${project.name}`}><Github size={18} /> GitHub <ArrowUpRight size={17} /></a>
+                <div className="project-links">
+                  {project.demo && <a href={project.demo} target="_blank" rel="noreferrer" aria-label={`Abrir demo de ${project.name}`}>Demo <ArrowUpRight size={17} /></a>}
+                  <a href={project.github} target="_blank" rel="noreferrer" aria-label={`Abrir repositorio de ${project.name}`}><Github size={18} /> GitHub <ArrowUpRight size={17} /></a>
+                </div>
               </div>
               {project.recognition && <p className="recognition">{project.recognition}</p>}
               <p className="project-intro">{project.intro}</p>

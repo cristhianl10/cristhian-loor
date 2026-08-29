@@ -9,7 +9,7 @@ export const Contact = ({ data, cvUrl }) => (
         <div className="contact-links">
           <a href={data.linkedin} target="_blank" rel="noreferrer"><Linkedin size={18} /> LinkedIn</a>
           <a href={data.github} target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
-          <a href={cvUrl} download="CV-Cristhian-Loor.docx"><Download size={18} /> Descargar CV</a>
+          <a href={cvUrl} download="CV-Cristhian-Loor.pdf"><Download size={18} /> Descargar CV</a>
         </div>
       </div>
     </div>

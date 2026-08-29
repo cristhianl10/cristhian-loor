@@ -79,6 +79,8 @@ a { color: inherit; }
 .stack-table li:not(:last-child)::after { content: ' ·'; color: #1685aa; }
 
 .projects { background: var(--paper); border-top: 1px solid var(--line); }
+.project-links { display: flex; align-items: center; justify-content: flex-end; gap: .65rem; flex-wrap: wrap; }
+.project-links a { white-space: nowrap; }
 .project-heading h2 { max-width: 900px; }
 .project-list { border-top: 2px solid var(--ink); }
 .project { position: relative; padding-block: 64px; display: grid; grid-template-columns: 120px 1fr; gap: 32px; border-bottom: 1px solid var(--line); }
