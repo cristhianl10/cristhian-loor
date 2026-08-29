@@ -1,4 +1,6 @@
 import './App.css';
+import { useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { portfolioData } from './data/mock';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -9,10 +11,13 @@ import { Principles } from './components/Principles';
 import { Contact } from './components/Contact';
 
 function App() {
+  const [motionEnabled, setMotionEnabled] = useState(true);
+
   return (
-    <>
+    <MotionConfig reducedMotion={motionEnabled ? "never" : "always"}>
+      <div className={motionEnabled ? 'motion-on' : 'motion-off'}>
       <a className="skip-link" href="#contenido">Ir al contenido principal</a>
-      <Navbar />
+      <Navbar motionEnabled={motionEnabled} onToggleMotion={() => setMotionEnabled((enabled) => !enabled)} />
       <main id="contenido">
         <Hero data={portfolioData.profile} contact={portfolioData.contact} />
         <About data={portfolioData.about} />
@@ -21,9 +26,9 @@ function App() {
         <Principles data={portfolioData.education} />
       </main>
       <Contact data={portfolioData.contact} cvUrl={portfolioData.profile.cvUrl} />
-    </>
+      </div>
+    </MotionConfig>
   );
 }
 
 export default App;
-

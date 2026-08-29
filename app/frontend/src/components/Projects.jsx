@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { ArrowUpRight, Github } from 'lucide-react';
 
 export const Projects = ({ data }) => (
@@ -9,7 +10,15 @@ export const Projects = ({ data }) => (
       </div>
       <div className="project-list">
         {data.map((project, index) => (
-          <article className={`project ${project.featured ? 'featured' : ''}`} key={project.id}>
+          <motion.article
+            className={`project ${project.featured ? 'featured' : ''}`}
+            key={project.id}
+            initial={{ x: index % 2 ? 72 : -72, opacity: .45, filter: 'blur(6px)' }}
+            whileInView={{ x: 0, opacity: 1, filter: 'blur(0px)' }}
+            whileHover={{ x: 8 }}
+            viewport={{ once: true, amount: .18 }}
+            transition={{ duration: .72, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="project-index">project_{String(index + 1).padStart(2, '0')}</div>
             <div className="project-content">
               <div className="project-title">
@@ -28,7 +37,7 @@ export const Projects = ({ data }) => (
               {project.caveat && <p className="caveat">{project.caveat}</p>}
               <ul className="tags" aria-label={`Tecnologías de ${project.name}`}>{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </div>

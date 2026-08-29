@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
-const item = { hidden: { y: 14 }, visible: { y: 0 } };
+const item = {
+  hidden: { y: 34, opacity: 0, filter: 'blur(8px)' },
+  visible: { y: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.72, ease: [0.16, 1, 0.3, 1] } },
+};
 
 export const Hero = ({ data, contact }) => (
   <section
@@ -14,7 +17,7 @@ export const Hero = ({ data, contact }) => (
     }}
   >
     <div className="hero-glow" aria-hidden="true" />
-    <motion.div className="hero-shell" initial="hidden" animate="visible" transition={{ staggerChildren: 0.1 }}>
+    <motion.div className="hero-shell" initial="hidden" animate="visible" transition={{ staggerChildren: 0.11, delayChildren: 0.08 }}>
       <div className="hero-copy">
         <motion.p className="hero-label" variants={item}>{data.role}</motion.p>
         <motion.h1 variants={item}>{data.name}</motion.h1>
@@ -25,15 +28,19 @@ export const Hero = ({ data, contact }) => (
           <a className="action text" href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={17} /></a>
         </motion.div>
       </div>
-      <div className="hero-aside" aria-label="Perfil técnico">
+      <motion.div className="hero-aside" aria-label="Perfil técnico" variants={item}>
         <p>perfil_tecnico</p>
         <dl>
           <div><dt>enfoque</dt><dd>&quot;Backend y APIs&quot;</dd></div>
           <div><dt>principios</dt><dd>[&quot;SOLID&quot;, &quot;Clean Architecture&quot;]</dd></div>
           <div><dt>ubicación</dt><dd>&quot;{data.location}&quot;</dd></div>
         </dl>
-      </div>
+      </motion.div>
     </motion.div>
-    <div className="hero-ticker" aria-hidden="true"><span>java --version</span><strong>Spring Boot</strong><span>ng serve</span><strong>Angular</strong><span>dotnet run</span></div>
+    <div className="hero-ticker" aria-hidden="true">
+      <div className="ticker-track">
+        {[0, 1].map((copy) => <div className="ticker-set" key={copy}><span>java --version</span><strong>Spring Boot</strong><span>ng serve</span><strong>Angular</strong><span>dotnet run</span><strong>ASP.NET Core</strong></div>)}
+      </div>
+    </div>
   </section>
 );
