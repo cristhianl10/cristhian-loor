@@ -1,16 +1,14 @@
-import { motion } from 'framer-motion';
-
 export const Expertise = ({ data }) => (
-  <section className="section expertise" id="stack" aria-labelledby="stack-title">
-    <div className="section-shell">
-      <div className="section-heading"><h2 id="stack-title">Core stack</h2><p>A focused toolkit for building reliable applications, from domain logic to the interface.</p></div>
-      <div className="expertise-list">
+  <section className="stack section" id="stack">
+    <div className="shell">
+      <div className="section-head"><p className="section-id">stack.config</p><h2>Stack técnico</h2></div>
+      <div className="stack-table">
         {data.map((group, index) => (
-          <motion.article className="expertise-row" key={group.area} initial={false} whileInView={{ y: [10, 0] }} viewport={{ once: true, amount: 0.4 }} transition={{ delay: index * 0.06 }}>
+          <article key={group.area}>
+            <span className="stack-index">[{String(index).padStart(2, '0')}]</span>
             <h3>{group.area}</h3>
-            <div className="expertise-primary">{group.primary.map((item) => <span key={item}>{item}</span>)}</div>
-            <p>{group.supporting.join(' · ')}</p>
-          </motion.article>
+            <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
+          </article>
         ))}
       </div>
     </div>

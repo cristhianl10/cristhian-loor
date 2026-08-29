@@ -1,22 +1,31 @@
-import { motion } from 'framer-motion';
 import { ArrowUpRight, Github } from 'lucide-react';
-import { getGitHubUrl } from '../utils/links';
 
 export const Projects = ({ data }) => (
-  <section className="section projects" id="projects" aria-labelledby="projects-title">
-    <div className="section-shell">
-      <div className="section-heading projects-heading"><h2 id="projects-title">Selected projects</h2><p>Academic and personal work viewed through the problems solved, systems built, and engineering decisions made.</p></div>
+  <section className="projects section" id="proyectos">
+    <div className="shell">
+      <div className="section-head project-heading">
+        <p className="section-id">~/proyectos/</p>
+        <h2>Proyectos que demuestran<br />cómo construyo software.</h2>
+      </div>
       <div className="project-list">
         {data.map((project, index) => (
-          <motion.article className="project" key={project.id} initial={false} whileInView={{ y: [12, 0] }} viewport={{ once: true, amount: 0.25 }}>
-            <div className="project-meta"><span>{String(index + 1).padStart(2, '0')}</span><span>{project.category}</span></div>
-            <div className="project-main">
-              <h3>{project.name}</h3><p className="project-summary">{project.summary}</p>
-              <p className="project-built"><strong>What I built</strong>{project.built}</p>
-              <ul className="tag-list" aria-label={`${project.name} technologies`}>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+          <article className={`project ${project.featured ? 'featured' : ''}`} key={project.id}>
+            <div className="project-index">project_{String(index + 1).padStart(2, '0')}</div>
+            <div className="project-content">
+              <div className="project-title">
+                <div><p><span>tipo:</span> {project.type}</p><h3>{project.name}</h3></div>
+                <a href={project.github} target="_blank" rel="noreferrer" aria-label={`Abrir repositorio de ${project.name}`}><Github size={18} /> GitHub <ArrowUpRight size={17} /></a>
+              </div>
+              {project.recognition && <p className="recognition">{project.recognition}</p>}
+              <p className="project-intro">{project.intro}</p>
+              <div className="project-detail">
+                <p><strong>Mi contribución</strong>{project.contribution}</p>
+                {project.details && <ul>{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>}
+              </div>
+              {project.caveat && <p className="caveat">{project.caveat}</p>}
+              <ul className="tags" aria-label={`Tecnologías de ${project.name}`}>{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
             </div>
-            <a className="project-link" href={getGitHubUrl(project.github)} target="_blank" rel="noreferrer" aria-label={`View ${project.name} repository on GitHub`}><Github size={18} /> Repository <ArrowUpRight size={17} /></a>
-          </motion.article>
+          </article>
         ))}
       </div>
     </div>

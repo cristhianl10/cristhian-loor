@@ -11,14 +11,14 @@ import { Contact } from './components/Contact';
 function App() {
   return (
     <>
-      <a className="skip-link" href="#main">Skip to main content</a>
+      <a className="skip-link" href="#contenido">Ir al contenido principal</a>
       <Navbar />
-      <main id="main">
+      <main id="contenido">
         <Hero data={portfolioData.profile} contact={portfolioData.contact} />
         <About data={portfolioData.about} />
-        <Expertise data={portfolioData.expertise} />
+        <Expertise data={portfolioData.stack} />
         <Projects data={portfolioData.projects} />
-        <Principles data={portfolioData.capabilities} />
+        <Principles data={portfolioData.education} />
       </main>
       <Contact data={portfolioData.contact} cvUrl={portfolioData.profile.cvUrl} />
     </>
