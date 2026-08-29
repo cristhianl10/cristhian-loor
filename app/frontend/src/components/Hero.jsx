@@ -1,168 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
-import { Button } from './ui/button';
+import { motion } from 'framer-motion';
+import { ArrowDownRight, Github, Linkedin } from 'lucide-react';
+import { getGitHubUrl } from '../utils/links';
 
-export const Hero = ({ data }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  const nameLines = data.name.split(' ');
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const lineVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 100,
-      clipPath: 'inset(0 0 100% 0)'
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      clipPath: 'inset(0 0 0% 0)',
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const taglineVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        delay: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  return (
-    <motion.section 
-      className="hero-section"
-      style={{ opacity }}
-    >
-      <motion.div 
-        className="hero-gradient-orb"
-        style={{ y }}
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 90, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-      
-      <div className="hero-content">
-        <motion.div
-          className="hero-badge"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="badge-dot" />
-          {data.location}
-        </motion.div>
-
-        <motion.div
-          className="hero-title"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
-        >
-          {nameLines.map((line, index) => (
-            <div key={index} className="title-line-wrapper">
-              <motion.h1
-                variants={lineVariants}
-                className="title-line"
-              >
-                {line}
-              </motion.h1>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.p
-          className="hero-tagline"
-          variants={taglineVariants}
-          initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
-        >
-          {data.tagline}
-        </motion.p>
-
-        <motion.p
-          className="hero-philosophy"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-        >
-          "El software no empieza desde el código, empieza desde el usuario."
-        </motion.p>
-
-        <motion.div
-          className="hero-cta"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <Button 
-            className="cta-primary"
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Ver proyectos
-            <ArrowRight className="ml-2" size={20} />
-          </Button>
-          <Button 
-            variant="outline" 
-            className="cta-secondary"
-            onClick={() => {
-              const a = document.createElement('a');
-              a.href = data.cvUrl;
-              a.download = 'CV-Cristhian-Loor.pdf';
-              a.click();
-            }}
-          >
-            <Download className="mr-2" size={20} />
-            Descargar CV
-          </Button>
-        </motion.div>
-      </div>
-
-      <motion.div 
-        className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-      >
-        <motion.div
-          className="scroll-line"
-          animate={{ scaleY: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
+export const Hero = ({ data, contact }) => (
+  <section className="hero" id="top" aria-labelledby="hero-title">
+    <div className="hero-backdrop" aria-hidden="true" />
+    <motion.div className="hero-inner" initial="hidden" animate="visible" transition={{ staggerChildren: 0.11, delayChildren: 0.12 }}>
+      <motion.p className="hero-location" variants={reveal}>{data.location}</motion.p>
+      <motion.h1 id="hero-title" variants={reveal}>{data.name}</motion.h1>
+      <motion.p className="hero-role" variants={reveal}>{data.role}</motion.p>
+      <motion.p className="hero-focus" variants={reveal}>{data.focus}</motion.p>
+      <motion.p className="hero-statement" variants={reveal}>{data.statement}</motion.p>
+      <motion.div className="hero-actions" variants={reveal}>
+        <a className="button button-primary" href="#projects">View projects <ArrowDownRight size={18} /></a>
+        <a className="button button-secondary" href={`mailto:${contact.email}`}>Contact me</a>
       </motion.div>
-    </motion.section>
-  );
-};
+      <motion.div className="hero-social" variants={reveal} aria-label="Social profiles">
+        <a href={getGitHubUrl(contact.github)} target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
+        <a href={contact.linkedin} target="_blank" rel="noreferrer"><Linkedin size={18} /> LinkedIn</a>
+      </motion.div>
+    </motion.div>
+    <div className="hero-index" aria-hidden="true"><span>Software</span><span>Engineering</span><span>Product thinking</span></div>
+  </section>
+);

@@ -1,133 +1,24 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ArrowUpRight, Github, Figma } from 'lucide-react';
-import { Card } from './ui/card';
+import { ArrowUpRight, Github } from 'lucide-react';
+import { getGitHubUrl } from '../utils/links';
 
-export const Projects = ({ data }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  return (
-    <section className="projects-section" id="projects" ref={ref}>
-      <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="section-header">
-            <span className="section-number">02</span>
-            <h2 className="section-title">Proyectos Destacados</h2>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="projects-grid"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {data.map((project, index) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="project-card-wrapper"
-            >
-              <Card className="project-card">
-                <div className="project-header">
-                  <span className="project-number">0{index + 1}</span>
-                  <motion.div
-                    className="project-icon"
-                    whileHover={{ rotate: 45, scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ArrowUpRight size={20} />
-                  </motion.div>
-                </div>
-                
-                <h3 className="project-name">{project.name}</h3>
-                <p className="project-category">{project.category}</p>
-                <p className="project-description">{project.description}</p>
-                
-                <div className="project-tags">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="project-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {(project.github || project.figma || project.url) && (
-                  <div className="project-links">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                        aria-label={`Ver ${project.name} en GitHub`}
-                      >
-                        <Github size={16} />
-                        GitHub
-                      </a>
-                    )}
-                    {project.figma && (
-                      <a
-                        href={project.figma}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link project-link--figma"
-                        aria-label={`Ver ${project.name} en Figma`}
-                      >
-                        <Figma size={16} />
-                        Figma
-                      </a>
-                    )}
-                    {project.url && (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link project-link--live"
-                        aria-label={`Ver ${project.name} en vivo`}
-                      >
-                        <ArrowUpRight size={16} />
-                        Ver sitio
-                      </a>
-                    )}
-                  </div>
-                )}
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+export const Projects = ({ data }) => (
+  <section className="section projects" id="projects" aria-labelledby="projects-title">
+    <div className="section-shell">
+      <div className="section-heading projects-heading"><h2 id="projects-title">Selected projects</h2><p>Academic and personal work viewed through the problems solved, systems built, and engineering decisions made.</p></div>
+      <div className="project-list">
+        {data.map((project, index) => (
+          <motion.article className="project" key={project.id} initial={false} whileInView={{ y: [12, 0] }} viewport={{ once: true, amount: 0.25 }}>
+            <div className="project-meta"><span>{String(index + 1).padStart(2, '0')}</span><span>{project.category}</span></div>
+            <div className="project-main">
+              <h3>{project.name}</h3><p className="project-summary">{project.summary}</p>
+              <p className="project-built"><strong>What I built</strong>{project.built}</p>
+              <ul className="tag-list" aria-label={`${project.name} technologies`}>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+            </div>
+            <a className="project-link" href={getGitHubUrl(project.github)} target="_blank" rel="noreferrer" aria-label={`View ${project.name} repository on GitHub`}><Github size={18} /> Repository <ArrowUpRight size={17} /></a>
+          </motion.article>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

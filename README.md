@@ -1,21 +1,21 @@
-# Cristhian Loor Quimí — Portfolio
+# Cristhian Loor — Portfolio
 
-Mi landing page personal. Hecha con colores inspirados en la sublimación.
+Portfolio profesional de Software Engineering y Software Development.
 ## Stack
 
 - React 18 + Vite
-- Framer Motion (animaciones)
-- Lenis (smooth scroll)
-- Lucide React (iconos)
-- CSS vanilla con variables
+- Framer Motion
+- Lucide React
+- CSS vanilla con design tokens
 
 ## Secciones
 
-- **Hero** — nombre, locación, tagline, CTA
-- **Sobre mí** — bio + stack técnico con marquee
-- **Proyectos** — StockFlow, Literapp, Dr UX
-- **Sublirium** — mi emprendimiento de sublimación
-- **Contacto** — LinkedIn, GitHub, email
+- **Hero** — posicionamiento profesional y enlaces principales
+- **About** — perfil e intereses
+- **Core stack** — tecnologías y prácticas por área
+- **Selected projects** — cuatro casos con contexto técnico
+- **Beyond the stack** — ingeniería, integración de IA y UX/UI
+- **Contact** — LinkedIn, GitHub, email y CV
 
 ## Correr local
 

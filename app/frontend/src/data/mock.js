@@ -1,110 +1,84 @@
 export const portfolioData = {
-  hero: {
-    name: "Cristhian Loor Quimí",
-    location: "Guayaquil, Ecuador",
-    tagline: "Estudiante de Ingeniería de Software especializado en backend y UX/UI, con experiencia académica en el ciclo de vida del software, bases de datos relacionales y no relacionales, y diseño de sistemas.",
-    cvUrl: "/cv-cristhian-loor.pdf"
+  profile: {
+    name: 'Cristhian Loor',
+    role: 'Software Engineering | Software Developer',
+    location: 'Guayaquil, Ecuador',
+    focus: 'Java • Spring Boot • .NET • React • AI Integration',
+    statement: 'Building clean, scalable, and user-centered software.',
+    cvUrl: '/cv-cristhian-loor.pdf',
   },
   about: {
-    description: "Estudiante de Ingeniería de Software en la Universidad de Guayaquil. Experiencia académica en desarrollo backend, frontend, UX/UI, investigación de usuario con entrevistas, mapas de empatía y journey maps. Diseño de sistemas, documentación técnica y manual de usuario. Bases de datos relacionales y no relacionales. Dirijo Sublirium, mi emprendimiento de sublimación.",
-    stack: [
-      "C#/.NET",
-      "Clean Architecture",
-      "Spring Boot",      "Java",
-      "JavaScript",
-      "PHP",
-      "Flutter/Dart",
-      "Supabase",
-      "PostgreSQL",
-      "Oracle SQL",
-      "SQL Server",
-      "MongoDB",
-      "Figma",
-      "Design System",
-      "UX/UI"
-    ]
+    paragraphs: [
+      'I’m a Software Engineering student at the University of Guayaquil, focused on building clean, maintainable, and scalable software.',
+      'I’m particularly interested in backend development, REST APIs, software architecture, and integrating AI capabilities into modern applications. I also care about UX/UI and the complete experience of the software I build.',
+    ],
+    note: 'Open-source enthusiast and Linux user.',
   },
+  expertise: [
+    { area: 'Backend', primary: ['Java', 'Spring Boot', 'C#', '.NET'], supporting: ['REST APIs'] },
+    { area: 'Frontend', primary: ['React'], supporting: ['JavaScript', 'TypeScript'] },
+    { area: 'Databases', primary: ['PostgreSQL'], supporting: ['MySQL', 'Oracle'] },
+    { area: 'Engineering', primary: ['Clean Architecture', 'SOLID'], supporting: ['Clean Code', 'Software Design', 'REST API Design'] },
+  ],
   projects: [
     {
-      id: 1,
-      name: "StockFlow",
-      description: "SaaS B2B de gestión de inventario para pequeños negocios latinoamericanos. Flutter + Supabase, multitenancy vía RLS, planes escalonados (Basic/Business/Enterprise).",
-      tags: ["Flutter", "Supabase", "SaaS", "Multitenancy"],
-      category: "Backend & Mobile",
-      github: "https://github.com/cristhianl10/Saas-inventario",
-      figma: "",
-      url: ""
+      id: 'pos',
+      name: 'POS System',
+      category: 'Backend system',
+      summary: 'A point-of-sale backend organized around clear domain boundaries and maintainable application layers.',
+      built: 'Layered API, Application, Domain, Infrastructure, and Utilities structure, using Repository and Unit of Work patterns. The REST API was tested with Postman.',
+      tags: ['C#', '.NET', 'Entity Framework', 'SQL Server', 'REST API'],
+      github: 'https://github.com/cristhianl10/POS',
     },
     {
-      id: 2,
-      name: "Literapp",
-      description: "Club de ltectura digital, proyecto en equipo con JSP/Servlets, Java, Supabase/PostgreSQL, documentación de ciclo de vida completa.",
-      tags: ["Java", "JSP/Servlets", "PostgreSQL", "Supabase"],
-      category: "Full-Stack",
-      github: "https://github.com/erigsml/literapp",
-      figma: "",
-      url: ""
+      id: 'laboratory',
+      name: 'Laboratory Reservations',
+      category: 'Software architecture',
+      summary: 'A system for managing laboratory reservations with an emphasis on separation of concerns.',
+      built: 'A C# and .NET application structured with Clean Architecture and software development best practices.',
+      tags: ['C#', '.NET', 'Clean Architecture'],
+      github: 'https://github.com/cristhianl10/Laboratory-reservation-management',
     },
     {
-      id: 3,
-      name: "Dr UX",
-      description: "Proyecto de gestión de catequesis parroquial, metodología Double Diamond, entrevistas de usuario, empatía y journey maps en Figma.",
-      tags: ["UX Research", "Figma", "Double Diamond", "User Interviews"],
-      category: "UX/UI",
-      github: "",
-      figma: "https://www.figma.com/design/sq5JLcLzCFLWJm7M37R8P8/UX---CATEQUESIS---PROYECTO-PARCIAL?node-id=460-1582&t=QxSFMbmmsbWthGsQ-1",
-      url: ""
+      id: 'stockflow',
+      name: 'StockFlow',
+      category: 'Inventory SaaS',
+      summary: 'Inventory management for small businesses in Latin America.',
+      built: 'A Flutter and Supabase application with multi-tenant data access through row-level security and tiered plans.',
+      tags: ['Flutter', 'Supabase', 'PostgreSQL', 'Multitenancy'],
+      github: 'https://github.com/cristhianl10/Saas-inventario',
     },
     {
-      id: 4,
-      name: "Catálogo Sublirium",
-      description: "Sitio web catálogo de Sublirium, mi emprendimiento de sublimación en Guayaquil. Desarrollado con HTML/CSS/JS y desplegado en Vercel.",
-      tags: ["HTML", "CSS", "JavaScript", "Vercel"],
-      category: "Frontend",
-      github: "https://github.com/cristhianl10/sitioweb_sublirium",
-      figma: "",
-      url: "https://sitioweb-sublirium.vercel.app"
+      id: 'literapp',
+      name: 'Literapp',
+      category: 'Team project',
+      summary: 'A digital reading club developed as a collaborative academic project.',
+      built: 'A Java web application using JSP/Servlets and PostgreSQL through Supabase, supported by software lifecycle documentation.',
+      tags: ['Java', 'JSP/Servlets', 'PostgreSQL', 'Supabase'],
+      github: 'https://github.com/erigsml/literapp',
     },
-    {
-      id: 5,
-      name: "Gestión de Reservas de Laboratorio",
-      description: "Sistema de gestión de reservas de laboratorio desarrollado en C# con arquitectura limpia y buenas prácticas de desarrollo de software.",
-      tags: ["C#", ".NET", "Clean Architecture"],
-      category: "Backend",
-      github: "https://github.com/cristhianl10/Laboratory-reservation-management",
-      figma: "",
-      url: ""
-    },
-    {
-      id: 6,
-      name: "POS System",
-      description: "Sistema de punto de venta con arquitectura en capas (Api, Application, Domain, Infrastructure, Utilities). Implementa patrones Repository y Unit of Work, separación de responsabilidades y API REST probada con Postman.",
-      tags: ["C#", ".NET", "Entity Framework", "SQL Server", "Clean Architecture"],
-      category: "Backend",
-      github: "https://github.com/cristhianl10/POS",
-      figma: "",
-      url: ""
-    },
-    {
-      id: 7,
-      name: "Petite — Sistema Veterinario",
-      description: "Sistema de gestión veterinaria desarrollado en PHP con conexión a base de datos. Proyecto en equipo para el manejo de pacientes, citas y registros clínicos.",
-      tags: ["PHP", "MySQL", "Full-Stack"],
-      category: "Full-Stack",
-      github: "https://github.com/erigsml/petite",
-      figma: "",
-      url: ""
-    }
   ],
-  sublirium: {
-    title: "Sublirium",
-    tagline: "El arte de regalar emociones",
-    description: "Dirijo mi propio negocio de sublimación y productos personalizados en Guayaquil. Tazas, camisetas, gorras y más con diseños personalizados, con el objetivo de generar diseños emocionales transmitidos mediante la personalización.",
-    products: ["Termos personalizados", "Camisetas", "Gorras", "Productos a medida"]
-  },
+  capabilities: [
+    {
+      title: 'Software engineering',
+      text: 'I care about clear boundaries, maintainable code, thoughtful API design, and architecture that fits the problem.',
+      items: ['Clean Architecture', 'SOLID', 'Clean Code', 'Software Design'],
+    },
+    {
+      title: 'AI integration',
+      text: 'I’m exploring how modern AI capabilities can be incorporated into useful applications through APIs and intelligent workflows.',
+      items: ['AI-powered applications', 'API integrations'],
+    },
+    {
+      title: 'UX/UI',
+      text: 'I use product thinking as a complement to development, considering the people, flows, and interfaces behind the software.',
+      items: ['Figma', 'Prototyping', 'Design Thinking', 'Nielsen Heuristics'],
+    },
+  ],
   contact: {
-    linkedin: "https://linkedin.com/in/cristhian-loor",
-    github: "https://github.com/cristhianl10",
-    email: "cristhian.loor25@outlook.com"
-  }
+    linkedin: 'https://www.linkedin.com/in/cristhian-loor/',
+    github: 'https://github.com/cristhianl10',
+    email: 'cristhian.loor25@outlook.com',
+  },
 };
+
