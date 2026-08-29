@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const links = [['Perfil', '#perfil'], ['Stack', '#stack'], ['Proyectos', '#proyectos'], ['Contacto', '#contacto']];
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.25 });
   return (
     <header className="site-header">
       <nav className="nav-shell" aria-label="Navegación principal">
@@ -17,6 +20,7 @@ export const Navbar = () => {
         </div>
         <a className="nav-status" href="mailto:cristhian.loor25@outlook.com"><span /> Disponible para oportunidades</a>
       </nav>
+      <motion.div className="scroll-progress" style={{ scaleX: progress }} aria-hidden="true" />
     </header>
   );
 };

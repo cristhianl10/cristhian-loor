@@ -4,7 +4,16 @@ import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 const item = { hidden: { y: 14 }, visible: { y: 0 } };
 
 export const Hero = ({ data, contact }) => (
-  <section className="hero" id="inicio">
+  <section
+    className="hero"
+    id="inicio"
+    onPointerMove={(event) => {
+      const bounds = event.currentTarget.getBoundingClientRect();
+      event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`);
+      event.currentTarget.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`);
+    }}
+  >
+    <div className="hero-glow" aria-hidden="true" />
     <motion.div className="hero-shell" initial="hidden" animate="visible" transition={{ staggerChildren: 0.1 }}>
       <div className="hero-copy">
         <motion.p className="hero-label" variants={item}>{data.role}</motion.p>
@@ -25,6 +34,6 @@ export const Hero = ({ data, contact }) => (
         </dl>
       </div>
     </motion.div>
-    <div className="hero-ticker" aria-hidden="true"><span>java --version</span><strong>Spring Boot</strong><span>npx next</span><strong>React</strong><span>dotnet run</span></div>
+    <div className="hero-ticker" aria-hidden="true"><span>java --version</span><strong>Spring Boot</strong><span>ng serve</span><strong>Angular</strong><span>dotnet run</span></div>
   </section>
 );
