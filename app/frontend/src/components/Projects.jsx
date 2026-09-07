@@ -1,92 +1,45 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ArrowUpRight } from 'lucide-react';
-import { Card } from './ui/card';
+import { ArrowUpRight, Github } from 'lucide-react';
 
-export const Projects = ({ data }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  return (
-    <section className="projects-section" id="projects" ref={ref}>
-      <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="section-header">
-            <span className="section-number">02</span>
-            <h2 className="section-title">Proyectos Destacados</h2>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="projects-grid"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {data.map((project, index) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="project-card-wrapper"
-            >
-              <Card className="project-card">
-                <div className="project-header">
-                  <span className="project-number">0{index + 1}</span>
-                  <motion.div
-                    className="project-icon"
-                    whileHover={{ rotate: 45, scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ArrowUpRight size={20} />
-                  </motion.div>
-                </div>
-                
-                <h3 className="project-name">{project.name}</h3>
-                <p className="project-category">{project.category}</p>
-                <p className="project-description">{project.description}</p>
-                
-                <div className="project-tags">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="project-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+export const Projects = ({ data }) => (
+  <section className="projects section" id="proyectos">
+    <div className="shell">
+      <div className="section-head project-heading">
+        <p className="section-id">~/proyectos/</p>
+        <h2>Proyectos que demuestran<br />cómo construyo software.</h2>
       </div>
-    </section>
-  );
-};
+      <div className="project-list">
+        {data.map((project, index) => (
+          <motion.article
+            className={`project ${project.featured ? 'featured' : ''}`}
+            key={project.id}
+            initial={{ x: index % 2 ? 72 : -72, opacity: .45, filter: 'blur(6px)' }}
+            whileInView={{ x: 0, opacity: 1, filter: 'blur(0px)' }}
+            whileHover={{ x: 8 }}
+            viewport={{ once: true, amount: .18 }}
+            transition={{ duration: .72, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="project-index">project_{String(index + 1).padStart(2, '0')}</div>
+            <div className="project-content">
+              <div className="project-title">
+                <div><p><span>tipo:</span> {project.type}</p><h3>{project.name}</h3></div>
+                <div className="project-links">
+                  {project.demo && <a href={project.demo} target="_blank" rel="noreferrer" aria-label={`Abrir demo de ${project.name}`}>Demo <ArrowUpRight size={17} /></a>}
+                  <a href={project.github} target="_blank" rel="noreferrer" aria-label={`Abrir repositorio de ${project.name}`}><Github size={18} /> GitHub <ArrowUpRight size={17} /></a>
+                </div>
+              </div>
+              {project.recognition && <p className="recognition">{project.recognition}</p>}
+              <p className="project-intro">{project.intro}</p>
+              <div className="project-detail">
+                <p><strong>Mi contribución</strong>{project.contribution}</p>
+                {project.details && <ul>{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>}
+              </div>
+              {project.caveat && <p className="caveat">{project.caveat}</p>}
+              <ul className="tags" aria-label={`Tecnologías de ${project.name}`}>{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
+            </div>
+          </motion.article>
+        ))}
+      </div>
+    </div>
+  </section>
+);

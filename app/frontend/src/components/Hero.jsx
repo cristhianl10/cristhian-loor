@@ -1,154 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
-import { Button } from './ui/button';
+import { motion } from 'framer-motion';
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
-export const Hero = ({ data }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+const item = {
+  hidden: { y: 34, opacity: 0, filter: 'blur(8px)' },
+  visible: { y: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.72, ease: [0.16, 1, 0.3, 1] } },
+};
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  const nameLines = data.name.split(' ');
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const lineVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 100,
-      clipPath: 'inset(0 0 100% 0)'
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      clipPath: 'inset(0 0 0% 0)',
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const taglineVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        delay: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  return (
-    <motion.section 
-      className="hero-section"
-      style={{ opacity }}
-    >
-      <motion.div 
-        className="hero-gradient-orb"
-        style={{ y }}
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 90, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-      
-      <div className="hero-content">
-        <motion.div
-          className="hero-badge"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="badge-dot" />
-          {data.location}
-        </motion.div>
-
-        <motion.div
-          className="hero-title"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
-        >
-          {nameLines.map((line, index) => (
-            <div key={index} className="title-line-wrapper">
-              <motion.h1
-                variants={lineVariants}
-                className="title-line"
-              >
-                {line}
-              </motion.h1>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.p
-          className="hero-tagline"
-          variants={taglineVariants}
-          initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
-        >
-          {data.tagline}
-        </motion.p>
-
-        <motion.div
-          className="hero-cta"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <Button 
-            className="cta-primary"
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Ver proyectos
-            <ArrowRight className="ml-2" size={20} />
-          </Button>
-          <Button 
-            variant="outline" 
-            className="cta-secondary"
-            onClick={() => window.open(data.cvUrl, '_blank')}
-          >
-            <Download className="mr-2" size={20} />
-            Descargar CV
-          </Button>
+export const Hero = ({ data, contact }) => (
+  <section
+    className="hero"
+    id="inicio"
+    onPointerMove={(event) => {
+      const bounds = event.currentTarget.getBoundingClientRect();
+      event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`);
+      event.currentTarget.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`);
+    }}
+  >
+    <div className="hero-glow" aria-hidden="true" />
+    <motion.div className="hero-shell" initial="hidden" animate="visible" transition={{ staggerChildren: 0.11, delayChildren: 0.08 }}>
+      <div className="hero-copy">
+        <motion.p className="hero-label" variants={item}>{data.role}</motion.p>
+        <motion.h1 variants={item}>{data.name}</motion.h1>
+        <motion.p className="hero-specialty" variants={item}>{data.specialty}</motion.p>
+        <motion.p className="hero-summary" variants={item}>{data.summary}</motion.p>
+        <motion.div className="hero-actions" variants={item}>
+          <a className="action primary" href="#proyectos">Ver proyectos <ArrowDownRight size={18} /></a>
+          <a className="action text" href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={17} /></a>
         </motion.div>
       </div>
-
-      <motion.div 
-        className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-      >
-        <motion.div
-          className="scroll-line"
-          animate={{ scaleY: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
+      <motion.div className="hero-aside" aria-label="Perfil técnico" variants={item}>
+        <p>perfil_tecnico</p>
+        <dl>
+          <div><dt>enfoque</dt><dd>&quot;Backend y APIs&quot;</dd></div>
+          <div><dt>principios</dt><dd>[&quot;SOLID&quot;, &quot;Clean Architecture&quot;]</dd></div>
+          <div><dt>ubicación</dt><dd>&quot;{data.location}&quot;</dd></div>
+        </dl>
       </motion.div>
-    </motion.section>
-  );
-};
+    </motion.div>
+    <div className="hero-ticker" aria-hidden="true">
+      <div className="ticker-track">
+        {[0, 1].map((copy) => <div className="ticker-set" key={copy}><span>java --version</span><strong>Spring Boot</strong><span>ng serve</span><strong>Angular</strong><span>dotnet run</span><strong>ASP.NET Core</strong></div>)}
+      </div>
+    </div>
+  </section>
+);

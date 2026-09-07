@@ -1,56 +1,68 @@
 export const portfolioData = {
-  hero: {
-    name: "Cristhian Loor Quimí",
-    location: "Guayaquil, Ecuador",
-    tagline: "Estudiante de Ingeniería de Software con foco en backend (.NET, Java) y una pata firme en UX/UI — construyo productos reales y dirijo mi propio emprendimiento.",
-    cvUrl: "#"
+  profile: {
+    name: 'Cristhian Loor',
+    role: 'Estudiante de Ingeniería de Software',
+    specialty: 'Desarrollo Java / Spring Boot y React · Backend .NET',
+    summary: 'Construyo APIs REST y aplicaciones mantenibles con criterio técnico, fundamentos de arquitectura limpia y disciplina de desarrollo.',
+    location: 'Guayaquil, Ecuador',
+    cvUrl: '/cv-cristhian-loor.pdf',
   },
   about: {
-    description: "Estudio en la Universidad de Guayaquil, enfocado en desarrollo backend con C#/.NET y Clean Architecture. También tengo experiencia sólida en UX/UI con investigación real de usuario (entrevistas, mapas de empatía, journey maps). Dirijo Sublirium, mi emprendimiento de sublimación, y cofundo el club de IA de mi carrera.",
-    stack: [
-      "C#/.NET",
-      "Clean Architecture",
-      "Entity Framework",
-      "Java",
-      "Flutter/Dart",
-      "Supabase",
-      "PostgreSQL",
-      "Figma",
-      "UX Research"
-    ]
+    title: 'Software que funciona bien por dentro y por fuera.',
+    text: 'Tengo experiencia práctica en proyectos full stack y backend desarrollados con Java, Spring Boot, React, C# y .NET. Me interesa construir soluciones mantenibles, con responsabilidades claras y decisiones técnicas que respondan al problema.',
   },
+  stack: [
+    { area: 'Backend', items: ['Java', 'Spring Boot', 'C#', '.NET', 'REST APIs', 'Entity Framework'] },
+    { area: 'Frontend', items: ['JavaScript', 'React', 'Next.js', 'Node.js', 'HTML', 'CSS'] },
+    { area: 'Datos', items: ['Oracle SQL', 'SQL Server', 'PostgreSQL', 'MySQL', 'Supabase'] },
+    { area: 'Software Engineering', items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work', 'Git', 'Postman'] },
+  ],
   projects: [
     {
-      id: 1,
-      name: "StockFlow",
-      description: "SaaS B2B de gestión de inventario para pequeños negocios latinoamericanos. Flutter + Supabase, multitenancy vía RLS, planes escalonados (Basic/Business/Enterprise).",
-      tags: ["Flutter", "Supabase", "SaaS", "Multitenancy"],
-      category: "Backend & Mobile"
+      id: 'ibatch',
+      name: 'iBatch Financial Operations',
+      type: 'Full stack · Operaciones financieras',
+      recognition: 'Segundo lugar — Hackathon UPS × ÉPICO Guayaquil',
+      intro: 'Plataforma colaborativa para procesar archivos CSV con transacciones y visualizar su progreso, validaciones e historial de auditoría.',
+      contribution: 'Integré una API con Spring Boot y Spring Data JDBC con una interfaz en Next.js/React. La solución utiliza procesamiento asíncrono, inserciones por lotes y actualización periódica del progreso.',
+      details: ['Validación de montos, cuentas y fechas', 'Consulta paginada de registros', 'Registro de errores de procesamiento'],
+      stack: ['Java', 'Spring Boot', 'Next.js', 'React', 'MySQL'],
+      github: 'https://github.com/cristhianl10/iBatch',
+      featured: true,
     },
     {
-      id: 2,
-      name: "Literapp",
-      description: "Club de lectura digital, proyecto en equipo con JSP/Servlets, Java, Supabase/PostgreSQL, documentación de ciclo de vida completa.",
-      tags: ["Java", "JSP/Servlets", "PostgreSQL", "Supabase"],
-      category: "Full-Stack"
+      id: 'pos',
+      name: 'POS API',
+      type: 'Backend · API REST',
+      intro: 'API REST de un sistema de punto de venta organizada para mantener separadas las responsabilidades de la aplicación.',
+      contribution: 'Desarrollé la estructura backend en las capas API, Application, Domain e Infrastructure. Apliqué Entity Framework, Repository Pattern y Unit of Work, y probé los endpoints con Postman.',
+      caveat: 'Alcance actual: no incluye autenticación, JWT, facturación ni un CRUD completo.',
+      stack: ['C#', '.NET', 'Entity Framework', 'SQL Server', 'REST API'],
+      github: 'https://github.com/cristhianl10/POS',
     },
     {
-      id: 3,
-      name: "Dr UX",
-      description: "Proyecto de gestión de catequesis parroquial, metodología Double Diamond, entrevistas de usuario, empatía y journey maps en Figma.",
-      tags: ["UX Research", "Figma", "Double Diamond", "User Interviews"],
-      category: "UX/UI"
-    }
+      id: 'banco-horizonte',
+      name: 'Banco Horizonte — Gestión de reclamos',
+      type: 'Full stack · Aplicación web',
+      intro: 'Centraliza reclamos bancarios dispersos y automatiza su priorización y tiempos SLA para registrar, asignar y supervisar casos con trazabilidad operativa.',
+      contribution: 'Implementé el frontend Angular y una API REST en ASP.NET Core, la lógica de prioridad y SLA, la persistencia PostgreSQL con Entity Framework Core, autenticación Supabase mediante JWT y roles, pruebas automatizadas y configuración de despliegue.',
+      details: ['Priorización automática con reglas acumulativas', 'Roles JWT con autorización por recurso', 'Trazabilidad de estados y asignaciones'],
+      caveat: 'Estado actual: el frontend público está disponible; la publicación de la API depende de la aprobación de Aiven Runtime.',
+      stack: ['ASP.NET Core', 'Angular', 'PostgreSQL', 'Supabase', 'Entity Framework Core', 'Docker'],
+      github: 'https://github.com/cristhianl10/banco-horizonte-reclamos',
+      demo: 'https://banco-horizonte-reclamos-cristhianl10s-projects.vercel.app/login',
+    },
   ],
-  sublirium: {
-    title: "Sublirium",
-    tagline: "El arte de regalar emociones",
-    description: "Dirijo mi propio negocio de sublimación y productos personalizados en Guayaquil. Creamos mugs, camisetas, gorras y más con diseños personalizados que transforman objetos cotidianos en regalos memorables.",
-    products: ["Mugs personalizados", "Camisetas", "Gorras", "Productos a medida"]
+  education: {
+    degree: 'Ingeniería de Software',
+    institution: 'Universidad de Guayaquil',
+    period: 'Octubre de 2023 — actualidad',
+    recognition: 'Segundo lugar en Hackathon de la Universidad Politécnica Salesiana y ÉPICO Guayaquil',
+    languages: 'Español nativo · Inglés B1 certificado',
   },
   contact: {
-    linkedin: "https://linkedin.com/in/cristhian-loor",
-    github: "https://github.com/cristhianl10",
-    email: "cristhian.loor@example.com"
-  }
+    linkedin: 'https://www.linkedin.com/in/cristhian-loor/',
+    github: 'https://github.com/cristhianl10',
+    email: 'cristhian.loor25@outlook.com',
+  },
 };
