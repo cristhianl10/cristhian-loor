@@ -1,56 +1,52 @@
 export const portfolioData = {
   hero: {
-    name: "Cristhian Loor Quimí",
-    location: "Guayaquil, Ecuador",
-    tagline: "Estudiante de Ingeniería de Software con foco en backend (.NET, Java) y una pata firme en UX/UI — construyo productos reales y dirijo mi propio emprendimiento.",
-    cvUrl: "#"
-  },
-  about: {
-    description: "Estudio en la Universidad de Guayaquil, enfocado en desarrollo backend con C#/.NET y Clean Architecture. También tengo experiencia sólida en UX/UI con investigación real de usuario (entrevistas, mapas de empatía, journey maps). Dirijo Sublirium, mi emprendimiento de sublimación, y cofundo el club de IA de mi carrera.",
-    stack: [
-      "C#/.NET",
-      "Clean Architecture",
-      "Entity Framework",
-      "Java",
-      "Flutter/Dart",
-      "Supabase",
-      "PostgreSQL",
-      "Figma",
-      "UX Research"
-    ]
+    name: 'Cristhian Loor',
+    role: 'Desarrollador Backend & Full Stack',
+    location: 'Guayaquil, Ecuador',
+    cvUrl: '/cv-cristhian-loor.pdf',
   },
   projects: [
     {
-      id: 1,
-      name: "StockFlow",
-      description: "SaaS B2B de gestión de inventario para pequeños negocios latinoamericanos. Flutter + Supabase, multitenancy vía RLS, planes escalonados (Basic/Business/Enterprise).",
-      tags: ["Flutter", "Supabase", "SaaS", "Multitenancy"],
-      category: "Backend & Mobile"
+      id: 'ibatch',
+      number: '01',
+      name: 'iBatch',
+      subtitle: 'Financial Operations',
+      recognition: 'Hackathon · 2.º lugar',
+      description: 'Plataforma colaborativa para procesar archivos CSV con transacciones y hacer visible su progreso, validaciones e historial de auditoría.',
+      technologies: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'],
+      evidence: ['Procesamiento asíncrono e inserciones por lotes', 'Validación de cuentas, fechas y montos', 'Progreso periódico, registros paginados y errores auditables'],
+      kind: 'operations',
     },
     {
-      id: 2,
-      name: "Literapp",
-      description: "Club de lectura digital, proyecto en equipo con JSP/Servlets, Java, Supabase/PostgreSQL, documentación de ciclo de vida completa.",
-      tags: ["Java", "JSP/Servlets", "PostgreSQL", "Supabase"],
-      category: "Full-Stack"
+      id: 'horizonte',
+      number: '02',
+      name: 'Banco Horizonte',
+      subtitle: 'Gestión de reclamos',
+      description: 'Sistema para registrar, priorizar, asignar y dar seguimiento a reclamos bancarios con reglas de negocio, SLA y trazabilidad.',
+      technologies: ['C#', '.NET 10', 'Angular 20', 'PostgreSQL', 'Supabase'],
+      evidence: ['Cinco reglas acumulativas para prioridad y SLA', 'Autorización por roles, JWT y Supabase Auth', 'Historial de estados, bandeja filtrable y alertas de tiempo'],
+      kind: 'architecture',
     },
     {
-      id: 3,
-      name: "Dr UX",
-      description: "Proyecto de gestión de catequesis parroquial, metodología Double Diamond, entrevistas de usuario, empatía y journey maps en Figma.",
-      tags: ["UX Research", "Figma", "Double Diamond", "User Interviews"],
-      category: "UX/UI"
-    }
+      id: 'pos',
+      number: '03',
+      name: 'POS API',
+      subtitle: 'Backend REST',
+      description: 'Base backend de un punto de venta diseñada para mantener separadas las responsabilidades de la aplicación.',
+      technologies: ['C#', '.NET', 'Entity Framework', 'SQL Server', 'REST API'],
+      evidence: ['Capas API, Application, Domain e Infrastructure', 'Repository Pattern y Unit of Work', 'Endpoints verificados con Postman'],
+      kind: 'layers',
+    },
   ],
-  sublirium: {
-    title: "Sublirium",
-    tagline: "El arte de regalar emociones",
-    description: "Dirijo mi propio negocio de sublimación y productos personalizados en Guayaquil. Creamos mugs, camisetas, gorras y más con diseños personalizados que transforman objetos cotidianos en regalos memorables.",
-    products: ["Mugs personalizados", "Camisetas", "Gorras", "Productos a medida"]
-  },
+  approach: [
+    ['01', 'Backend', 'APIs REST y lógica de negocio con Java/Spring Boot y C#/.NET.'],
+    ['02', 'Arquitectura', 'Separación de responsabilidades con Clean Architecture, SOLID y patrones cuando aportan valor.'],
+    ['03', 'Datos', 'PostgreSQL, MySQL, SQL Server, Oracle SQL y Supabase para modelar y consultar información.'],
+    ['04', 'Frontend', 'Interfaces web con React, Next.js, Angular, JavaScript, HTML y CSS.'],
+  ],
   contact: {
-    linkedin: "https://linkedin.com/in/cristhian-loor",
-    github: "https://github.com/cristhianl10",
-    email: "cristhian.loor@example.com"
-  }
+    linkedin: 'https://linkedin.com/in/cristhian-loor',
+    github: 'https://github.com/cristhianl10',
+    email: 'cristhian.loor25@outlook.com',
+  },
 };
