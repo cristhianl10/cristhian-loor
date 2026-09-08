@@ -30,6 +30,7 @@ export const contenidoEn = {
     cerrarMenu: 'Close menu',
     menuContacto: 'Contact',
     navegacionPrincipal: 'Main navigation',
+    navegacionPie: 'Page links',
     enlacesPrincipales: 'Primary links',
     tecnologias: 'Technologies',
     tecnologiasProyecto: 'Project technologies',
@@ -60,6 +61,7 @@ export const contenidoEn = {
       'I am particularly interested in software architecture, business logic, databases, and building maintainable solutions.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
     arquitectura: 'Clean Architecture',
+    pruebas: 'xUnit · Jasmine',
     panel: {
       titulo: 'Technical focus',
       nucleo: 'Backend',

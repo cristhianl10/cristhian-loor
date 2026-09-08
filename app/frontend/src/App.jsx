@@ -130,8 +130,8 @@ function Sistema({ contenido }) {
         </article>
 
         <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">BASE</span>
-          <strong>{persona.ubicacion}</strong>
+          <span className="mono">PRUEBAS</span>
+          <strong>{presentacion.pruebas}</strong>
         </article>
 
         <article className="tarjeta-bento bento-acento" data-foco aria-label={reconocimiento.titulo}>
@@ -329,7 +329,7 @@ function Pie({ contenido }) {
           <a className="boton-lima" href={`mailto:${persona.correo}`}><span>{pie.cta}</span><ArrowUpRight aria-hidden="true" size={19} /></a>
         </div>
         <div className="pie-inferior">
-          <nav aria-label={interfaz.navegacionPrincipal}>
+          <nav aria-label={interfaz.navegacionPie}>
             {navegacion.map((enlace) => <a key={enlace.destino} href={enlace.destino}>{enlace.etiqueta}</a>)}
             <a href="#contacto">{interfaz.menuContacto}</a>
           </nav>
@@ -385,7 +385,6 @@ function App() {
   return (
     <div className="sitio">
       <a className="saltar-contenido" href="#contenido-principal">{contenido.interfaz.saltarContenido}</a>
-      <MotionController etiqueta={contenido.interfaz.progresoLectura} />
       <AuroraBlur />
       <Navbar
         enlaces={contenido.navegacion}
@@ -397,6 +396,7 @@ function App() {
       />
       <div className="capsula">
         <main id="contenido-principal">
+          <MotionController etiqueta={contenido.interfaz.progresoLectura} />
           <Hero contenido={contenido} />
           <Sistema contenido={contenido} />
           <Proyectos contenido={contenido} />

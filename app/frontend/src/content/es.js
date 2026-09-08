@@ -30,6 +30,7 @@ export const contenidoEs = {
     cerrarMenu: 'Cerrar menú',
     menuContacto: 'Contacto',
     navegacionPrincipal: 'Navegación principal',
+    navegacionPie: 'Enlaces de la página',
     enlacesPrincipales: 'Enlaces principales',
     tecnologias: 'Tecnologías',
     tecnologiasProyecto: 'Tecnologías del proyecto',
@@ -60,6 +61,7 @@ export const contenidoEs = {
       'Me interesa especialmente la arquitectura de software, la lógica de negocio, las bases de datos y la construcción de soluciones mantenibles.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
     arquitectura: 'Clean Architecture',
+    pruebas: 'xUnit · Jasmine',
     panel: {
       titulo: 'Enfoque técnico',
       nucleo: 'Backend',
