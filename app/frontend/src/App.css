@@ -973,9 +973,7 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 .contacto-enlaces > a { transition: transform 160ms ease-out, border-color 160ms ease-out; }
 .contacto-enlaces > a:hover { border-color: var(--linea-activa); transform: translateY(-2px); }
 .contacto-enlaces > a svg:last-child { margin-inline-start: auto; color: var(--menta); }
-.contacto-enlaces .contacto-correo { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr auto; min-height: 74px; }
-.contacto-correo span { display: flex; align-items: center; gap: 8px; color: var(--texto-tenue); font-family: var(--fuente-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; }
-.contacto-correo strong { font-family: var(--fuente-titulos); font-size: clamp(0.88rem, 1.6vw, 1.02rem); overflow-wrap: anywhere; }
+.contacto-enlaces .contacto-correo { grid-column: 1 / -1; overflow-wrap: anywhere; }
 .contacto-enlaces > p span { display: grid; gap: 3px; }
 .contacto-enlaces small { color: var(--texto-tenue); font-size: 0.67rem; }
 
@@ -1159,8 +1157,7 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
   .metodologia-pasos li { grid-template-columns: 52px 1fr; gap: 14px; }
   .paso-numero { width: 48px; height: 48px; }
   .contacto-enlaces { grid-template-columns: 1fr; }
-  .contacto-enlaces .contacto-correo { grid-column: auto; grid-template-columns: 1fr auto; }
-  .contacto-correo span { grid-column: 1 / -1; }
+  .contacto-enlaces .contacto-correo { grid-column: auto; }
 }
 
 @media (max-width: 480px) {

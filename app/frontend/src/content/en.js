@@ -64,7 +64,7 @@ export const contenidoEn = {
     arquitecturaCapas: ['API', 'Application', 'Domain', 'Infrastructure'],
     diseno: 'Repository · Unit of Work',
     disenoDetalles: ['Batch inserts', 'Async processing'],
-    pruebas: 'xUnit · Jasmine',
+    pruebas: 'JUnit · xUnit · Jasmine · Postman',
     panel: {
       titulo: 'Technical focus',
       nucleo: 'Backend',

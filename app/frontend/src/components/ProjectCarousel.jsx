@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectCase from './ProjectCase';
 
@@ -11,6 +11,10 @@ function ProjectCarousel({ proyectos, interfaz }) {
     const normalizado = (indice + proyectos.length) % proyectos.length;
     setActivo(normalizado);
   };
+
+  useEffect(() => {
+    selectores.current[activo]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [activo]);
 
   const navegarConTeclado = (evento, indice) => {
     const teclas = { ArrowRight: indice + 1, ArrowLeft: indice - 1, Home: 0, End: proyectos.length - 1 };
