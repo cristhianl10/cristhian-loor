@@ -127,11 +127,17 @@ function Sistema({ contenido }) {
         <article className="tarjeta-bento bento-mini" data-foco>
           <span className="mono">ARQUITECTURA</span>
           <strong>{presentacion.arquitectura}</strong>
+          <ol className="bento-detalle">
+            {presentacion.arquitecturaCapas.map((capa) => <li key={capa}>{capa}</li>)}
+          </ol>
         </article>
 
         <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">PRUEBAS</span>
-          <strong>{presentacion.pruebas}</strong>
+          <span className="mono">PATRONES</span>
+          <strong>{presentacion.diseno}</strong>
+          <ol className="bento-detalle">
+            {presentacion.disenoDetalles.map((detalle) => <li key={detalle}>{detalle}</li>)}
+          </ol>
         </article>
 
         <article className="tarjeta-bento bento-acento" data-foco aria-label={reconocimiento.titulo}>
@@ -142,6 +148,11 @@ function Sistema({ contenido }) {
             <p>{reconocimiento.descripcion}</p>
           </div>
           <span className="bento-acento-numero" aria-hidden="true">2.º</span>
+        </article>
+
+        <article className="tarjeta-bento bento-mini" data-foco>
+          <span className="mono">PRUEBAS</span>
+          <strong>{presentacion.pruebas}</strong>
         </article>
       </div>
     </section>

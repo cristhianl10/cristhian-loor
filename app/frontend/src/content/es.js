@@ -61,6 +61,9 @@ export const contenidoEs = {
       'Me interesa especialmente la arquitectura de software, la lógica de negocio, las bases de datos y la construcción de soluciones mantenibles.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
     arquitectura: 'Clean Architecture',
+    arquitecturaCapas: ['API', 'Application', 'Domain', 'Infrastructure'],
+    diseno: 'Repository · Unit of Work',
+    disenoDetalles: ['Inserts por lotes', 'Procesamiento asíncrono'],
     pruebas: 'xUnit · Jasmine',
     panel: {
       titulo: 'Enfoque técnico',

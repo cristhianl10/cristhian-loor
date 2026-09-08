@@ -61,6 +61,9 @@ export const contenidoEn = {
       'I am particularly interested in software architecture, business logic, databases, and building maintainable solutions.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
     arquitectura: 'Clean Architecture',
+    arquitecturaCapas: ['API', 'Application', 'Domain', 'Infrastructure'],
+    diseno: 'Repository · Unit of Work',
+    disenoDetalles: ['Batch inserts', 'Async processing'],
     pruebas: 'xUnit · Jasmine',
     panel: {
       titulo: 'Technical focus',
