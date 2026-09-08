@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#060914" />
     <meta name="description" content="__PORTFOLIO_DESCRIPTION__" />
     <meta name="author" content="__PORTFOLIO_AUTHOR__" />
@@ -17,6 +17,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <script>
+      try {
+        const temaGuardado = localStorage.getItem('portfolio-tema');
+        const tema = ['light', 'dark'].includes(temaGuardado)
+          ? temaGuardado
+          : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.dataset.theme = tema;
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
     <title>__PORTFOLIO_TITLE__</title>
   </head>
   <body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body>

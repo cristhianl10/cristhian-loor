@@ -20,12 +20,13 @@ El portfolio demuestra capacidades mediante tres proyectos reales y sus fundamen
 
 ## Operating Context
 
-La experiencia es un sitio web responsive en español. La presentación conduce a los proyectos destacados, continúa con las competencias técnicas relacionadas con trabajo real y permite acceder directamente a GitHub, LinkedIn y correo electrónico.
+La experiencia es un sitio web responsive bilingüe en español e inglés, con preferencia de idioma y tema persistentes. La presentación conduce a los proyectos destacados, continúa con las competencias técnicas relacionadas con trabajo real y permite acceder directamente a GitHub, LinkedIn y correo electrónico.
 
 ## Capabilities and Constraints
 
-- La implementación visible debe estar completamente en español, excepto los nombres oficiales de tecnologías, productos, patrones y proyectos.
-- El contenido se prepara internamente para una futura versión independiente en inglés, sin traducciones automáticas dentro de los componentes.
+- La implementación visible debe estar disponible en español e inglés, excepto los nombres oficiales de tecnologías, productos, patrones y proyectos.
+- Cada idioma mantiene contenido independiente y centralizado, sin traducciones automáticas dentro de los componentes.
+- La interfaz ofrece modo oscuro y modo claro con contraste WCAG AA y recuerda la preferencia del visitante.
 - Los datos personales, proyectos, tecnologías, enlaces, formación y textos deben mantenerse centralizados y separados de la presentación.
 - Los proyectos prioritarios son iBatch Financial Operations, Banco Horizonte — Gestión de Reclamos y POS API.
 - iBatch Financial Operations obtuvo el segundo lugar en la Hackathon Universidad Politécnica Salesiana × ÉPICO Guayaquil; este es el único reconocimiento confirmado.
@@ -56,7 +57,7 @@ La experiencia es un sitio web responsive en español. La presentación conduce 
 2. Cada afirmación debe corresponder a información confirmada.
 3. La arquitectura, la lógica de negocio y el manejo de datos deben ser comprensibles sin reducir los proyectos a simples listas de tecnologías.
 4. El contenido debe poder actualizarse sin duplicarlo entre componentes.
-5. La experiencia debe ser clara y completa en español, con una estructura preparada para contenidos independientes en otros idiomas.
+5. La experiencia debe ser clara y completa en español e inglés, con contenidos independientes para cada idioma.
 
 ## Accessibility & Inclusion
 

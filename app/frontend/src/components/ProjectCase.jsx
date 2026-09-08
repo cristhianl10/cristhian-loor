@@ -5,21 +5,75 @@ function EtiquetasProyecto({ items, etiqueta }) {
 }
 
 function VisualProyecto({ visual }) {
-  if (visual.tipo === 'capas') return <div className="visual-proyecto visual-capas" aria-hidden="true">{visual.etapas.map((etapa, indice) => <span key={etapa} style={{ '--nivel': indice }}>{etapa}</span>)}</div>;
-  return <div className={`visual-proyecto visual-flujo visual-${visual.tipo}`} aria-hidden="true">{visual.etapas.map((etapa, indice) => <div className="flujo-fragmento" key={etapa}><span>{etapa}</span>{indice < visual.etapas.length - 1 && <i />}</div>)}</div>;
+  if (visual.tipo === 'capas') {
+    return <div className="visual-proyecto visual-capas" aria-hidden="true">{visual.etapas.map((etapa) => <span key={etapa}>{etapa}</span>)}</div>;
+  }
+
+  return (
+    <div className={`visual-proyecto visual-flujo visual-${visual.tipo}`} aria-hidden="true">
+      {visual.etapas.map((etapa, indice) => (
+        <div className="flujo-fragmento" key={etapa}>
+          <span>{etapa}</span>
+          {indice < visual.etapas.length - 1 && <i />}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function MetadatosProyecto({ proyecto, interfaz }) {
+  if (!proyecto.roles && !proyecto.alcanceActual) return null;
+
+  return (
+    <div className="proyecto-meta">
+      {proyecto.roles && (
+        <div className="proyecto-meta-grupo">
+          <h4>{interfaz.rolesImplementados}</h4>
+          <ul>{proyecto.roles.map((rol) => <li key={rol}>{rol}</li>)}</ul>
+        </div>
+      )}
+      {proyecto.alcanceActual && (
+        <div className="proyecto-meta-grupo proyecto-meta-alcance">
+          <h4>{interfaz.alcanceActual}</h4>
+          <ul>{proyecto.alcanceActual.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>
+      )}
+    </div>
+  );
 }
 
 function ProjectCase({ proyecto, interfaz }) {
   return (
-    <article className={`caso-proyecto caso-${proyecto.id}`}>
-      <header className="proyecto-cabecera"><span className="proyecto-indice" aria-hidden="true">{proyecto.indice}</span><div>{proyecto.reconocimiento && <p className="proyecto-reconocimiento"><Trophy aria-hidden="true" size={15} />{proyecto.reconocimiento}</p>}<h3>{proyecto.nombre}</h3><p className="proyecto-tipo">{proyecto.tipo}</p></div></header>
-      <div className="proyecto-cuerpo">
-        <div className="proyecto-resumen">{proyecto.contexto && <p className="proyecto-contexto">{proyecto.contexto}</p>}<p>{proyecto.descripcion}</p><EtiquetasProyecto items={proyecto.tecnologias} etiqueta={interfaz.tecnologiasProyecto} /></div>
-        <div className="proyecto-arquitectura"><VisualProyecto visual={proyecto.visual} />{proyecto.explicacionVisual && <p>{proyecto.explicacionVisual}</p>}{proyecto.arquitectura && <p className="capas-texto">{interfaz.capas}: {proyecto.arquitectura.join(' · ')}</p>}</div>
-        <div className="proyecto-detalles"><h4>{interfaz.aspectosDestacados}</h4><ul>{proyecto.destacados.map((destacado) => <li key={destacado}><Check aria-hidden="true" size={16} /><span>{destacado}</span></li>)}</ul></div>
-        {proyecto.roles && <div className="proyecto-alcance roles"><h4>{interfaz.rolesImplementados}</h4><p>{proyecto.roles.join(' · ')}</p></div>}
-        {proyecto.alcanceActual && <div className="proyecto-alcance"><h4>{interfaz.alcanceActual}</h4><p>{proyecto.alcanceActual.join(' · ')}</p></div>}
+    <article className={`proyecto-activo proyecto-${proyecto.id}`}>
+      <header className="proyecto-cabecera">
+        <div className="proyecto-identidad">
+          <span className="proyecto-indice" aria-hidden="true">{proyecto.indice}</span>
+          {proyecto.reconocimiento && <p className="proyecto-reconocimiento"><Trophy aria-hidden="true" size={15} />{proyecto.reconocimiento}</p>}
+        </div>
+        <h3>{proyecto.nombre}</h3>
+        <p className="proyecto-tipo">{proyecto.tipo}</p>
+      </header>
+
+      <div className="proyecto-historia">
+        <div className="proyecto-resumen">
+          {proyecto.contexto && <p className="proyecto-contexto">{proyecto.contexto}</p>}
+          <p>{proyecto.descripcion}</p>
+          <EtiquetasProyecto items={proyecto.tecnologias} etiqueta={interfaz.tecnologiasProyecto} />
+          <MetadatosProyecto proyecto={proyecto} interfaz={interfaz} />
+        </div>
+
+        <div className="proyecto-arquitectura">
+          <VisualProyecto visual={proyecto.visual} />
+          {proyecto.explicacionVisual && <p>{proyecto.explicacionVisual}</p>}
+          {proyecto.arquitectura && <p className="capas-texto">{interfaz.capas}: {proyecto.arquitectura.join(' · ')}</p>}
+        </div>
       </div>
+
+      <section className="proyecto-detalles" aria-labelledby={`detalles-${proyecto.id}`}>
+        <h4 id={`detalles-${proyecto.id}`}>{interfaz.aspectosDestacados}</h4>
+        <ul>{proyecto.destacados.map((destacado) => <li key={destacado}><Check aria-hidden="true" size={16} /><span>{destacado}</span></li>)}</ul>
+      </section>
+
     </article>
   );
 }

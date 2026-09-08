@@ -1,6 +1,6 @@
 ---
 name: Portfolio profesional de Cristhian Loor
-description: Paneles de vidrio oscuro que hacen visible la estructura técnica de proyectos reales.
+description: Paneles de vidrio adaptables que hacen visible la estructura técnica de proyectos reales en modo oscuro y claro.
 colors:
   background: "#060914"
   surface: "rgba(18, 24, 45, 0.58)"
@@ -13,6 +13,11 @@ colors:
   violet: "#a994ff"
   blue: "#69a7ff"
   amber: "#ffc66d"
+  light-background: "#f4f7fb"
+  light-surface: "rgba(255, 255, 255, 0.84)"
+  light-text: "#101828"
+  light-text-soft: "#344054"
+  light-mint: "#08735a"
 typography:
   display:
     fontFamily: "Manrope, sans-serif"
@@ -73,7 +78,7 @@ La experiencia es técnica sin recurrir a una estética de terminal. El contenid
 
 **Características clave:**
 
-- Fondo azul casi negro con luz ambiental azul, verde y violeta.
+- Fondo azul casi negro con luz ambiental azul, verde y violeta; en modo claro, lienzo gris azulado con superficies blancas.
 - Paneles translúcidos de 16px de radio y divisiones internas de un píxel.
 - Menta para acciones y énfasis técnico; ámbar reservado al reconocimiento.
 - Tipografía Manrope para títulos y Spline Sans para lectura prolongada.
@@ -81,6 +86,8 @@ La experiencia es técnica sin recurrir a una estética de terminal. El contenid
 ## Colors
 
 La paleta combina una base nocturna fría con acentos luminosos de uso restringido.
+
+El modo claro conserva la misma jerarquía mediante `#f4f7fb` como fondo, superficies blancas, texto `#101828`, texto suave `#344054` y menta funcional `#08735a`. Los pares de texto principales mantienen contraste WCAG AA.
 
 - **Fondo profundo** (`#060914`): lienzo general y contraste principal.
 - **Vidrio** (`rgba(18, 24, 45, 0.58)`): navegación, tarjetas y grupos de contenido.
@@ -105,9 +112,11 @@ Manrope da presencia compacta a la presentación y a los nombres de proyecto. Sp
 
 ## Layout
 
-El contenedor principal mide hasta `1180px` con 24px de margen mínimo en escritorio y 14px en móvil. La presentación usa dos columnas y pasa a una columna bajo `960px`. Los casos de proyecto alternan información y diagrama en dos columnas, pero se apilan completamente en pantallas estrechas.
+El contenedor principal mide hasta `1180px` con 24px de margen mínimo en escritorio y 14px en móvil. La presentación usa dos columnas y pasa a una columna bajo `980px`. Los proyectos son la evidencia dominante e integran el reconocimiento; tecnologías usa una retícula densa sin escalones vacíos; perfil y formación comparten una sola sección de trayectoria. Los casos de proyecto alternan información y diagrama en dos columnas, pero se apilan completamente en pantallas estrechas.
 
-Los puntos de adaptación principales son `960px`, `760px` y `480px`. En móvil, la navegación se convierte en menú desplegable, las matrices pasan a una columna y los flujos técnicos se reorganizan sin producir desplazamiento horizontal.
+Los puntos de adaptación principales son `980px`, `760px` y `480px`. En móvil, la navegación se convierte en menú desplegable, las matrices pasan a una columna y los flujos técnicos se reorganizan sin producir desplazamiento horizontal.
+
+El movimiento revela paneles como capas que se abren durante la lectura, muestra progreso de página y anima transiciones de tabs y carrusel. Todas las entradas tienen una alternativa sin desplazamiento para `prefers-reduced-motion`.
 
 ## Elevation & Depth
 
