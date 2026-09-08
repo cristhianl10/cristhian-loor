@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-08T04:40:00Z",
+  "title": "Design System: Portfolio profesional de Cristhian Loor",
+  "extensions": {
+    "colorMeta": {
+      "background": { "role": "neutral", "displayName": "Fondo profundo", "canonical": "#060914" },
+      "surface": { "role": "neutral", "displayName": "Vidrio", "canonical": "rgba(18, 24, 45, 0.58)" },
+      "mint": { "role": "primary", "displayName": "Menta de señal", "canonical": "#84f5ce" },
+      "amber": { "role": "tertiary", "displayName": "Ámbar de logro", "canonical": "#ffc66d" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Presentación", "purpose": "Presentación principal y titulares de gran escala." },
+      "body": { "displayName": "Lectura", "purpose": "Descripciones de proyecto y contenido explicativo." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "entrada-principal", "value": "850ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Revelado inicial de la presentación." },
+      { "name": "estado-control", "value": "170ms ease-out", "purpose": "Hover de botones y enlaces." }
+    ],
+    "breakpoints": [
+      { "name": "estructura", "value": "960px" },
+      { "name": "movil", "value": "760px" },
+      { "name": "movil-estrecho", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal menta sobre fondo oscuro.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Ver proyectos</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;min-height:46px;padding:0 17px;color:#07110f;background:#84f5ce;border-radius:12px;text-decoration:none;font:650 .87rem Inter,sans-serif;transition:transform 170ms ease-out,background 170ms ease-out}.ds-btn-primary:hover{transform:translateY(-2px);background:#a0fadd}.ds-btn-primary:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción secundaria sobre vidrio oscuro.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">GitHub</a>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;min-height:46px;padding:0 17px;color:#f7f8ff;background:rgba(19,25,45,.58);border:1px solid rgba(214,225,255,.16);border-radius:12px;text-decoration:none;font:650 .87rem Inter,sans-serif}.ds-btn-secondary:hover{background:rgba(31,39,66,.72)}.ds-btn-secondary:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
+    },
+    {
+      "name": "Etiqueta tecnológica",
+      "kind": "chip",
+      "description": "Clasifica tecnología sin expresar nivel de dominio.",
+      "html": "<span class=\"ds-chip\">Spring Boot</span>",
+      "css": ".ds-chip{display:inline-block;padding:7px 9px;color:#dce3f7;background:rgba(255,255,255,.06);border:1px solid rgba(218,227,255,.11);border-radius:8px;font:400 .7rem Inter,sans-serif}"
+    },
+    {
+      "name": "Caso de proyecto",
+      "kind": "card",
+      "refersTo": "glass-card",
+      "description": "Superficie principal para evidencia técnica.",
+      "html": "<article class=\"ds-project\"><h3>iBatch Financial Operations</h3><p>Procesamiento, validaciones y auditoría.</p></article>",
+      "css": ".ds-project{padding:34px;color:#f7f8ff;background:linear-gradient(135deg,rgba(24,31,55,.69),rgba(10,15,29,.59));border:1px solid rgba(211,222,255,.18);border-radius:16px}.ds-project h3{margin:0;font:700 2rem/1.03 Manrope,sans-serif;letter-spacing:-.038em}.ds-project p{color:#c5cee8;font:400 1rem/1.7 Inter,sans-serif}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "description": "Barra redondeada de vidrio con acción menta.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">CL</a><a href=\"#\">Proyectos</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:18px;min-height:60px;padding:8px 14px;color:#f7f8ff;background:rgba(10,14,28,.7);border:1px solid rgba(214,225,255,.16);border-radius:16px}.ds-nav a{color:inherit;text-decoration:none;font:500 .84rem Inter,sans-serif}.ds-nav a:hover{color:#84f5ce}.ds-nav a:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Arquitectura tras el vidrio",
+    "overview": "Paneles de vidrio oscuro hacen visible la estructura técnica. El color funciona como señal y los proyectos conservan la mayor presencia visual.",
+    "keyCharacteristics": ["Paneles translúcidos", "Acento menta", "Casos de proyecto amplios", "Movimiento mínimo"],
+    "rules": [
+      { "name": "Regla de señal", "body": "El color indica función o significado; no se distribuye como adorno uniforme.", "section": "colors" }
+    ],
+    "dos": ["Mantener los proyectos como superficies dominantes.", "Respetar la preferencia de movimiento reducido."],
+    "donts": ["No usar métricas personales o niveles subjetivos.", "No añadir copy o funcionalidades no confirmadas."]
+  }
+}

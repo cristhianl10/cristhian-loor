@@ -1,31 +1,158 @@
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Check,
+  Database,
+  Github,
+  GraduationCap,
+  Layers3,
+  Linkedin,
+  Mail,
+  MapPin,
+  Server,
+  Trophy,
+  Wrench,
+} from 'lucide-react';
 import './App.css';
-import GradientWaves from './components/GradientWaves';
-import { portfolioData } from './data/mock';
+import { obtenerContenido } from './content';
+import Navbar from './components/Navbar';
+import ProjectCase from './components/ProjectCase';
+import SectionHeading from './components/SectionHeading';
 
-function ProjectVisual({ kind }) {
-  if (kind === 'operations') return <div className="operations-visual" aria-hidden="true"><div className="csv-file">CSV</div><i>→</i><div className="process-lines"><span /><span /><span /></div><i>→</i><div className="success-check">✓</div></div>;
-  if (kind === 'architecture') return <div className="flow-visual" aria-hidden="true"><span>RECLAMO</span><i>↓</i><span>REGLAS DE NEGOCIO</span><i>↓</i><span>PRIORIDAD + SLA</span><i>↓</i><span>SEGUIMIENTO</span></div>;
-  return <div className="layers-visual" aria-hidden="true">{['API', 'Application', 'Domain', 'Infrastructure'].map(layer => <span key={layer}>{layer}</span>)}</div>;
+const contenido = obtenerContenido('es');
+
+const iconosCategoria = {
+  backend: Server,
+  frontend: Layers3,
+  datos: Database,
+  arquitectura: Layers3,
+  herramientas: Wrench,
+};
+
+function Etiquetas({ items, variante = '' }) {
+  return (
+    <ul className={`etiquetas ${variante}`} aria-label={contenido.interfaz.tecnologias}>
+      {items.map((item) => <li key={item}>{item}</li>)}
+    </ul>
+  );
 }
 
-function ProjectCard({ project }) {
-  return <article className={`project-case ${project.kind}`}>
-    <div className="project-intro"><p className="case-number">{project.number} / SELECTED WORK</p>{project.recognition && <span className="recognition">{project.recognition}</span>}<h3>{project.name}</h3><p className="project-subtitle">{project.subtitle}</p><p className="project-description">{project.description}</p><div className="tech-list">{project.technologies.map(item => <span key={item}>{item}</span>)}</div></div>
-    <div className="project-evidence"><ProjectVisual kind={project.kind} /><div><p className="evidence-title">LO INTERESANTE TÉCNICAMENTE</p><ul>{project.evidence.map(item => <li key={item}>{item}</li>)}</ul></div></div>
-  </article>;
+function Hero() {
+  const { persona, presentacion } = contenido;
+  return (
+    <section className="hero" id="inicio" aria-labelledby="titulo-principal">
+      <div className="hero-contenido">
+        <p className="hero-identidad">
+          <span>{persona.nombreProfesional}</span><span aria-hidden="true">/</span><span>{persona.ubicacion}</span>
+        </p>
+        <h1 id="titulo-principal">{presentacion.titulo}</h1>
+        <p className="hero-rol">{persona.rol}</p>
+        <p className="hero-descripcion">{presentacion.descripcion}</p>
+        <p className="hero-enfoque">{presentacion.enfoque}</p>
+        <div className="hero-acciones" aria-label={contenido.interfaz.enlacesPrincipales}>
+          <a className="boton boton-principal" href="#proyectos">{presentacion.acciones.proyectos}<ArrowDown aria-hidden="true" size={17} /></a>
+          <a className="boton boton-secundario" href={persona.github} target="_blank" rel="noreferrer"><Github aria-hidden="true" size={17} />{presentacion.acciones.github}</a>
+          <a className="boton boton-secundario" href={persona.linkedin} target="_blank" rel="noreferrer"><Linkedin aria-hidden="true" size={17} />{presentacion.acciones.linkedin}</a>
+        </div>
+      </div>
+      <div className="hero-panel" aria-label={presentacion.panel.titulo}>
+        <div className="hero-panel-cabecera"><span>{presentacion.panel.titulo}</span><span className="estado"><i /> {presentacion.panel.estado}</span></div>
+        <div className="hero-panel-nucleo"><span>{presentacion.panel.nucleo}</span>{presentacion.panel.principales.map((item) => <strong key={item}>{item}</strong>)}</div>
+        <div className="hero-panel-flujo" aria-hidden="true"><span>{presentacion.panel.flujo[0]}</span><i /><span>{presentacion.panel.flujo[1]}</span><i /><span>{presentacion.panel.flujo[2]}</span></div>
+        <div className="hero-panel-pie">{presentacion.focos.map((foco) => <span key={foco}>{foco}</span>)}</div>
+      </div>
+    </section>
+  );
+}
+
+function Proyectos() {
+  const { seccionProyectos } = contenido;
+  return (
+    <section className="seccion proyectos" id="proyectos" aria-labelledby="titulo-proyectos">
+      <SectionHeading id="titulo-proyectos" titulo={seccionProyectos.titulo} descripcion={seccionProyectos.descripcion} />
+      <div className="lista-proyectos">{contenido.proyectos.map((proyecto) => <ProjectCase key={proyecto.id} proyecto={proyecto} interfaz={contenido.interfaz} />)}</div>
+    </section>
+  );
+}
+
+function Tecnologias() {
+  const { tecnologias } = contenido;
+  return (
+    <section className="seccion tecnologias" id="tecnologias" aria-labelledby="titulo-tecnologias">
+      <SectionHeading id="titulo-tecnologias" titulo={tecnologias.titulo} descripcion={tecnologias.introduccion} />
+      <div className="matriz-tecnologias">
+        {tecnologias.categorias.map((categoria) => {
+          const Icono = iconosCategoria[categoria.id];
+          return <article className="categoria-tecnica" key={categoria.nombre}><div className="categoria-titulo"><Icono aria-hidden="true" size={19} /><h3>{categoria.nombre}</h3></div><Etiquetas items={categoria.items} /></article>;
+        })}
+      </div>
+      <div className="proyectos-stack">
+        <h3>{tecnologias.relacionTitulo}</h3>
+        <div>{tecnologias.porProyecto.map((proyecto) => <article key={proyecto.nombre}><h4>{proyecto.nombre}</h4><Etiquetas items={proyecto.items} variante="etiquetas-compactas" /></article>)}</div>
+      </div>
+    </section>
+  );
+}
+
+function Reconocimiento() {
+  const { reconocimiento } = contenido;
+  return (
+    <section className="seccion reconocimiento" aria-labelledby="titulo-reconocimiento">
+      <div className="reconocimiento-emblema" aria-hidden="true"><Trophy size={34} strokeWidth={1.6} /><span>2.º</span></div>
+      <div className="reconocimiento-contenido"><h2 id="titulo-reconocimiento">{reconocimiento.titulo}</h2><p className="reconocimiento-evento">{reconocimiento.evento}</p><div className="reconocimiento-detalle"><span>{contenido.interfaz.proyectoPresentado}</span><strong>{reconocimiento.proyecto}</strong><p>{reconocimiento.descripcion}</p></div></div>
+    </section>
+  );
+}
+
+function SobreMi() {
+  const { sobreMi } = contenido;
+  return (
+    <section className="seccion sobre-mi" id="sobre-mi" aria-labelledby="titulo-sobre-mi">
+      <SectionHeading id="titulo-sobre-mi" titulo={sobreMi.titulo} />
+      <div className="sobre-mi-texto">{sobreMi.parrafos.map((parrafo) => <p key={parrafo}>{parrafo}</p>)}</div>
+      <div className="sobre-mi-principios" aria-label={contenido.interfaz.aspectosInteres}>
+        {sobreMi.aspectos.map((item) => <span key={item}><Check aria-hidden="true" size={16} />{item}</span>)}
+      </div>
+    </section>
+  );
+}
+
+function Formacion() {
+  const { formacion, persona } = contenido;
+  return (
+    <section className="seccion formacion" id="formacion" aria-labelledby="titulo-formacion">
+      <div className="formacion-icono" aria-hidden="true"><GraduationCap size={30} /></div>
+      <div className="formacion-principal"><h2 id="titulo-formacion">{formacion.titulo}</h2><h3>{formacion.programa}</h3><p>{formacion.institucion}</p><time>{formacion.periodo}</time><span>{formacion.estado}</span></div>
+      <div className="idiomas"><h3>{formacion.idiomasTitulo}</h3>{persona.idiomas.map((idioma) => <p key={idioma}>{idioma}</p>)}</div>
+    </section>
+  );
+}
+
+function Contacto() {
+  const { contacto, persona } = contenido;
+  return (
+    <section className="seccion contacto" id="contacto" aria-labelledby="titulo-contacto">
+      <div className="contacto-intro"><h2 id="titulo-contacto">{contacto.titulo}</h2><p>{contacto.descripcion}</p></div>
+      <div className="contacto-enlaces">
+        <a className="contacto-correo" href={`mailto:${persona.correo}`}><span><Mail aria-hidden="true" size={17} />{contacto.correoEtiqueta}</span><strong>{persona.correo}</strong><ArrowUpRight aria-hidden="true" size={20} /></a>
+        <a href={persona.linkedin} target="_blank" rel="noreferrer"><Linkedin aria-hidden="true" size={18} />LinkedIn<ArrowUpRight aria-hidden="true" size={17} /></a>
+        <a href={persona.github} target="_blank" rel="noreferrer"><Github aria-hidden="true" size={18} />GitHub<ArrowUpRight aria-hidden="true" size={17} /></a>
+        <p><MapPin aria-hidden="true" size={18} /><span><small>{contacto.ubicacionEtiqueta}</small>{persona.ubicacion}</span></p>
+      </div>
+    </section>
+  );
 }
 
 function App() {
-  const { hero, projects, approach, contact } = portfolioData;
-  return <main className="portfolio-shell"><GradientWaves horizonColor="#03e198" waveColor="#FF9FFC" crestColor="#FFFFFF" speed={0.4} amplitude={2.5} waveScale={0.6} waveRatio={0.9} swell={35} turbulence={20} tilt={1.11} zoom={1} height={5.5} fogDepth={15} detail="medium" brightness={1} opacity={1} grain grainIntensity={0.05} mouseInteraction parallaxStrength={0.5} /><div className="page-overlay" />
-    <header className="topbar"><a className="wordmark" href="#inicio">CL<span>·</span></a><nav><a href="#proyectos">Proyectos</a><a href="#como-trabajo">Cómo trabajo</a><a href="#sobre-mi">Sobre mí</a></nav><a className="topbar-contact" href="#contacto">Hablemos <span>↗</span></a></header>
-    <div className="page-content"><section className="hero" id="inicio"><p className="eyebrow">{hero.location} · DISPONIBLE PARA OPORTUNIDADES</p><h1>{hero.name}</h1><p className="hero-role">{hero.role}</p><p className="hero-text">Estudiante de Ingeniería de Software enfocado en construir aplicaciones web y APIs con Java, Spring Boot y .NET.</p><div className="hero-actions"><a className="button button-main" href="#proyectos">Ver proyectos <span>↓</span></a><a className="button button-quiet" href={contact.github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a className="button button-quiet" href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div><p className="hero-stack">Java <i>·</i> Spring Boot <i>·</i> .NET <i>·</i> React</p><div className="hero-code" aria-hidden="true"><span>API</span><i>→</i><span>DOMAIN</span><i>→</i><span>DATA</span></div></section>
-      <section className="work-section" id="proyectos"><div className="section-title"><p>01 / PROYECTOS</p><h2>La evidencia<br />antes que la lista.</h2><span>03 casos seleccionados</span></div><div className="cases">{projects.map(project => <ProjectCard key={project.id} project={project} />)}</div></section>
-      <section className="approach-section" id="como-trabajo"><div className="section-title"><p>02 / CÓMO CONSTRUYO SOFTWARE</p><h2>El código es parte<br />del criterio.</h2></div><div className="approach-grid">{approach.map(([number, title, description]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}</div><div className="tool-strip">Java <i>·</i> Spring Boot <i>·</i> C# / .NET <i>·</i> React <i>·</i> Next.js <i>·</i> Angular <i>·</i> PostgreSQL <i>·</i> MySQL <i>·</i> SQL Server <i>·</i> Supabase</div></section>
-      <section className="about-section" id="sobre-mi"><div className="about-index">03 / SOBRE MÍ</div><div><h2>Software, producto<br />y criterio técnico.</h2><p>Estudio Ingeniería de Software en la Universidad de Guayaquil y he orientado mi formación hacia el desarrollo backend y full stack.</p><p>Me interesa entender qué ocurre detrás de una aplicación: cómo se estructura, cómo fluye la información, dónde vive la lógica de negocio y cómo mantener el software a medida que crece.</p><p>Esa curiosidad me ha llevado a trabajar con Java/Spring Boot y .NET, además de desarrollar aplicaciones completas con React, Next.js y Angular.</p></div><aside className="education-card"><span>2023 — HOY</span><strong>Ingeniería de Software</strong><p>Universidad de Guayaquil</p><hr /><span>2026</span><strong>2.º lugar · Hackathon</strong><p>UPS × ÉPICO Guayaquil</p></aside></section>
-      <section className="contact-section" id="contacto"><p>04 / CONTACTO</p><h2>Construyamos<br /><em>algo.</em></h2><span>Estoy abierto a oportunidades para crecer como desarrollador y aportar en productos de software.</span><a className="mail-link" href={`mailto:${contact.email}`}>{contact.email} <b>↗</b></a><div><a href={contact.github}>GitHub ↗</a><a href={contact.linkedin}>LinkedIn ↗</a><a href={hero.cvUrl}>CV.pdf ↗</a></div></section><footer><span>© 2026 Cristhian Loor</span><span>Guayaquil, Ecuador</span></footer>
+  return (
+    <div className="sitio">
+      <a className="saltar-contenido" href="#contenido-principal">{contenido.interfaz.saltarContenido}</a>
+      <div className="ambiente" aria-hidden="true"><span className="orbe orbe-uno" /><span className="orbe orbe-dos" /><span className="orbe orbe-tres" /><span className="panel-fondo panel-fondo-uno" /><span className="panel-fondo panel-fondo-dos" /></div>
+      <Navbar persona={contenido.persona} enlaces={contenido.navegacion} interfaz={contenido.interfaz} />
+      <main id="contenido-principal"><Hero /><Proyectos /><Tecnologias /><Reconocimiento /><SobreMi /><Formacion /><Contacto /></main>
+      <footer className="pie-pagina"><span>{contenido.persona.nombreProfesional}</span><span>{contenido.pie.descripcion}</span><a href="#inicio">{contenido.pie.volver}<ArrowUpRight aria-hidden="true" size={16} /></a></footer>
     </div>
-  </main>;
+  );
 }
 
 export default App;
