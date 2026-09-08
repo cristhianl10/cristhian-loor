@@ -64,8 +64,8 @@
   --superficie-solida: #ffffff;
   --superficie-suave: rgba(16, 24, 40, 0.045);
   --superficie-elevada: #ffffff;
-  --linea: rgba(16, 24, 40, 0.12);
-  --linea-activa: rgba(8, 115, 90, 0.4);
+  --linea: rgba(16, 24, 40, 0.24);
+  --linea-activa: rgba(8, 115, 90, 0.5);
   --texto: #101828;
   --texto-suave: rgba(23, 37, 63, 0.84);
   --texto-tenue: rgba(23, 37, 63, 0.72);
@@ -78,7 +78,7 @@
   --accion-fondo: #08735a;
   --accion-texto: #ffffff;
   --chip: rgba(16, 24, 40, 0.05);
-  --chip-borde: rgba(16, 24, 40, 0.12);
+  --chip-borde: rgba(16, 24, 40, 0.22);
   --hover: rgba(16, 24, 40, 0.06);
   --sombra: rgba(5, 8, 18, 0.35);
   --contraste-fondo: #0d1427;
