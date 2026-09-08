@@ -53,6 +53,7 @@ export const contenidoEs = {
     progresoLectura: 'Progreso de lectura',
   },
   presentacion: {
+    etiqueta: '// BACKEND — FULL STACK',
     titulo: 'Desarrollo de software desde la lógica que lo sostiene.',
     descripcion:
       'Estudiante de Ingeniería de Software enfocado en el desarrollo de aplicaciones web y APIs REST con Java, Spring Boot y .NET. También cuento con experiencia práctica desarrollando soluciones full stack con React, Next.js y Angular.',
@@ -73,6 +74,7 @@ export const contenidoEs = {
     },
   },
   seccionProyectos: {
+    etiqueta: '// PROYECTOS',
     titulo: 'Proyectos que explican cómo construyo.',
     descripcion:
       'Tres soluciones reales donde la arquitectura, la lógica de negocio y el manejo de datos tienen un papel central.',
@@ -152,6 +154,7 @@ export const contenidoEs = {
     },
   ],
   tecnologias: {
+    etiqueta: '// STACK',
     titulo: 'Tecnologías aplicadas en contexto.',
     introduccion:
       'Las competencias se organizan por el lugar que ocupan en una solución y se relacionan con proyectos donde fueron utilizadas.',
@@ -198,6 +201,21 @@ export const contenidoEs = {
     ],
     relacionTitulo: 'Tecnologías relacionadas con proyectos reales',
   },
+  sistema: {
+    etiqueta: '// EL SISTEMA',
+    titulo: 'El sistema, de un vistazo.',
+    barrasNota: 'aspectos técnicos por proyecto',
+    nucleoNota: 'núcleo verificado en producción académica',
+  },
+  metodologia: {
+    etiqueta: '// METODOLOGÍA',
+    titulo: 'Cómo construyo.',
+    pasos: [
+      { numero: '01', titulo: 'Modelar la lógica', texto: 'Las reglas de negocio definen prioridad, SLA y flujo antes que la interfaz.' },
+      { numero: '02', titulo: 'Estructurar por capas', texto: 'API, Application, Domain e Infrastructure con responsabilidades separadas.' },
+      { numero: '03', titulo: 'Validar y auditar', texto: 'Validaciones, historial y trazabilidad en cada operación.' },
+    ],
+  },
   reconocimiento: {
     titulo: 'Segundo lugar',
     evento: 'Hackathon Universidad Politécnica Salesiana × ÉPICO Guayaquil',
@@ -206,6 +224,7 @@ export const contenidoEs = {
       'El proyecto presentado fue una plataforma para procesar archivos CSV con transacciones financieras, validaciones, seguimiento de progreso e historial de auditoría.',
   },
   sobreMi: {
+    etiqueta: '// PERFIL',
     titulo: 'El software más allá de la interfaz.',
     parrafos: [
       'Soy estudiante de Ingeniería de Software en la Universidad de Guayaquil y he orientado gran parte de mi formación hacia el desarrollo backend y full stack. Mi enfoque principal está en Java/Spring Boot y C#/.NET, complementado con tecnologías frontend como React, Next.js y Angular.',
@@ -223,6 +242,7 @@ export const contenidoEs = {
     idiomasTitulo: 'Idiomas',
   },
   contacto: {
+    etiqueta: '// CONTACTO',
     titulo: 'Contacto profesional',
     descripcion:
       'Puedes consultar mis repositorios, revisar mi perfil profesional o escribirme directamente por correo.',
@@ -232,5 +252,8 @@ export const contenidoEs = {
   pie: {
     descripcion: 'Desarrollador Backend & Full Stack · Guayaquil, Ecuador',
     volver: 'Volver al inicio',
+    marca: 'LOOR',
+    cta: 'Escríbeme',
+    derechos: '© 2026 Cristhian Loor — Todos los derechos reservados',
   },
 };

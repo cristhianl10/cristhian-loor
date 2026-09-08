@@ -53,6 +53,7 @@ export const contenidoEn = {
     progresoLectura: 'Reading progress',
   },
   presentacion: {
+    etiqueta: '// BACKEND — FULL STACK',
     titulo: 'Software development from the logic that supports it.',
     descripcion:
       'Software Engineering student focused on web applications and REST APIs with Java, Spring Boot, and .NET. I also have hands-on experience building full stack solutions with React, Next.js, and Angular.',
@@ -73,6 +74,7 @@ export const contenidoEn = {
     },
   },
   seccionProyectos: {
+    etiqueta: '// PROJECTS',
     titulo: 'Projects that show how I build.',
     descripcion:
       'Three real solutions where architecture, business logic, and data management play a central role.',
@@ -152,6 +154,7 @@ export const contenidoEn = {
     },
   ],
   tecnologias: {
+    etiqueta: '// STACK',
     titulo: 'Technologies applied in context.',
     introduccion:
       'Skills are organized by their role in a solution and connected to the projects where they were applied.',
@@ -169,6 +172,21 @@ export const contenidoEn = {
     ],
     relacionTitulo: 'Technologies connected to real projects',
   },
+  sistema: {
+    etiqueta: '// THE SYSTEM',
+    titulo: 'The system, at a glance.',
+    barrasNota: 'technical highlights per project',
+    nucleoNota: 'core proven in academic production',
+  },
+  metodologia: {
+    etiqueta: '// METHODOLOGY',
+    titulo: 'How I build.',
+    pasos: [
+      { numero: '01', titulo: 'Model the logic', texto: 'Business rules define priority, SLA, and flow before the interface.' },
+      { numero: '02', titulo: 'Structure in layers', texto: 'API, Application, Domain, and Infrastructure with separated responsibilities.' },
+      { numero: '03', titulo: 'Validate and audit', texto: 'Validations, history, and traceability in every operation.' },
+    ],
+  },
   reconocimiento: {
     titulo: 'Second place',
     evento: 'Universidad Politécnica Salesiana × ÉPICO Guayaquil Hackathon',
@@ -177,6 +195,7 @@ export const contenidoEn = {
       'The submitted project was a platform for processing CSV files with financial transactions, validations, progress tracking, and audit history.',
   },
   sobreMi: {
+    etiqueta: '// PROFILE',
     titulo: 'Software beyond the interface.',
     parrafos: [
       'I am a Software Engineering student at Universidad de Guayaquil, and I have oriented much of my training toward backend and full stack development. My primary focus is Java/Spring Boot and C#/.NET, complemented by frontend technologies such as React, Next.js, and Angular.',
@@ -194,6 +213,7 @@ export const contenidoEn = {
     idiomasTitulo: 'Languages',
   },
   contacto: {
+    etiqueta: '// CONTACT',
     titulo: 'Professional contact',
     descripcion:
       'Explore my repositories, view my professional profile, or reach me directly by email.',
@@ -203,5 +223,8 @@ export const contenidoEn = {
   pie: {
     descripcion: 'Backend & Full Stack Developer · Guayaquil, Ecuador',
     volver: 'Back to top',
+    marca: 'LOOR',
+    cta: 'Write to me',
+    derechos: '© 2026 Cristhian Loor — All rights reserved',
   },
 };
