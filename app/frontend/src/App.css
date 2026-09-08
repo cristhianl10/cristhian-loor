@@ -840,8 +840,44 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
   width: min(300px, 80%);
 }
 
-:root[data-theme='dark'] .pila-pila { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.16); }
-:root[data-theme='dark'] .metodologia-tarjeta { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); }
+:root[data-theme='dark'] .pila-pila,
+:root:not([data-theme='light']) .pila-pila {
+  color: #000000;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+:root[data-theme='dark'] .metodologia-tarjeta,
+:root:not([data-theme='light']) .metodologia-tarjeta {
+  color: #000000;
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+:root[data-theme='dark'] .metodologia-tarjeta .mono,
+:root:not([data-theme='light']) .metodologia-tarjeta .mono {
+  color: #08735a;
+  font-weight: 600;
+}
+:root[data-theme='dark'] .metodologia-tarjeta strong,
+:root:not([data-theme='light']) .metodologia-tarjeta strong {
+  color: #000000;
+}
+:root[data-theme='dark'] .metodologia-tarjeta p,
+:root:not([data-theme='light']) .metodologia-tarjeta p {
+  color: #000000;
+}
+:root[data-theme='dark'] .metodologia-tarjeta li,
+:root:not([data-theme='light']) .metodologia-tarjeta li {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+:root[data-theme='light'] .pila-pila { color: #f7f8ff; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.16); }
+:root[data-theme='light'] .metodologia-tarjeta { color: #f7f8ff; background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.18); }
+:root[data-theme='light'] .metodologia-tarjeta strong { color: #ffffff; }
+:root[data-theme='light'] .metodologia-tarjeta p { color: rgba(247, 248, 255, 0.85); }
+:root[data-theme='light'] .metodologia-tarjeta li { color: #f7f8ff; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.16); }
 
 .pila-pila {
   display: grid;
