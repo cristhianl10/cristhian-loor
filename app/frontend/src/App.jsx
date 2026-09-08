@@ -92,6 +92,7 @@ function Sistema({ contenido }) {
   const barras = proyectos.map((proyecto, indice) => ({
     nombre: tecnologias.porProyecto[indice]?.nombre ?? proyecto.nombre,
     valor: proyecto.destacados.length,
+    indice: proyecto.indice,
   }));
   const maximo = Math.max(...barras.map((barra) => barra.valor));
 
@@ -99,14 +100,14 @@ function Sistema({ contenido }) {
     <section className="seccion" aria-labelledby="titulo-sistema">
       <SectionHeading id="titulo-sistema" etiqueta={sistema.etiqueta} titulo={sistema.titulo} />
       <div className="bento" data-reveal="cluster">
-        <article className="tarjeta-bento bento-grande">
+        <article className="tarjeta-bento bento-grande" data-foco>
           <span className="mono">{sistema.etiqueta}</span>
           <h3>{contenido.seccionProyectos.titulo}</h3>
           <div className="barras" role="img" aria-label={`${sistema.barrasNota}: ${barras.map((b) => `${b.nombre} ${b.valor}`).join(', ')}`}>
             {barras.map((barra) => (
               <div className="barra" key={barra.nombre}>
                 <i style={{ height: `${Math.max(24, Math.round((barra.valor / maximo) * 100))}%` }} aria-hidden="true" />
-                <b aria-hidden="true">{String(barra.valor).padStart(2, '0')}</b>
+                <b aria-hidden="true">{barra.indice}</b>
                 <span>{barra.nombre}</span>
               </div>
             ))}
@@ -114,7 +115,7 @@ function Sistema({ contenido }) {
           <p>{sistema.barrasNota}</p>
         </article>
 
-        <article className="tarjeta-bento bento-alta">
+        <article className="tarjeta-bento bento-alta" data-foco>
           <span className="mono">{presentacion.panel.titulo}</span>
           <h3>{presentacion.panel.nucleo}</h3>
           <div className="muestras">
@@ -123,17 +124,17 @@ function Sistema({ contenido }) {
           <p>{sistema.nucleoNota}</p>
         </article>
 
-        <article className="tarjeta-bento bento-mini">
-          <span className="mono">STATUS</span>
-          <span className="estado-sistema"><i /><span>{presentacion.panel.estado}</span></span>
+        <article className="tarjeta-bento bento-mini" data-foco>
+          <span className="mono">ARQUITECTURA</span>
+          <strong>{presentacion.arquitectura}</strong>
         </article>
 
-        <article className="tarjeta-bento bento-mini">
+        <article className="tarjeta-bento bento-mini" data-foco>
           <span className="mono">BASE</span>
           <strong>{persona.ubicacion}</strong>
         </article>
 
-        <article className="tarjeta-bento bento-acento" aria-label={reconocimiento.titulo}>
+        <article className="tarjeta-bento bento-acento" data-foco aria-label={reconocimiento.titulo}>
           <div className="bento-acento-emblema" aria-hidden="true"><Trophy size={28} strokeWidth={1.7} /></div>
           <div>
             <span className="mono">{reconocimiento.evento}</span>
@@ -158,10 +159,11 @@ function Proyectos({ contenido }) {
 }
 
 function Tecnologias({ contenido }) {
-  const { tecnologias, interfaz } = contenido;
+  const { tecnologias, proyectos, interfaz } = contenido;
   const [proyectoActivo, setProyectoActivo] = useState(0);
   const selectores = useRef([]);
   const proyecto = tecnologias.porProyecto[proyectoActivo];
+  const caso = proyectos[proyectoActivo];
 
   const navegarConTeclado = (evento, indice) => {
     const teclas = { ArrowRight: indice + 1, ArrowLeft: indice - 1, Home: 0, End: tecnologias.porProyecto.length - 1 };
@@ -179,7 +181,7 @@ function Tecnologias({ contenido }) {
         {tecnologias.categorias.map((categoria) => {
           const Icono = iconosCategoria[categoria.id];
           return (
-            <article className={`categoria-tecnica categoria-${categoria.id}`} key={categoria.id}>
+            <article className={`categoria-tecnica categoria-${categoria.id}`} key={categoria.id} data-foco>
               <div className="categoria-titulo"><Icono aria-hidden="true" size={19} /><h3>{categoria.nombre}</h3></div>
               <Etiquetas items={categoria.items} etiqueta={interfaz.tecnologias} />
             </article>
@@ -187,7 +189,7 @@ function Tecnologias({ contenido }) {
         })}
       </div>
 
-      <div className="stack-contexto" data-reveal="panel">
+      <div className="stack-contexto" data-reveal="panel" data-foco>
         <div className="stack-contexto-cabecera">
           <h3>{tecnologias.relacionTitulo}</h3>
           <div role="tablist" aria-label={interfaz.tecnologiasPorProyecto}>
@@ -209,6 +211,13 @@ function Tecnologias({ contenido }) {
         </div>
         <div className="stack-contexto-activo" id="stack-panel" role="tabpanel" aria-labelledby={`stack-selector-${proyectoActivo}`} key={proyecto.nombre}>
           <span>{interfaz.proyecto}</span><strong>{proyecto.nombre}</strong><Etiquetas items={proyecto.items} etiqueta={interfaz.tecnologiasProyecto} variante="etiquetas-compactas" />
+          {caso?.visual && (
+            <div className="stack-flujo" aria-hidden="true">
+              {caso.visual.etapas.map((etapa, i) => (
+                <span key={etapa}>{etapa}{i < caso.visual.etapas.length - 1 ? <i /> : null}</span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -257,7 +266,7 @@ function Metodologia({ contenido }) {
               <span className="pila-pila">Application</span>
               <span className="pila-pila pila-activa">API</span>
             </div>
-            <div className="metodologia-tarjeta">
+            <div className="metodologia-tarjeta" data-foco>
               <span className="mono">{presentacion.panel.titulo}</span>
               <strong>{presentacion.panel.nucleo}</strong>
               <p>{presentacion.enfoque}</p>
@@ -281,7 +290,7 @@ function Perfil({ contenido }) {
           <div className="sobre-mi-principios" aria-label={interfaz.aspectosInteres}>{sobreMi.aspectos.map((item) => <span key={item}><Check aria-hidden="true" size={16} />{item}</span>)}</div>
         </div>
 
-        <article className="formacion" id="formacion" aria-labelledby="titulo-formacion" data-reveal="panel">
+        <article className="formacion" id="formacion" aria-labelledby="titulo-formacion" data-reveal="panel" data-foco>
           <div className="formacion-cabecera"><div className="formacion-icono" aria-hidden="true"><GraduationCap size={24} /></div><h2 id="titulo-formacion">{formacion.titulo}</h2></div>
           <h3>{formacion.programa}</h3>
           <p className="formacion-institucion">{formacion.institucion}</p>
@@ -299,10 +308,10 @@ function Contacto({ contenido }) {
     <section className="seccion contacto" id="contacto" aria-labelledby="titulo-contacto">
       <div className="contacto-intro" data-reveal="slice"><span className="mono">{contacto.etiqueta}</span><h2 id="titulo-contacto">{contacto.titulo}</h2><p>{contacto.descripcion}</p></div>
       <div className="contacto-enlaces" data-reveal="flow">
-        <a className="contacto-correo" href={`mailto:${persona.correo}`}><span><Mail aria-hidden="true" size={17} />{contacto.correoEtiqueta}</span><strong>{persona.correo}</strong><ArrowUpRight aria-hidden="true" size={20} /></a>
-        <a href={persona.linkedin} target="_blank" rel="noreferrer" aria-label={`LinkedIn, ${interfaz.abrirNuevaPestana}`}><Linkedin aria-hidden="true" size={18} />LinkedIn<ArrowUpRight aria-hidden="true" size={17} /></a>
-        <a href={persona.github} target="_blank" rel="noreferrer" aria-label={`GitHub, ${interfaz.abrirNuevaPestana}`}><Github aria-hidden="true" size={18} />GitHub<ArrowUpRight aria-hidden="true" size={17} /></a>
-        <p><MapPin aria-hidden="true" size={18} /><span><small>{contacto.ubicacionEtiqueta}</small>{persona.ubicacion}</span></p>
+        <a className="contacto-correo" data-foco href={`mailto:${persona.correo}`}><span><Mail aria-hidden="true" size={17} />{contacto.correoEtiqueta}</span><strong>{persona.correo}</strong><ArrowUpRight aria-hidden="true" size={20} /></a>
+        <a data-foco href={persona.linkedin} target="_blank" rel="noreferrer" aria-label={`LinkedIn, ${interfaz.abrirNuevaPestana}`}><Linkedin aria-hidden="true" size={18} />LinkedIn<ArrowUpRight aria-hidden="true" size={17} /></a>
+        <a data-foco href={persona.github} target="_blank" rel="noreferrer" aria-label={`GitHub, ${interfaz.abrirNuevaPestana}`}><Github aria-hidden="true" size={18} />GitHub<ArrowUpRight aria-hidden="true" size={17} /></a>
+        <p data-foco><MapPin aria-hidden="true" size={18} /><span><small>{contacto.ubicacionEtiqueta}</small>{persona.ubicacion}</span></p>
       </div>
     </section>
   );
@@ -358,6 +367,20 @@ function App() {
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', tema === 'light' ? '#f4f7fb' : '#000000');
     try { localStorage.setItem('portfolio-tema', tema); } catch { /* La preferencia sigue funcionando durante la sesión. */ }
   }, [tema]);
+
+  useEffect(() => {
+    const iluminar = (evento) => {
+      if (evento.pointerType === 'touch') return;
+      for (const nodo of document.querySelectorAll('[data-foco]')) {
+        const rect = nodo.getBoundingClientRect();
+        if (evento.clientX < rect.left || evento.clientX > rect.right || evento.clientY < rect.top || evento.clientY > rect.bottom) continue;
+        nodo.style.setProperty('--f-x', `${((evento.clientX - rect.left) / rect.width) * 100}%`);
+        nodo.style.setProperty('--f-y', `${((evento.clientY - rect.top) / rect.height) * 100}%`);
+      }
+    };
+    window.addEventListener('pointermove', iluminar, { passive: true });
+    return () => window.removeEventListener('pointermove', iluminar);
+  }, []);
 
   return (
     <div className="sitio">

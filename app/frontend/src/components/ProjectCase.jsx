@@ -38,7 +38,7 @@ function MetadatosProyecto({ proyecto, interfaz }) {
 
 function ProjectCase({ proyecto, interfaz }) {
   return (
-    <article className={`proyecto-activo proyecto-${proyecto.id}`}>
+    <article className={`proyecto-activo proyecto-${proyecto.id}`} data-foco>
       <header className="proyecto-cabecera">
         <div className="proyecto-identidad">
           <span className="proyecto-indice" aria-hidden="true">{proyecto.indice}</span>

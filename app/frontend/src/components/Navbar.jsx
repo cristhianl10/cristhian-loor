@@ -46,7 +46,7 @@ function Navbar({ enlaces, interfaz, idioma, tema, cambiarIdioma, cambiarTema })
   return (
     <header className="cabecera">
       <nav className="navegacion" ref={navegacion} aria-label={interfaz.navegacionPrincipal}>
-        <a className="marca" href="#inicio" aria-label={interfaz.irInicio}><span>CL</span></a>
+        <a className="marca" href="#inicio" aria-label={interfaz.irInicio}><img className="marca-logo" src="/logo.png" alt="" width="48" height="40" /></a>
         <div className={`menu ${abierto ? 'menu-abierto' : ''}`} id="menu-principal">
           {enlaces.map((enlace) => (
             <a key={enlace.destino} href={enlace.destino} aria-current={seccionActiva === enlace.destino ? 'location' : undefined} onClick={() => setAbierto(false)}>{enlace.etiqueta}</a>

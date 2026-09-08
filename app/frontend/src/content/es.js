@@ -59,9 +59,9 @@ export const contenidoEs = {
     enfoque:
       'Me interesa especialmente la arquitectura de software, la lógica de negocio, las bases de datos y la construcción de soluciones mantenibles.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
+    arquitectura: 'Clean Architecture',
     panel: {
       titulo: 'Enfoque técnico',
-      estado: 'En formación',
       nucleo: 'Backend',
       principales: ['Java / Spring Boot', 'C# / .NET'],
       flujo: ['API', 'Lógica', 'Datos'],
@@ -143,7 +143,7 @@ export const contenidoEs = {
         'Acceso a datos mediante Entity Framework.',
         'Aplicación de Repository Pattern y Unit of Work.',
         'Separación de responsabilidades entre las capas del backend.',
-        'Endpoints probados utilizando Postman.',
+        'Endpoints de la API REST probados mediante peticiones HTTP.',
       ],
       visual: {
         tipo: 'capas',
@@ -180,7 +180,7 @@ export const contenidoEs = {
       {
         id: 'herramientas',
         nombre: 'Herramientas',
-        items: ['Git', 'GitHub', 'Postman'],
+        items: ['Git', 'GitHub'],
       },
     ],
     porProyecto: [
@@ -250,7 +250,7 @@ export const contenidoEs = {
   pie: {
     descripcion: 'Desarrollador Backend & Full Stack · Guayaquil, Ecuador',
     volver: 'Volver al inicio',
-    marca: 'LOOR',
+    marca: 'CRISTHIAN',
     cta: 'Escríbeme',
     derechos: '© 2026 Cristhian Loor — Todos los derechos reservados',
   },

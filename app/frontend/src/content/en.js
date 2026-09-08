@@ -59,9 +59,9 @@ export const contenidoEn = {
     enfoque:
       'I am particularly interested in software architecture, business logic, databases, and building maintainable solutions.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
+    arquitectura: 'Clean Architecture',
     panel: {
       titulo: 'Technical focus',
-      estado: 'In training',
       nucleo: 'Backend',
       principales: ['Java / Spring Boot', 'C# / .NET'],
       flujo: ['API', 'Logic', 'Data'],
@@ -143,7 +143,7 @@ export const contenidoEn = {
         'Data access through Entity Framework.',
         'Repository Pattern and Unit of Work implementation.',
         'Separation of responsibilities across backend layers.',
-        'Endpoints tested with Postman.',
+        'REST API endpoints tested via HTTP requests.',
       ],
       visual: {
         tipo: 'capas',
@@ -161,7 +161,7 @@ export const contenidoEn = {
       { id: 'frontend', nombre: 'Frontend', items: ['JavaScript', 'React', 'Next.js', 'Angular', 'HTML', 'CSS'] },
       { id: 'datos', nombre: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Oracle SQL', 'Supabase'] },
       { id: 'arquitectura', nombre: 'Architecture', items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work'] },
-      { id: 'herramientas', nombre: 'Tools', items: ['Git', 'GitHub', 'Postman'] },
+      { id: 'herramientas', nombre: 'Tools', items: ['Git', 'GitHub'] },
     ],
     porProyecto: [
       { nombre: 'iBatch', items: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'] },
@@ -221,7 +221,7 @@ export const contenidoEn = {
   pie: {
     descripcion: 'Backend & Full Stack Developer · Guayaquil, Ecuador',
     volver: 'Back to top',
-    marca: 'LOOR',
+    marca: 'CRISTHIAN',
     cta: 'Write to me',
     derechos: '© 2026 Cristhian Loor — All rights reserved',
   },
