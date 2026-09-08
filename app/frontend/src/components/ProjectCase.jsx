@@ -22,7 +22,7 @@ function VisualProyecto({ visual }) {
 }
 
 function MetadatosProyecto({ proyecto, interfaz }) {
-  if (!proyecto.roles && !proyecto.alcanceActual) return null;
+  if (!proyecto.roles) return null;
 
   return (
     <div className="proyecto-meta">
@@ -30,12 +30,6 @@ function MetadatosProyecto({ proyecto, interfaz }) {
         <div className="proyecto-meta-grupo">
           <h4>{interfaz.rolesImplementados}</h4>
           <ul>{proyecto.roles.map((rol) => <li key={rol}>{rol}</li>)}</ul>
-        </div>
-      )}
-      {proyecto.alcanceActual && (
-        <div className="proyecto-meta-grupo proyecto-meta-alcance">
-          <h4>{interfaz.alcanceActual}</h4>
-          <ul>{proyecto.alcanceActual.map((item) => <li key={item}>{item}</li>)}</ul>
         </div>
       )}
     </div>

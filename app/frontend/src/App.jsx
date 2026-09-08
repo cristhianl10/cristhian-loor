@@ -46,12 +46,24 @@ function Etiquetas({ items, etiqueta, variante = '' }) {
 function Hero({ contenido }) {
   const { persona, presentacion, interfaz } = contenido;
   const [primero, ...resto] = persona.nombreProfesional.split(' ');
+  const maquetaRef = useRef(null);
+
+  const seguirPuntero = (evento) => {
+    const nodo = maquetaRef.current;
+    if (!nodo) return;
+    const rect = nodo.getBoundingClientRect();
+    const x = ((evento.clientX - rect.left) / rect.width) * 100;
+    const y = ((evento.clientY - rect.top) / rect.height) * 100;
+    nodo.style.setProperty('--r-x', `${x}%`);
+    nodo.style.setProperty('--r-y', `${y}%`);
+  };
+
   return (
     <section className="hero" id="inicio" aria-labelledby="titulo-principal">
       <div className="hero-contenido">
         <p className="hero-etiqueta mono">{presentacion.etiqueta}</p>
         <p className="hero-ubicacion"><MapPin aria-hidden="true" size={15} />{persona.ubicacion}</p>
-        <h1 id="titulo-principal">{primero} <em>{resto.join(' ')}</em></h1>
+        <h1 id="titulo-principal">{primero} <span className="apellido">{resto.join(' ')}</span></h1>
         <p className="hero-rol">{persona.rol}</p>
         <p className="hero-tesis">{presentacion.titulo}</p>
         <p className="hero-descripcion">{presentacion.descripcion}</p>
@@ -63,14 +75,13 @@ function Hero({ contenido }) {
       </div>
 
       <div className="hero-maqueta">
-        <div className="maqueta" aria-label={presentacion.panel.titulo}>
+        <div className="maqueta" ref={maquetaRef} onPointerMove={seguirPuntero} aria-label={presentacion.panel.titulo}>
+          <span className="maqueta-foco" aria-hidden="true" />
           <div className="maqueta-barra" aria-hidden="true"><i /><i /><i /><span className="mono">backend.core</span></div>
           <div className="maqueta-nucleo"><span className="mono">{presentacion.panel.nucleo}</span>{presentacion.panel.principales.map((item) => <strong key={item}>{item}</strong>)}</div>
           <div className="maqueta-flujo" aria-hidden="true">{presentacion.panel.flujo.map((item, indice) => <div key={item}><span>{item}</span>{indice < presentacion.panel.flujo.length - 1 && <i />}</div>)}</div>
-          <div className="maqueta-pie"><span className="estado-sistema"><i /><span>{presentacion.panel.estado}</span></span><span className="mono">{persona.ubicacion}</span></div>
+          <div className="maqueta-pie"><span className="mono">{persona.ubicacion}</span></div>
         </div>
-        <div className="tarjeta-flotante tarjeta-flotante-a"><span className="estado-sistema"><i /><span>{presentacion.panel.estado}</span></span></div>
-        <div className="tarjeta-flotante tarjeta-flotante-b"><span className="cursor-flotante" aria-hidden="true">CL</span><span className="mono">{presentacion.panel.nucleo}</span></div>
       </div>
     </section>
   );
@@ -206,6 +217,25 @@ function Tecnologias({ contenido }) {
 
 function Metodologia({ contenido }) {
   const { metodologia, presentacion } = contenido;
+  const visualRef = useRef(null);
+
+  const inclinar = (evento) => {
+    const nodo = visualRef.current;
+    if (!nodo || window.matchMedia('(pointer: coarse)').matches) return;
+    const rect = nodo.getBoundingClientRect();
+    const px = ((evento.clientX - rect.left) / rect.width - 0.5) * 2;
+    const py = ((evento.clientY - rect.top) / rect.height - 0.5) * 2;
+    nodo.style.setProperty('--ix', `${px}`);
+    nodo.style.setProperty('--iy', `${py}`);
+  };
+
+  const enRatonFuera = () => {
+    const nodo = visualRef.current;
+    if (!nodo) return;
+    nodo.style.setProperty('--ix', '0');
+    nodo.style.setProperty('--iy', '0');
+  };
+
   return (
     <section className="metodologia" aria-labelledby="titulo-metodologia">
       <span className="mono">{metodologia.etiqueta}</span>
@@ -219,13 +249,20 @@ function Metodologia({ contenido }) {
             </li>
           ))}
         </ol>
-        <div className="metodologia-visual" data-reveal="panel">
-          <div className="retrato" aria-hidden="true">CL</div>
-          <div className="metodologia-tarjeta">
-            <span className="mono">{presentacion.panel.titulo}</span>
-            <strong>{presentacion.panel.nucleo}</strong>
-            <p>{presentacion.enfoque}</p>
-            <ul>{presentacion.focos.map((foco) => <li key={foco}>{foco}</li>)}</ul>
+        <div className="metodologia-visual" ref={visualRef} onPointerMove={inclinar} onPointerLeave={enRatonFuera} data-reveal="panel">
+          <div className="metodologia-visual-inner">
+            <div className="pila-capas" aria-hidden="true">
+              <span className="pila-pila">Business</span>
+              <span className="pila-pila">Domain</span>
+              <span className="pila-pila">Application</span>
+              <span className="pila-pila pila-activa">API</span>
+            </div>
+            <div className="metodologia-tarjeta">
+              <span className="mono">{presentacion.panel.titulo}</span>
+              <strong>{presentacion.panel.nucleo}</strong>
+              <p>{presentacion.enfoque}</p>
+              <ul>{presentacion.focos.map((foco) => <li key={foco}>{foco}</li>)}</ul>
+            </div>
           </div>
         </div>
       </div>
@@ -332,7 +369,6 @@ function App() {
         interfaz={contenido.interfaz}
         idioma={idioma}
         tema={tema}
-        estado={contenido.presentacion.panel.estado}
         cambiarIdioma={() => setIdioma((valor) => (valor === 'es' ? 'en' : 'es'))}
         cambiarTema={() => setTema((valor) => (valor === 'dark' ? 'light' : 'dark'))}
       />

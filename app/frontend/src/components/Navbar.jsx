@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Menu, Moon, Sun, X } from 'lucide-react';
 
-function Navbar({ enlaces, interfaz, idioma, tema, estado, cambiarIdioma, cambiarTema }) {
+function Navbar({ enlaces, interfaz, idioma, tema, cambiarIdioma, cambiarTema }) {
   const [abierto, setAbierto] = useState(false);
   const [seccionActiva, setSeccionActiva] = useState('');
   const botonMenu = useRef(null);
@@ -54,7 +54,6 @@ function Navbar({ enlaces, interfaz, idioma, tema, estado, cambiarIdioma, cambia
           <a className="menu-contacto" href="#contacto" aria-current={seccionActiva === '#contacto' ? 'location' : undefined} onClick={() => setAbierto(false)}>{interfaz.menuContacto}</a>
         </div>
         <div className="nav-utilidades">
-          <span className="estado-sistema" role="status"><i /><span>{estado}</span></span>
           <button className="nav-idioma" type="button" aria-label={etiquetaIdioma} title={etiquetaIdioma} onClick={cambiarIdioma}>{idioma.toUpperCase()}</button>
           <button className="nav-tema" type="button" aria-label={etiquetaTema} title={etiquetaTema} onClick={cambiarTema}>{tema === 'dark' ? <Sun aria-hidden="true" size={18} /> : <Moon aria-hidden="true" size={18} />}</button>
         </div>

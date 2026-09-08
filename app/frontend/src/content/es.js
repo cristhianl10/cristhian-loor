@@ -35,7 +35,6 @@ export const contenidoEs = {
     tecnologiasProyecto: 'Tecnologías del proyecto',
     aspectosDestacados: 'Aspectos técnicos destacados',
     rolesImplementados: 'Roles implementados',
-    alcanceActual: 'Alcance actual',
     capas: 'Capas',
     proyectoPresentado: 'Proyecto presentado',
     aspectosInteres: 'Aspectos técnicos de interés',
@@ -146,7 +145,6 @@ export const contenidoEs = {
         'Separación de responsabilidades entre las capas del backend.',
         'Endpoints probados utilizando Postman.',
       ],
-      alcanceActual: ['Sin autenticación', 'Sin JWT', 'Sin facturación', 'Sin CRUD completo'],
       visual: {
         tipo: 'capas',
         etapas: ['API', 'Application', 'Domain', 'Infrastructure'],
