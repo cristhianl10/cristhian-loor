@@ -840,6 +840,9 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
   width: min(300px, 80%);
 }
 
+:root[data-theme='dark'] .pila-pila { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.16); }
+:root[data-theme='dark'] .metodologia-tarjeta { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); }
+
 .pila-pila {
   display: grid;
   place-items: center;

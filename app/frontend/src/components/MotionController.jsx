@@ -22,6 +22,9 @@ function MotionController({ etiqueta }) {
         { rootMargin: '0px 0px -12% 0px', threshold: 0.08 },
       );
       elementos.forEach((elemento) => observador.observe(elemento));
+      window.setTimeout(() => {
+        elementos.forEach((elemento) => elemento.classList.add('reveal-visible'));
+      }, 2600);
     }
 
     let frame;
