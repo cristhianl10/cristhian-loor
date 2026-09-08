@@ -27,7 +27,7 @@ typography:
     lineHeight: 1.02
     letterSpacing: "-0.038em"
   body:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Spline Sans, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.75
@@ -75,7 +75,7 @@ La experiencia es técnica sin recurrir a una estética de terminal. El contenid
 - Fondo azul casi negro con luz ambiental azul, verde y violeta.
 - Paneles translúcidos de 16px de radio y divisiones internas de un píxel.
 - Menta para acciones y énfasis técnico; ámbar reservado al reconocimiento.
-- Tipografía Manrope para títulos e Inter para lectura prolongada.
+- Tipografía Manrope para títulos y Spline Sans para lectura prolongada.
 
 ## Colors
 
@@ -93,9 +93,9 @@ La paleta combina una base nocturna fría con acentos luminosos de uso restringi
 ## Typography
 
 **Display Font:** Manrope, con `sans-serif` como respaldo.  
-**Body Font:** Inter, con `system-ui` como respaldo.
+**Body Font:** Spline Sans, con `system-ui` como respaldo.
 
-Manrope da presencia compacta a la presentación y a los nombres de proyecto. Inter mantiene las descripciones extensas claras y neutrales.
+Manrope da presencia compacta a la presentación y a los nombres de proyecto. Spline Sans aporta una voz técnica y distintiva mientras mantiene claras las descripciones extensas.
 
 - **Presentación:** `clamp(3.25rem, 6.7vw, 6rem)`, peso visual fuerte, interlineado `0.96`.
 - **Encabezados de sección:** `clamp(2.45rem, 5vw, 4.7rem)`, interlineado `1.02`.
