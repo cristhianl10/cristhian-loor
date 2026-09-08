@@ -35,6 +35,7 @@ rounded:
   chip: "8px"
   control: "12px"
   surface: "16px"
+  navigation: "28px"
 spacing:
   xs: "8px"
   sm: "14px"
@@ -134,7 +135,7 @@ Los casos de proyecto son paneles de ancho completo con divisiones internas. La 
 
 ### Navigation
 
-La navegación es una barra de vidrio redondeada y fija al desplazarse. En móvil se convierte en un panel sólido desplegable; Escape lo cierra y devuelve el foco al botón.
+La navegación es una barra de vidrio con radio pronunciado de `28px` y permanece fija al desplazarse. En móvil se convierte en un panel sólido de `24px` de radio; Escape lo cierra y devuelve el foco al botón.
 
 ## Do's and Don'ts
 
