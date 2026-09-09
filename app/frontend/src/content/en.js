@@ -5,8 +5,8 @@ export const contenidoEn = {
     description:
       'Cristhian Loor’s portfolio: Backend & Full Stack development with Java, Spring Boot, C#, .NET, React, Next.js, and Angular.',
     author: 'Cristhian José Loor Quimí',
-    url: 'https://cristhian-loor.vercel.app/',
-    image: 'https://cristhian-loor.vercel.app/social-card.svg',
+    url: 'https://cristhian-loor.vercel.app/en',
+    image: 'https://cristhian-loor.vercel.app/social-card.png',
   },
   persona: {
     nombreCompleto: 'Cristhian José Loor Quimí',
@@ -57,12 +57,13 @@ export const contenidoEn = {
     verCodigo: 'View code',
     verDemo: 'View demo',
     verDocumentacion: 'View documentation',
+    demoProximamente: 'Demo coming soon',
   },
   presentacion: {
     etiqueta: '// BACKEND — FULL STACK',
-    titulo: 'Software development from the logic that supports it.',
+    titulo: 'Software Engineering student focused on backend.',
     descripcion:
-      'Software Engineering student focused on web applications and REST APIs with Java, Spring Boot, and .NET. I also have hands-on experience building full stack solutions with React, Next.js, and Angular.',
+      'Software Engineering student focused on backend development with Java/Spring Boot and C#/.NET. I build REST APIs and full stack applications centered on business logic, architecture, and data management.',
     enfoque:
       'I am particularly interested in software architecture, business logic, databases, and building maintainable solutions.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
@@ -115,7 +116,8 @@ export const contenidoEn = {
         tipo: 'procesamiento',
         etapas: ['CSV file', 'Validation', 'Processing', 'Audit'],
       },
-      enlaces: { repositorio: null, demo: null, documentacion: null },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/iBatch', demo: 'https://i-batch.vercel.app', documentacion: 'https://github.com/cristhianl10/iBatch#readme' },
+      media: { portada: null, alt: 'iBatch transaction processing diagram', capturas: [] },
     },
     {
       id: 'banco-horizonte',
@@ -142,7 +144,8 @@ export const contenidoEn = {
         tipo: 'priorizacion',
         etapas: ['Claim', 'Cumulative rules', 'Priority', 'SLA', 'Status flow', 'Traceability'],
       },
-      enlaces: { repositorio: null, demo: null, documentacion: null },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos', demo: 'https://banco-horizonte-reclamos.vercel.app', documentacion: 'https://github.com/cristhianl10/banco-horizonte-reclamos/tree/main/docs' },
+      media: { portada: null, alt: 'Bank claims workflow diagram', capturas: [] },
     },
     {
       id: 'pos-api',
@@ -176,8 +179,9 @@ export const contenidoEn = {
       { id: 'backend', nombre: 'Backend', items: ['Java', 'Spring Boot', 'C#', '.NET', 'REST APIs', 'Entity Framework'] },
       { id: 'frontend', nombre: 'Frontend', items: ['JavaScript', 'React', 'Next.js', 'Angular', 'HTML', 'CSS'] },
       { id: 'datos', nombre: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Oracle SQL', 'Supabase'] },
-      { id: 'arquitectura', nombre: 'Architecture', items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work'] },
-      { id: 'herramientas', nombre: 'Tools', items: ['Git', 'GitHub'] },
+      { id: 'arquitectura', nombre: 'Architecture and practices', items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work', 'Separation of responsibilities'] },
+      { id: 'testing', nombre: 'Testing', items: ['xUnit', 'Jasmine/Karma'] },
+      { id: 'herramientas', nombre: 'Tools and infrastructure', items: ['Git', 'GitHub', 'Docker', 'Linux', 'Postman'] },
     ],
     porProyecto: [
       { nombre: 'iBatch', items: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'] },
@@ -185,13 +189,6 @@ export const contenidoEn = {
       { nombre: 'POS API', items: ['C#', '.NET', 'Entity Framework', 'SQL Server'] },
     ],
     relacionTitulo: 'Technologies connected to real projects',
-  },
-  sistema: {
-    etiqueta: '// THE SYSTEM',
-    titulo: 'The system, at a glance.',
-    barrasNota: 'technical highlights per project',
-    nucleoNota: 'core proven in academic production',
-    arquitectura: 'ARCHITECTURE', patrones: 'PATTERNS', pruebas: 'TESTING',
   },
   metodologia: {
     etiqueta: '// METHODOLOGY',
@@ -214,9 +211,8 @@ export const contenidoEn = {
     etiqueta: '// PROFILE',
     titulo: 'Software beyond the interface.',
     parrafos: [
-      'I am a Software Engineering student at Universidad de Guayaquil, and I have oriented much of my training toward backend and full stack development. My primary focus is Java/Spring Boot and C#/.NET, complemented by frontend technologies such as React, Next.js, and Angular.',
-      'I am interested in understanding an application beyond its interface: how it is structured, how business logic is organized, how data is managed, and how responsibilities remain properly separated within the software.',
-      'Through my projects, I have worked with REST APIs, relational databases, layered architecture, Clean Architecture, authentication, authorization, asynchronous processing, and testing.',
+      'I am a Software Engineering student at Universidad de Guayaquil. I am interested in understanding software beyond its interface: its architecture, business logic, data, and responsibilities.',
+      'I complement backend development with frontend and UX to understand the complete product. I am looking to keep growing professionally through real projects and technical challenges.',
     ],
     aspectos: ['Software architecture', 'Business logic', 'Data management', 'Separation of responsibilities'],
   },
@@ -227,6 +223,12 @@ export const contenidoEn = {
     periodo: 'October 2023 — Present',
     estado: 'Currently pursuing a Software Engineering degree.',
     idiomasTitulo: 'Languages',
+    etiqueta: '// JOURNEY',
+    hitos: [
+      { titulo: '2nd place · UPS × ÉPICO Hackathon', descripcion: 'Recognition earned with iBatch Financial Operations.' },
+      { titulo: 'Tech Lab UG', descripcion: 'Hands-on work with GNU/Linux and a local web server.' },
+      { titulo: 'ÉPICO Sales School', descripcion: 'Additional training in communication, sales, and product.' },
+    ],
   },
   contacto: {
     etiqueta: '// CONTACT',

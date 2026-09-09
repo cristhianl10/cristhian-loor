@@ -5,8 +5,8 @@ export const contenidoEs = {
     description:
       'Portfolio de Cristhian Loor, desarrollador Backend & Full Stack. Proyectos con Java, Spring Boot, C#, .NET, React, Next.js y Angular.',
     author: 'Cristhian José Loor Quimí',
-    url: 'https://cristhian-loor.vercel.app/',
-    image: 'https://cristhian-loor.vercel.app/social-card.svg',
+    url: 'https://cristhian-loor.vercel.app/es',
+    image: 'https://cristhian-loor.vercel.app/social-card.png',
   },
   persona: {
     nombreCompleto: 'Cristhian José Loor Quimí',
@@ -57,12 +57,13 @@ export const contenidoEs = {
     verCodigo: 'Ver código',
     verDemo: 'Ver demo',
     verDocumentacion: 'Ver documentación',
+    demoProximamente: 'Demo próximamente',
   },
   presentacion: {
     etiqueta: '// BACKEND — FULL STACK',
-    titulo: 'Desarrollo de software desde la lógica que lo sostiene.',
+    titulo: 'Estudiante de Ingeniería de Software enfocado en backend.',
     descripcion:
-      'Estudiante de Ingeniería de Software enfocado en el desarrollo de aplicaciones web y APIs REST con Java, Spring Boot y .NET. También cuento con experiencia práctica desarrollando soluciones full stack con React, Next.js y Angular.',
+      'Estudiante de Ingeniería de Software enfocado en backend con Java/Spring Boot y C#/.NET. Desarrollo APIs REST y aplicaciones full stack centradas en lógica de negocio, arquitectura y gestión de datos.',
     enfoque:
       'Me interesa especialmente la arquitectura de software, la lógica de negocio, las bases de datos y la construcción de soluciones mantenibles.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
@@ -115,7 +116,8 @@ export const contenidoEs = {
         tipo: 'procesamiento',
         etapas: ['Archivo CSV', 'Validaciones', 'Procesamiento', 'Auditoría'],
       },
-      enlaces: { repositorio: null, demo: null, documentacion: null },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/iBatch', demo: 'https://i-batch.vercel.app', documentacion: 'https://github.com/cristhianl10/iBatch#readme' },
+      media: { portada: null, alt: 'Diagrama del procesamiento de transacciones de iBatch', capturas: [] },
     },
     {
       id: 'banco-horizonte',
@@ -142,7 +144,8 @@ export const contenidoEs = {
         tipo: 'priorizacion',
         etapas: ['Reclamo', 'Reglas acumulativas', 'Prioridad', 'SLA', 'Flujo de estados', 'Trazabilidad'],
       },
-      enlaces: { repositorio: null, demo: null, documentacion: null },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos', demo: 'https://banco-horizonte-reclamos.vercel.app', documentacion: 'https://github.com/cristhianl10/banco-horizonte-reclamos/tree/main/docs' },
+      media: { portada: null, alt: 'Diagrama del flujo de reclamos bancarios', capturas: [] },
     },
     {
       id: 'pos-api',
@@ -191,13 +194,10 @@ export const contenidoEs = {
       {
         id: 'arquitectura',
         nombre: 'Arquitectura',
-        items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work'],
+        items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work', 'Separación de responsabilidades'],
       },
-      {
-        id: 'herramientas',
-        nombre: 'Herramientas',
-        items: ['Git', 'GitHub'],
-      },
+      { id: 'testing', nombre: 'Testing', items: ['xUnit', 'Jasmine/Karma'] },
+      { id: 'herramientas', nombre: 'Herramientas e infraestructura', items: ['Git', 'GitHub', 'Docker', 'Linux', 'Postman'] },
     ],
     porProyecto: [
       {
@@ -214,13 +214,6 @@ export const contenidoEs = {
       },
     ],
     relacionTitulo: 'Tecnologías relacionadas con proyectos reales',
-  },
-  sistema: {
-    etiqueta: '// EL SISTEMA',
-    titulo: 'El sistema, de un vistazo.',
-    barrasNota: 'aspectos técnicos por proyecto',
-    nucleoNota: 'núcleo verificado en producción académica',
-    arquitectura: 'ARQUITECTURA', patrones: 'PATRONES', pruebas: 'PRUEBAS',
   },
   metodologia: {
     etiqueta: '// METODOLOGÍA',
@@ -243,9 +236,8 @@ export const contenidoEs = {
     etiqueta: '// PERFIL',
     titulo: 'El software más allá de la interfaz.',
     parrafos: [
-      'Soy estudiante de Ingeniería de Software en la Universidad de Guayaquil y he orientado gran parte de mi formación hacia el desarrollo backend y full stack. Mi enfoque principal está en Java/Spring Boot y C#/.NET, complementado con tecnologías frontend como React, Next.js y Angular.',
-      'Me interesa comprender una aplicación más allá de su interfaz: cómo se estructura, cómo se organiza la lógica de negocio, cómo se gestionan los datos y cómo mantener una separación adecuada de responsabilidades dentro del software.',
-      'A través de mis proyectos he trabajado con APIs REST, bases de datos relacionales, arquitectura por capas, Clean Architecture, autenticación, autorización, procesamiento asíncrono y pruebas.',
+      'Soy estudiante de Ingeniería de Software en la Universidad de Guayaquil. Me interesa comprender el software más allá de la interfaz: su arquitectura, lógica de negocio, datos y responsabilidades.',
+      'Complemento el backend con frontend y UX para entender el producto completo. Busco seguir creciendo profesionalmente mediante proyectos reales y retos técnicos.',
     ],
     aspectos: ['Arquitectura de software', 'Lógica de negocio', 'Gestión de datos', 'Separación de responsabilidades'],
   },
@@ -256,6 +248,12 @@ export const contenidoEs = {
     periodo: 'Octubre de 2023 — Actualidad',
     estado: 'Actualmente cursando Ingeniería de Software.',
     idiomasTitulo: 'Idiomas',
+    etiqueta: '// TRAYECTORIA',
+    hitos: [
+      { titulo: 'Segundo lugar · Hackathon UPS × ÉPICO', descripcion: 'Reconocimiento obtenido con iBatch Financial Operations.' },
+      { titulo: 'Tech Lab UG', descripcion: 'Trabajo práctico con GNU/Linux y un servidor web local.' },
+      { titulo: 'Escuela de Ventas de ÉPICO', descripcion: 'Formación complementaria en comunicación, ventas y producto.' },
+    ],
   },
   contacto: {
     etiqueta: '// CONTACTO',

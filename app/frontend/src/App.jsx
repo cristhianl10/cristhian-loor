@@ -5,13 +5,12 @@ import {
   Check,
   Database,
   Github,
-  GraduationCap,
   Layers3,
   Linkedin,
   Mail,
   MapPin,
   Server,
-  Trophy,
+  TestTube2,
   Wrench,
 } from 'lucide-react';
 import './App.css';
@@ -21,6 +20,7 @@ import MotionController from './components/MotionController';
 import Navbar from './components/Navbar';
 import ProjectCarousel from './components/ProjectCarousel';
 import SectionHeading from './components/SectionHeading';
+import CareerTimeline from './components/CareerTimeline';
 
 const iconosCategoria = {
   backend: Server,
@@ -28,6 +28,7 @@ const iconosCategoria = {
   datos: Database,
   arquitectura: Layers3,
   herramientas: Wrench,
+  testing: TestTube2,
 };
 
 const obtenerPreferencia = (clave, alternativa, valoresPermitidos) => {
@@ -83,77 +84,6 @@ function Hero({ contenido }) {
           <div className="maqueta-flujo" aria-hidden="true">{presentacion.panel.flujo.map((item, indice) => <div key={item}><span>{item}</span>{indice < presentacion.panel.flujo.length - 1 && <i />}</div>)}</div>
           <div className="maqueta-pie"><span className="mono">{persona.ubicacion}</span></div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function Sistema({ contenido }) {
-  const { sistema, proyectos, tecnologias, reconocimiento, persona, presentacion } = contenido;
-  const barras = proyectos.map((proyecto, indice) => ({
-    nombre: tecnologias.porProyecto[indice]?.nombre ?? proyecto.nombre,
-    valor: proyecto.destacados.length,
-    indice: proyecto.indice,
-  }));
-  const maximo = Math.max(...barras.map((barra) => barra.valor));
-
-  return (
-    <section className="seccion" aria-labelledby="titulo-sistema">
-      <SectionHeading id="titulo-sistema" etiqueta={sistema.etiqueta} titulo={sistema.titulo} />
-      <div className="bento" data-reveal="cluster">
-        <article className="tarjeta-bento bento-grande" data-foco>
-          <h3>{contenido.seccionProyectos.titulo}</h3>
-          <div className="barras" role="img" aria-label={`${sistema.barrasNota}: ${barras.map((b) => `${b.nombre} ${b.valor}`).join(', ')}`}>
-            {barras.map((barra) => (
-              <div className="barra" key={barra.nombre}>
-                <i style={{ height: `${Math.max(24, Math.round((barra.valor / maximo) * 100))}%` }} aria-hidden="true" />
-                <b aria-hidden="true">{barra.indice}</b>
-                <span>{barra.nombre}</span>
-              </div>
-            ))}
-          </div>
-          <p>{sistema.barrasNota}</p>
-        </article>
-
-        <article className="tarjeta-bento bento-alta" data-foco>
-          <span className="mono">{presentacion.panel.titulo}</span>
-          <h3>{presentacion.panel.nucleo}</h3>
-          <div className="muestras">
-            {presentacion.focos.map((foco) => <div className="muestra" key={foco}><i aria-hidden="true" />{foco}</div>)}
-          </div>
-          <p>{sistema.nucleoNota}</p>
-        </article>
-
-        <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">{sistema.arquitectura}</span>
-          <strong>{presentacion.arquitectura}</strong>
-          <ol className="bento-detalle">
-            {presentacion.arquitecturaCapas.map((capa) => <li key={capa}>{capa}</li>)}
-          </ol>
-        </article>
-
-        <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">{sistema.patrones}</span>
-          <strong>{presentacion.diseno}</strong>
-          <ol className="bento-detalle">
-            {presentacion.disenoDetalles.map((detalle) => <li key={detalle}>{detalle}</li>)}
-          </ol>
-        </article>
-
-        <article className="tarjeta-bento bento-acento" data-foco aria-label={reconocimiento.titulo}>
-          <div className="bento-acento-emblema" aria-hidden="true"><Trophy size={28} strokeWidth={1.7} /></div>
-          <div>
-            <span className="mono">{reconocimiento.evento}</span>
-            <h3>{reconocimiento.titulo} — {reconocimiento.proyecto}</h3>
-            <p>{reconocimiento.descripcion}</p>
-          </div>
-          <span className="bento-acento-numero" aria-hidden="true">2.º</span>
-        </article>
-
-        <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">{sistema.pruebas}</span>
-          <strong>{presentacion.pruebas}</strong>
-        </article>
       </div>
     </section>
   );
@@ -294,7 +224,7 @@ function Metodologia({ contenido }) {
 }
 
 function Perfil({ contenido }) {
-  const { sobreMi, formacion, persona, interfaz } = contenido;
+  const { sobreMi, interfaz } = contenido;
   return (
     <section className="seccion perfil" id="sobre-mi" aria-labelledby="titulo-sobre-mi">
       <SectionHeading id="titulo-sobre-mi" etiqueta={sobreMi.etiqueta} titulo={sobreMi.titulo} />
@@ -304,13 +234,6 @@ function Perfil({ contenido }) {
           <div className="sobre-mi-principios" aria-label={interfaz.aspectosInteres}>{sobreMi.aspectos.map((item) => <span key={item}><Check aria-hidden="true" size={16} />{item}</span>)}</div>
         </div>
 
-        <article className="formacion" id="formacion" aria-labelledby="titulo-formacion" data-reveal="panel" data-foco>
-          <div className="formacion-cabecera"><div className="formacion-icono" aria-hidden="true"><GraduationCap size={24} /></div><h2 id="titulo-formacion">{formacion.titulo}</h2></div>
-          <h3>{formacion.programa}</h3>
-          <p className="formacion-institucion">{formacion.institucion}</p>
-          <div className="formacion-meta"><time>{formacion.periodo}</time><span>{formacion.estado}</span></div>
-          <div className="idiomas"><h3>{formacion.idiomasTitulo}</h3>{persona.idiomas.map((idioma) => <p key={idioma}>{idioma}</p>)}</div>
-        </article>
       </div>
     </section>
   );
@@ -377,7 +300,10 @@ function App() {
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.description);
     document.querySelector('meta[property="og:image"]')?.setAttribute('content', metadata.image);
     document.querySelector('meta[property="og:locale"]')?.setAttribute('content', idioma === 'es' ? 'es_ES' : 'en_US');
-    document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${metadata.url}${idioma === 'es' ? 'es' : 'en'}`);
+    document.querySelector('meta[property="og:locale:alternate"]')?.setAttribute('content', idioma === 'es' ? 'en_US' : 'es_ES');
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', metadata.url);
+    document.querySelector('link[hreflang="es"]')?.setAttribute('href', 'https://cristhian-loor.vercel.app/es');
+    document.querySelector('link[hreflang="en"]')?.setAttribute('href', 'https://cristhian-loor.vercel.app/en');
     document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', metadata.title);
     document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', metadata.description);
     document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', metadata.image);
@@ -420,10 +346,10 @@ function App() {
         <main id="contenido-principal">
           <MotionController etiqueta={contenido.interfaz.progresoLectura} />
           <Hero contenido={contenido} />
-          <Sistema contenido={contenido} />
           <Proyectos contenido={contenido} />
           <Tecnologias contenido={contenido} />
           <Metodologia contenido={contenido} />
+          <CareerTimeline contenido={contenido} />
           <Perfil contenido={contenido} />
           <Contacto contenido={contenido} />
         </main>

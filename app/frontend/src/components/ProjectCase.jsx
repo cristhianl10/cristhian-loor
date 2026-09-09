@@ -68,9 +68,9 @@ function ProjectCase({ proyecto, interfaz }) {
         <ul>{proyecto.destacados.map((destacado) => <li key={destacado}><Check aria-hidden="true" size={16} /><span>{destacado}</span></li>)}</ul>
       </section>
       <div className="proyecto-enlaces" aria-label={interfaz.enlacesProyecto}>
-        {proyecto.enlaces?.repositorio && <a href={proyecto.enlaces.repositorio} target="_blank" rel="noopener noreferrer">{interfaz.verCodigo}</a>}
-        {proyecto.enlaces?.demo && <a href={proyecto.enlaces.demo} target="_blank" rel="noopener noreferrer">{interfaz.verDemo}</a>}
-        {proyecto.enlaces?.documentacion && <a href={proyecto.enlaces.documentacion} target="_blank" rel="noopener noreferrer">{interfaz.verDocumentacion}</a>}
+        {proyecto.enlaces?.demo ? <a className="boton boton-principal" href={proyecto.enlaces.demo} target="_blank" rel="noopener noreferrer">{interfaz.verDemo}</a> : <span className="proyecto-demo-pendiente" aria-label={interfaz.demoProximamente}>{interfaz.demoProximamente}</span>}
+        {proyecto.enlaces?.repositorio && <a className="boton boton-secundario" href={proyecto.enlaces.repositorio} target="_blank" rel="noopener noreferrer">{interfaz.verCodigo}</a>}
+        {proyecto.enlaces?.documentacion && <a className="boton boton-secundario" href={proyecto.enlaces.documentacion} target="_blank" rel="noopener noreferrer">{interfaz.verDocumentacion}</a>}
       </div>
 
     </article>
