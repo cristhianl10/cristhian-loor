@@ -7,9 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
-    "test": "node --test tests/content.test.mjs",
-    "test:e2e": "playwright test"
+    "lint": "node scripts/lint.mjs",
+    "test": "node --test tests/content.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

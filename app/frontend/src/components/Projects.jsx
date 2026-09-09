@@ -1,6 +1,5 @@
 import SectionHeading from './SectionHeading';
 import ProjectCarousel from './ProjectCarousel';
-
 function Projects({ contenido }) {
   const { seccionProyectos, proyectos, interfaz } = contenido;
   return (
