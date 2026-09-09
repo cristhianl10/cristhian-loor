@@ -66,7 +66,6 @@ function Hero({ contenido }) {
         <p className="hero-ubicacion"><MapPin aria-hidden="true" size={15} />{persona.ubicacion}</p>
         <h1 id="titulo-principal">{primero} <span className="apellido">{resto.join(' ')}</span></h1>
         <p className="hero-rol">{persona.rol}</p>
-        <p className="hero-tesis">{presentacion.titulo}</p>
         <p className="hero-descripcion">{presentacion.descripcion}</p>
         <div className="hero-acciones" aria-label={interfaz.enlacesPrincipales}>
           <a className="boton boton-principal" href="#proyectos">{presentacion.acciones.proyectos}<ArrowDown aria-hidden="true" size={17} /></a>
@@ -171,7 +170,7 @@ function Metodologia({ contenido }) {
 
   const inclinar = (evento) => {
     const nodo = visualRef.current;
-    if (!nodo || window.matchMedia('(pointer: coarse)').matches) return;
+    if (!nodo || window.matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches) return;
     const rect = nodo.getBoundingClientRect();
     const px = ((evento.clientX - rect.left) / rect.width - 0.5) * 2;
     const py = ((evento.clientY - rect.top) / rect.height - 0.5) * 2;
@@ -211,10 +210,9 @@ function Metodologia({ contenido }) {
               ))}
             </div>
             <div className="metodologia-tarjeta" data-foco>
-              <span className="mono">{presentacion.panel.titulo}</span>
-              <strong>{presentacion.panel.nucleo}</strong>
-              <p>{presentacion.enfoque}</p>
-              <ul>{presentacion.focos.map((foco) => <li key={foco}>{foco}</li>)}</ul>
+              <span className="mono">{metodologia.panelEtiqueta}</span>
+              <strong>{metodologia.panelTitulo}</strong>
+              <p>{metodologia.panelDescripcion}</p>
             </div>
           </div>
         </div>
@@ -343,7 +341,7 @@ function App() {
         cambiarTema={() => setTema((valor) => (valor === 'dark' ? 'light' : 'dark'))}
       />
       <div className="capsula">
-        <main id="contenido-principal">
+        <main id="contenido-principal" tabIndex={-1}>
           <MotionController etiqueta={contenido.interfaz.progresoLectura} />
           <Hero contenido={contenido} />
           <Proyectos contenido={contenido} />

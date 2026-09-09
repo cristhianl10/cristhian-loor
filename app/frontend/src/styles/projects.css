@@ -38,7 +38,7 @@
   transition: color 180ms ease-out, border-color 180ms ease-out, background 180ms ease-out;
 }
 
-.selector-proyecto.selector-activo { color: var(--texto); background: var(--superficie-elevada); border-color: var(--linea-activa); }
+.selector-proyecto.selector-activo { color: var(--texto); background: color-mix(in srgb, var(--menta) 8%, var(--capsula)); border-color: var(--menta); box-shadow: inset 0 -3px var(--menta); }
 .selector-proyecto:hover { border-color: var(--linea-activa); }
 .selector-proyecto > span { grid-row: 1 / 3; align-self: start; color: var(--menta); font-family: var(--fuente-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; }
 .selector-proyecto strong { font-family: var(--fuente-titulos); font-size: 0.92rem; line-height: 1.25; font-weight: 600; }
@@ -64,7 +64,7 @@
 }
 
 .proyecto-cabecera { position: relative; padding: 26px 28px 16px; }
-.proyecto-identidad { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+.proyecto-identidad { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 12px; }
 .proyecto-indice {
   display: inline-grid;
   place-items: center;
@@ -96,7 +96,7 @@
 }
 
 .proyecto-reconocimiento svg { color: var(--menta); }
-.proyecto-cabecera h3 { max-width: 950px; margin: 0; font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 0.95; letter-spacing: -0.05em; text-wrap: balance; }
+.proyecto-cabecera h3 { max-width: 950px; margin: 0; font-size: clamp(1.75rem, 1.2rem + 2.5vw, 3.2rem); line-height: 1.08; letter-spacing: -0.045em; text-wrap: balance; }
 .proyecto-tipo { margin: 10px 0 0; color: var(--texto-tenue); font-family: var(--fuente-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
 
 .proyecto-historia { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(18px, 3vw, 36px); padding: 14px 28px 24px; }
@@ -115,7 +115,7 @@
 .flujo-fragmento { display: contents; }
 .flujo-fragmento span { display: grid; flex: 1; place-items: center; min-height: 52px; padding: 8px; color: var(--texto-suave); background: var(--chip); border: 1px solid var(--chip-borde); border-radius: var(--radio-xs); text-align: center; font-size: 0.68rem; line-height: 1.35; }
 .flujo-fragmento i { align-self: center; flex: 0 0 13px; height: 1px; background: var(--menta); opacity: 0.75; }
-.visual-priorizacion { display: grid; grid-template-columns: repeat(6, 1fr); }
+.visual-priorizacion { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .visual-priorizacion .flujo-fragmento { display: contents; }
 .visual-priorizacion .flujo-fragmento span { min-height: 60px; }
 .visual-priorizacion .flujo-fragmento i { display: none; }
@@ -142,5 +142,15 @@
 .proyecto-detalles li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; color: var(--texto-suave); font-size: 0.8rem; line-height: 1.5; }
 .proyecto-detalles li svg { margin-top: 2px; color: var(--menta); }
 .proyecto-enlaces { display: flex; flex-wrap: wrap; gap: 10px; padding: 18px 28px 28px; border-top: 1px solid var(--linea); }
-.proyecto-enlaces a { min-height: 42px; display: inline-flex; align-items: center; padding: 0 14px; color: var(--menta); border: 1px solid var(--linea-activa); border-radius: 10px; font-size: .86rem; font-weight: 600; text-decoration: none; }
-.proyecto-enlaces a:hover { background: var(--hover); }
+.proyecto-enlaces .boton { min-height: 48px; padding: 12px 20px; }
+.proyecto-enlaces .boton-principal { color: var(--accion-texto); background: var(--accion-fondo); box-shadow: none; }
+.proyecto-enlaces .boton-secundario { color: var(--texto); }
+.proyecto-enlaces .proyecto-documentacion { color: var(--texto-suave); background: transparent; border-color: transparent; }
+.proyecto-enlaces .proyecto-documentacion:hover { text-decoration: underline; text-underline-offset: 4px; }
+.proyecto-demo-pendiente { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 20px; color: var(--texto-tenue); background: var(--superficie-suave); border: 1px dashed var(--linea); border-radius: 999px; font-size: .86rem; }
+.proyecto-arquitectura { min-width: 0; justify-content: center; }
+.visual-flujo { flex-grow: 0; }
+.flujo-fragmento span { min-width: 0; font-size: .8rem; }
+.etiquetas li, .etiquetas-proyecto li { font-size: .72rem; letter-spacing: .025em; }
+.proyecto-resumen > p { font-size: 1rem; }
+.proyecto-detalles li { font-size: .9rem; line-height: 1.65; }

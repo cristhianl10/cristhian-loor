@@ -27,3 +27,5 @@
 .contacto-enlaces .contacto-correo { grid-column: 1 / -1; overflow-wrap: anywhere; }
 .contacto-enlaces > p span { display: grid; gap: 3px; }
 .contacto-enlaces small { color: var(--texto-tenue); font-size: 0.67rem; }
+.contacto-enlaces > p:last-child { grid-column: 1 / -1; }
+.contacto-enlaces svg { flex-shrink: 0; }

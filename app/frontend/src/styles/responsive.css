@@ -17,7 +17,7 @@
 
 @media (max-width: 760px) {
   .cabecera { top: 8px; padding: 0 10px; }
-  .navegacion { position: relative; gap: 6px; padding-inline-start: 10px; background: rgba(12, 12, 12, 0.96); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .navegacion { position: relative; width: 100%; gap: 6px; padding-inline-start: 10px; background: rgba(12, 12, 12, 0.96); backdrop-filter: none; -webkit-backdrop-filter: none; }
   :root[data-theme='light'] .navegacion { background: #ffffff; }
   .menu-boton { display: grid; }
   .menu {
@@ -48,14 +48,14 @@
   .capsula { border-radius: 28px; }
   .hero { padding: 44px 0 40px; }
   .hero h1 { font-size: clamp(3rem, 15vw, 4.6rem); }
-  .hero-ubicacion { display: flex; margin: 10px 0 0; }
+  .hero-ubicacion { display: flex; margin: 0 0 16px; }
   .seccion { padding: 36px 0; }
   .encabezado-seccion { margin-bottom: 22px; }
   .bento { grid-template-columns: 1fr; }
   .bento-grande, .bento-alta, .bento-acento { grid-column: 1 / -1; grid-row: auto; }
   .bento-acento { grid-template-columns: 1fr; gap: 14px; }
   .bento-acento-numero { font-size: 3rem; }
-  .carrusel-pista { overflow-x: auto; grid-template-columns: repeat(3, minmax(230px, 1fr)); padding-inline: 3px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .carrusel-pista { overflow-x: auto; grid-template-columns: repeat(3, minmax(230px, 1fr)); padding: 5px 5px 12px; scroll-snap-type: x mandatory; scrollbar-width: thin; touch-action: pan-x pan-y; }
   .selector-proyecto { scroll-snap-align: start; }
   .proyecto-cabecera { padding: 22px 20px 14px; }
   .proyecto-historia { padding: 12px 20px 20px; }
@@ -70,15 +70,21 @@
   .categoria-frontend,
   .categoria-datos,
   .categoria-arquitectura,
+  .categoria-testing,
   .categoria-herramientas { grid-column: auto; min-height: auto; }
   .stack-contexto { grid-template-columns: 1fr; gap: 14px; }
   .stack-contexto-cabecera [role='tablist'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .stack-contexto-cabecera button { min-width: 0; padding-inline: 8px; text-align: center; overflow-wrap: anywhere; }
-  .metodologia { border-radius: 40px 40px 0 0; }
+  .metodologia { border-radius: var(--radio-sm); }
   .metodologia-pasos li { grid-template-columns: 52px 1fr; gap: 14px; }
   .paso-numero { width: 48px; height: 48px; }
   .contacto-enlaces { grid-template-columns: 1fr; }
   .contacto-enlaces .contacto-correo { grid-column: auto; }
+  .proyecto-enlaces { padding: 18px 20px 22px; }
+  .hero-acciones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-acciones .boton { padding: 12px; min-width: 0; font-size: .82rem; }
+  .hero-acciones .boton:nth-child(-n+2) { grid-column: 1 / -1; }
+  .proyecto-enlaces > * { flex: 1 1 140px; justify-content: center; text-align: center; }
 }
 
 @media (max-width: 480px) {

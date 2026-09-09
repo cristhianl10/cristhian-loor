@@ -70,7 +70,7 @@ function ProjectCase({ proyecto, interfaz }) {
       <div className="proyecto-enlaces" aria-label={interfaz.enlacesProyecto}>
         {proyecto.enlaces?.demo ? <a className="boton boton-principal" href={proyecto.enlaces.demo} target="_blank" rel="noopener noreferrer">{interfaz.verDemo}</a> : <span className="proyecto-demo-pendiente" aria-label={interfaz.demoProximamente}>{interfaz.demoProximamente}</span>}
         {proyecto.enlaces?.repositorio && <a className="boton boton-secundario" href={proyecto.enlaces.repositorio} target="_blank" rel="noopener noreferrer">{interfaz.verCodigo}</a>}
-        {proyecto.enlaces?.documentacion && <a className="boton boton-secundario" href={proyecto.enlaces.documentacion} target="_blank" rel="noopener noreferrer">{interfaz.verDocumentacion}</a>}
+        {proyecto.enlaces?.documentacion && <a className="boton boton-secundario proyecto-documentacion" href={proyecto.enlaces.documentacion} target="_blank" rel="noopener noreferrer">{interfaz.verDocumentacion}</a>}
       </div>
 
     </article>

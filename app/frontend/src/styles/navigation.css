@@ -76,7 +76,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 40px;
+  min-height: 44px;
+  min-width: 44px;
   padding: 0 8px;
   color: var(--texto-suave);
   background: transparent;
@@ -94,8 +95,8 @@
 .nav-tema {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   color: #000;
   background: #fff;
   border: 0;
@@ -111,8 +112,8 @@
 .menu-boton {
   display: none;
   place-items: center;
-  min-width: 40px;
-  height: 40px;
+  min-width: 44px;
+  height: 44px;
   color: var(--texto);
   background: transparent;
   border: 0;

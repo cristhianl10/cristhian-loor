@@ -32,6 +32,8 @@ npm run dev
 
 Scripts: `npm run dev`, `npm run build`, `npm run preview`, `npm run lint` y `npm test`.
 
+Pruebas de diseño e interacción: `npm run test:browser` (requiere Chromium instalado mediante `npx playwright install chromium`). Comprueban contraste con axe, teclado, menú móvil, temas, idiomas, retícula y desbordamientos de 320 a 1920 px. Las capturas de cada sección se guardan en `app/frontend/test-results/`, excluido de Git.
+
 ## Despliegue y estado
 
 Vercel construye `app/frontend` y publica `app/frontend/dist`. La calidad se valida con ESLint para React, tests de contenido y build en local y en GitHub Actions (`push` y `pull_request`).

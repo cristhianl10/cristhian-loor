@@ -1,0 +1,15 @@
+.trayectoria-reticula { display: grid; gap: clamp(24px, 4vw, 48px); align-items: start; }
+.trayectoria .formacion { min-width: 0; }
+.trayectoria .formacion-cabecera svg { flex-shrink: 0; color: var(--menta); }
+.trayectoria .formacion > p { margin: 0; color: var(--texto-suave); line-height: 1.6; }
+.trayectoria .formacion .formacion-meta { color: var(--menta); font-size: .85rem; }
+.trayectoria .idiomas h4 { margin: 0 0 8px; }
+.trayectoria-hitos { list-style: none; margin: 0; padding: 0 0 0 24px; border-left: 1px solid var(--linea); }
+.trayectoria-hitos li { position: relative; padding: 4px 0 24px; }
+.trayectoria-hitos li:last-child { padding-bottom: 0; }
+.trayectoria-hitos li::before { content: ''; position: absolute; left: -29px; top: 11px; width: 9px; height: 9px; border-radius: 50%; background: var(--menta); }
+.trayectoria-hitos h3 { margin: 0; font-size: 1.1rem; line-height: 1.4; }
+.trayectoria-hitos p { margin: 8px 0 0; color: var(--texto-suave); font-size: .95rem; line-height: 1.65; }
+@media (min-width: 761px) {
+  .trayectoria-reticula { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}

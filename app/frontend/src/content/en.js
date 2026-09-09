@@ -191,6 +191,9 @@ export const contenidoEn = {
     relacionTitulo: 'Technologies connected to real projects',
   },
   metodologia: {
+    panelEtiqueta: 'From problem to solution',
+    panelTitulo: 'Decisions in context',
+    panelDescripcion: 'I define the rules, organize responsibilities, and check the main scenarios. I document decisions to make the next change easier to understand.',
     etiqueta: '// METHODOLOGY',
     titulo: 'How I build.',
     pasos: [
@@ -217,7 +220,7 @@ export const contenidoEn = {
     aspectos: ['Software architecture', 'Business logic', 'Data management', 'Separation of responsibilities'],
   },
   formacion: {
-    titulo: 'Education',
+    titulo: 'Journey and education.',
     programa: 'Software Engineering',
     institucion: 'Universidad de Guayaquil',
     periodo: 'October 2023 — Present',

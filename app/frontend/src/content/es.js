@@ -216,6 +216,9 @@ export const contenidoEs = {
     relacionTitulo: 'Tecnologías relacionadas con proyectos reales',
   },
   metodologia: {
+    panelEtiqueta: 'Del problema a la solución',
+    panelTitulo: 'Decisiones con contexto',
+    panelDescripcion: 'Defino las reglas, organizo las responsabilidades y compruebo los casos principales. Documento las decisiones para que el siguiente cambio sea más claro.',
     etiqueta: '// METODOLOGÍA',
     titulo: 'Cómo construyo.',
     pasos: [
@@ -242,7 +245,7 @@ export const contenidoEs = {
     aspectos: ['Arquitectura de software', 'Lógica de negocio', 'Gestión de datos', 'Separación de responsabilidades'],
   },
   formacion: {
-    titulo: 'Formación',
+    titulo: 'Trayectoria y formación.',
     programa: 'Ingeniería de Software',
     institucion: 'Universidad de Guayaquil',
     periodo: 'Octubre de 2023 — Actualidad',

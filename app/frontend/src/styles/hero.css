@@ -27,7 +27,7 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 .hero h1 {
   margin: 14px 0 0;
   font-size: clamp(3.4rem, 8vw, 7rem);
-  line-height: 0.85;
+  line-height: 0.98;
   letter-spacing: -0.06em;
   font-weight: 700;
   text-wrap: balance;
@@ -40,7 +40,7 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 
 .hero-rol { margin: 20px 0 0; color: var(--texto); font-family: var(--fuente-titulos); font-size: clamp(1.05rem, 1.8vw, 1.4rem); font-weight: 600; letter-spacing: -0.02em; }
 .hero-tesis { max-width: 36ch; margin: 12px 0 0; color: var(--texto-suave); font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.5; }
-.hero-descripcion { max-width: 58ch; margin: 10px 0 0; color: var(--texto-tenue); font-size: 0.9rem; line-height: 1.65; }
+.hero-descripcion { max-width: 58ch; margin: 16px 0 0; color: var(--texto-suave); font-size: 1rem; line-height: 1.7; }
 .hero-acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 
 .boton {
@@ -59,7 +59,7 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 
 .boton-principal { color: #000; background: var(--menta); box-shadow: 0 0 30px color-mix(in srgb, var(--menta) 30%, transparent); }
 :root[data-theme='light'] .boton-principal { color: #fff; }
-.boton-principal:hover { transform: scale(1.05); }
+.boton-principal:hover { transform: translateY(-2px); }
 .boton-secundario { color: var(--texto); background: var(--vidrio); border: 1px solid var(--linea); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 0 1.5rem; }
 .boton-secundario:hover { border-color: var(--linea-activa); }
 

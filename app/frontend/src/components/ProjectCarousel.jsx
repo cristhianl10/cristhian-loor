@@ -5,7 +5,7 @@ import ProjectCase from './ProjectCase';
 function ProjectCarousel({ proyectos, interfaz }) {
   const [activo, setActivo] = useState(0);
   const selectores = useRef([]);
-  const inicioArrastre = useRef(null);
+  const pista = useRef(null);
 
   const seleccionar = (indice) => {
     const normalizado = (indice + proyectos.length) % proyectos.length;
@@ -13,7 +13,14 @@ function ProjectCarousel({ proyectos, interfaz }) {
   };
 
   useEffect(() => {
-    selectores.current[activo]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const contenedor = pista.current;
+    const selector = selectores.current[activo];
+    if (!contenedor || !selector || contenedor.scrollWidth <= contenedor.clientWidth) return;
+    const distancia = selector.getBoundingClientRect().left - contenedor.getBoundingClientRect().left;
+    contenedor.scrollTo({
+      left: contenedor.scrollLeft + distancia - (contenedor.clientWidth - selector.clientWidth) / 2,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
   }, [activo]);
 
   const navegarConTeclado = (evento, indice) => {
@@ -22,32 +29,20 @@ function ProjectCarousel({ proyectos, interfaz }) {
     evento.preventDefault();
     const siguiente = (teclas[evento.key] + proyectos.length) % proyectos.length;
     seleccionar(siguiente);
-    selectores.current[siguiente]?.focus();
-  };
-
-  const iniciarArrastre = (evento) => {
-    inicioArrastre.current = evento.clientX;
-  };
-
-  const terminarArrastre = (evento) => {
-    if (inicioArrastre.current === null) return;
-    const distancia = evento.clientX - inicioArrastre.current;
-    inicioArrastre.current = null;
-    if (Math.abs(distancia) < 54) return;
-    seleccionar(activo + (distancia < 0 ? 1 : -1));
+    selectores.current[siguiente]?.focus({ preventScroll: true });
   };
 
   return (
     <div className="carrusel-proyectos" data-reveal="project">
       <div className="carrusel-controles">
-        <p aria-live="polite"><span>{String(activo + 1).padStart(2, '0')}</span> {interfaz.de} {String(proyectos.length).padStart(2, '0')}</p>
+        <p aria-live="polite" aria-atomic="true"><span>{String(activo + 1).padStart(2, '0')}</span> {interfaz.de} {String(proyectos.length).padStart(2, '0')}<span className="solo-lector"> — {proyectos[activo].nombre}</span></p>
         <div>
           <button type="button" onClick={() => seleccionar(activo - 1)} aria-label={interfaz.proyectoAnterior}><ArrowLeft aria-hidden="true" size={19} /></button>
           <button type="button" onClick={() => seleccionar(activo + 1)} aria-label={interfaz.proyectoSiguiente}><ArrowRight aria-hidden="true" size={19} /></button>
         </div>
       </div>
 
-      <div className="carrusel-pista" role="tablist" aria-label={interfaz.seleccionarProyecto} onPointerDown={iniciarArrastre} onPointerUp={terminarArrastre}>
+      <div ref={pista} className="carrusel-pista" role="tablist" aria-label={interfaz.seleccionarProyecto}>
         {proyectos.map((proyecto, indice) => {
           const distancia = indice - activo;
           return (
