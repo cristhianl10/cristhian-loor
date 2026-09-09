@@ -6,3 +6,5 @@ dist/
 .playwright-cli/
 .claude/
 .playwright/
+test-results/
+playwright-report/

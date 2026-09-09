@@ -6,16 +6,16 @@
 .motion-ready [data-reveal='flow'],
 .motion-ready [data-reveal='slice'] { opacity: 0; transform: translateY(16px); transition-property: opacity, transform; }
 .motion-ready [data-reveal='cluster'] .categoria-tecnica,
-.motion-ready [data-reveal='cluster'] .tarjeta-bento { opacity: 0; transform: translateY(16px); transition: opacity 460ms cubic-bezier(0.4, 0, 0.2, 1), transform 460ms cubic-bezier(0.4, 0, 0.2, 1); }
-.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-bento:nth-child(2),
-.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(2) { transition-delay: 55ms; }
-.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-bento:nth-child(3),
-.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(3) { transition-delay: 105ms; }
-.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-bento:nth-child(4),
-.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(4) { transition-delay: 150ms; }
-.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-bento:nth-child(5),
-.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(5) { transition-delay: 190ms; }
-.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-bento:nth-child(6) { transition-delay: 230ms; }
+.motion-ready [data-reveal='cluster'] .tarjeta-trayectoria { opacity: 0; transform: translateY(16px); transition: opacity 460ms cubic-bezier(0.4, 0, 0.2, 1), transform 460ms cubic-bezier(0.4, 0, 0.2, 1); }
+.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(2),
+.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-trayectoria:nth-child(2) { transition-delay: 55ms; }
+.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(3),
+.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-trayectoria:nth-child(3) { transition-delay: 105ms; }
+.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(4),
+.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-trayectoria:nth-child(4) { transition-delay: 150ms; }
+.motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica:nth-child(5),
+.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-trayectoria:nth-child(5) { transition-delay: 190ms; }
+.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-trayectoria:nth-child(6) { transition-delay: 230ms; }
 .motion-ready [data-reveal].reveal-visible { opacity: 1; transform: none; }
 .motion-ready [data-reveal='cluster'].reveal-visible .categoria-tecnica,
-.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-bento { opacity: 1; transform: none; }
+.motion-ready [data-reveal='cluster'].reveal-visible .tarjeta-trayectoria { opacity: 1; transform: none; }

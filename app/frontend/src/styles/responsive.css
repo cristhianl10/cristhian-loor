@@ -3,13 +3,11 @@
   .hero { grid-template-columns: 1fr; }
   .hero-contenido, .hero-maqueta { grid-column: 1 / -1; }
   .hero-maqueta { max-width: 560px; }
-  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .bento-grande { grid-column: span 2; grid-row: span 1; }
-  .bento-alta { grid-column: span 1; grid-row: span 1; }
-  .bento-acento { grid-column: 1 / -1; }
   .proyecto-historia { grid-template-columns: 1fr; }
   .metodologia-reticula { grid-template-columns: 1fr; }
   .perfil-reticula { grid-template-columns: 1fr; }
+  .trayectoria-reticula { grid-template-columns: 1fr; }
+  .trayectoria-formacion { grid-row: auto; }
   .contacto { grid-template-columns: 1fr; }
   .pie-inferior { grid-template-columns: 1fr; gap: 16px; }
   .pie-inferior p { justify-self: start; text-align: start; }
@@ -51,10 +49,6 @@
   .hero-ubicacion { display: flex; margin: 10px 0 0; }
   .seccion { padding: 36px 0; }
   .encabezado-seccion { margin-bottom: 22px; }
-  .bento { grid-template-columns: 1fr; }
-  .bento-grande, .bento-alta, .bento-acento { grid-column: 1 / -1; grid-row: auto; }
-  .bento-acento { grid-template-columns: 1fr; gap: 14px; }
-  .bento-acento-numero { font-size: 3rem; }
   .carrusel-pista { overflow-x: auto; grid-template-columns: repeat(3, minmax(230px, 1fr)); padding-inline: 3px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
   .selector-proyecto { scroll-snap-align: start; }
   .proyecto-cabecera { padding: 22px 20px 14px; }
@@ -105,7 +99,6 @@
   .boton-lima,
   .selector-proyecto,
   .categoria-tecnica,
-  .tarjeta-bento,
   .contacto-enlaces > a { transition-duration: 120ms; }
 }
 
@@ -113,12 +106,11 @@
   .progreso-lectura span { background: Highlight; }
   .capsula,
   .maqueta,
-  .tarjeta-bento,
-  .bento-acento,
   .proyecto-activo,
   .categoria-tecnica,
   .stack-contexto,
-  .formacion,
+  .tarjeta-trayectoria,
+  .trayectoria-idiomas,
   .contacto-enlaces > a,
   .contacto-enlaces > p { border: 1px solid CanvasText; }
 }
