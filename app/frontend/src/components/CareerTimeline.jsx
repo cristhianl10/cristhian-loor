@@ -1,15 +1,52 @@
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Trophy, MapPin, BookOpen } from 'lucide-react';
 import SectionHeading from './SectionHeading';
-export default function CareerTimeline({ contenido: { formacion, persona } }) {
- return <section className="seccion trayectoria" id="formacion" aria-labelledby="titulo-formacion">
- <SectionHeading id="titulo-formacion" etiqueta={formacion.etiqueta} titulo={formacion.titulo} />
- <div className="trayectoria-reticula">
- <article className="formacion" data-foco>
- <div className="formacion-cabecera"><GraduationCap aria-hidden="true" size={24}/><h3>{formacion.programa}</h3></div>
- <p className="formacion-institucion">{formacion.institucion}</p>
- <p className="formacion-meta">{formacion.periodo}</p><p>{formacion.estado}</p>
- <div className="idiomas"><h4>{formacion.idiomasTitulo}</h4>{persona.idiomas.map(i=><p key={i}>{i}</p>)}</div>
- </article>
- <ol className="trayectoria-hitos">{formacion.hitos.map(h=><li key={h.titulo}><h3>{h.titulo}</h3><p>{h.descripcion}</p></li>)}</ol>
- </div></section>;
+
+const iconosHitos = [Trophy, MapPin, BookOpen];
+
+function CareerTimeline({ contenido }) {
+  const { trayectoria } = contenido;
+
+  return (
+    <section className="seccion trayectoria" id="trayectoria" aria-labelledby="titulo-trayectoria">
+      <SectionHeading id="titulo-trayectoria" etiqueta={trayectoria.etiqueta} titulo={trayectoria.titulo} />
+      <div className="trayectoria-reticula" data-reveal="cluster">
+        <article className="trayectoria-formacion tarjeta-trayectoria" data-foco>
+          <div className="trayectoria-icono" aria-hidden="true"><GraduationCap size={22} /></div>
+          <div className="trayectoria-formacion-contenido">
+            <h3>{trayectoria.formacion.programa}</h3>
+            <p className="trayectoria-institucion">{trayectoria.formacion.institucion}</p>
+            <div className="trayectoria-meta">
+              <time className="trayectoria-periodo">{trayectoria.formacion.periodo}</time>
+              <span>{trayectoria.formacion.estado}</span>
+            </div>
+          </div>
+        </article>
+
+        <div className="trayectoria-hitos">
+          {trayectoria.hitos.map((hito, indice) => {
+            const Icono = iconosHitos[indice % iconosHitos.length];
+            return (
+              <article className="tarjeta-trayectoria" key={hito.titulo} data-foco>
+                <div className="trayectoria-hito-icono" aria-hidden="true"><Icono size={18} /></div>
+                <div>
+                  <h4>{hito.titulo}</h4>
+                  <p>{hito.descripcion}</p>
+                  <time className="trayectoria-fecha">{hito.fecha}</time>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="trayectoria-idiomas">
+          <h3>{trayectoria.idiomas.titulo}</h3>
+          <ul>
+            {trayectoria.idiomas.lista.map((idioma) => <li key={idioma}>{idioma}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
 }
+
+export default CareerTimeline;
