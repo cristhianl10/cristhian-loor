@@ -1,0 +1,36 @@
+/* ── Cápsula flotante (floating shell) ── */
+.capsula {
+  position: relative;
+  width: min(calc(100% - 24px), var(--ancho-capsula));
+  margin: 12px auto 0;
+  overflow: clip;
+  background: var(--capsula);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-xl);
+  box-shadow: 0 30px 120px var(--sombra);
+  transition: background-color 220ms ease-out, border-color 220ms ease-out;
+}
+
+.capsula::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--texto) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--texto) 5%, transparent) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
+}
+
+.capsula::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--ruido);
+  opacity: 0.1;
+}
+
+:root[data-theme='light'] .capsula::after { opacity: 0.05; }

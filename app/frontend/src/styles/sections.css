@@ -1,0 +1,23 @@
+/* ── Secciones ── */
+.seccion { position: relative; z-index: 1; padding: clamp(36px, 4vw, 56px) 0; }
+.encabezado-seccion { display: grid; gap: 12px; margin-bottom: 26px; max-width: 820px; }
+.encabezado-etiqueta { color: var(--menta); }
+.encabezado-seccion h2 { margin: 0; font-size: clamp(2.2rem, 4.6vw, 4rem); line-height: 0.95; letter-spacing: -0.05em; font-weight: 700; text-wrap: balance; }
+.encabezado-seccion p { max-width: 56ch; margin: 0; color: var(--texto-suave); line-height: 1.6; }
+
+/* ── Spotlight que sigue al cursor en tarjetas ── */
+[data-foco] { position: relative; }
+[data-foco]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(360px circle at var(--f-x, 50%) var(--f-y, 50%), color-mix(in srgb, var(--menta) 10%, transparent), transparent 68%);
+  transition: opacity 240ms ease;
+}
+[data-foco]:hover::before,
+[data-foco]:focus-within::before { opacity: 1; }
+:root[data-theme='light'] [data-foco]::before { background: radial-gradient(360px circle at var(--f-x, 50%) var(--f-y, 50%), color-mix(in srgb, var(--menta) 16%, transparent), transparent 68%); }
+@media (pointer: coarse) { [data-foco]::before { display: none; } }

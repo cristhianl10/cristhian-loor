@@ -1,0 +1,37 @@
+/* ── Esferas de brillo (glow spheres, blur 120px) ── */
+.aurora {
+  --puntero-x: 52%;
+  --puntero-y: 22%;
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #000000;
+}
+
+:root[data-theme='light'] .aurora { background: #0a0d16; }
+
+.aurora::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--ruido);
+  opacity: 0.15;
+}
+
+.aurora-capa { position: absolute; width: 560px; height: 560px; border-radius: 50%; filter: blur(120px); }
+.aurora-capa-uno { top: -180px; left: -140px; background: radial-gradient(circle, color-mix(in srgb, var(--menta) 26%, transparent), transparent 68%); animation: aurora-flotar 18s ease-in-out infinite alternate; }
+.aurora-capa-dos { top: 22vh; right: -200px; background: radial-gradient(circle, color-mix(in srgb, var(--azul) 24%, transparent), transparent 68%); animation: aurora-flotar 23s ease-in-out -7s infinite alternate-reverse; }
+.aurora-capa-tres { top: 58vh; left: 24vw; width: 460px; height: 380px; background: radial-gradient(circle, color-mix(in srgb, var(--violeta) 20%, transparent), transparent 68%); animation: aurora-respirar 16s ease-in-out infinite alternate; }
+.aurora-reflejo { display: none; }
+
+@keyframes aurora-flotar {
+  from { transform: translate3d(0, 0, 0) scale(0.96); }
+  to { transform: translate3d(6vw, 5vh, 0) scale(1.08); }
+}
+
+@keyframes aurora-respirar {
+  from { transform: translate3d(-3vw, 0, 0) scale(1); }
+  to { transform: translate3d(5vw, 6vh, 0) scale(1.12); }
+}
