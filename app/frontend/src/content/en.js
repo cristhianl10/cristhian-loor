@@ -3,10 +3,10 @@ export const contenidoEn = {
   metadata: {
     title: 'Cristhian Loor | Backend & Full Stack Developer',
     description:
-      'Cristhian Loor\'s portfolio: Software Engineering student focused on backend with Java/Spring Boot and C#/.NET.',
+      'Cristhian Loor’s portfolio: Backend & Full Stack development with Java, Spring Boot, C#, .NET, React, Next.js, and Angular.',
     author: 'Cristhian José Loor Quimí',
     url: 'https://cristhian-loor.vercel.app/',
-    image: 'https://cristhian-loor.vercel.app/social-card.png',
+    image: 'https://cristhian-loor.vercel.app/social-card.svg',
   },
   persona: {
     nombreCompleto: 'Cristhian José Loor Quimí',
@@ -21,9 +21,9 @@ export const contenidoEn = {
   },
   navegacion: [
     { etiqueta: 'Projects', destino: '#proyectos' },
-    { etiqueta: 'Stack', destino: '#tecnologias' },
-    { etiqueta: 'How I build', destino: '#metodologia' },
-    { etiqueta: 'Career', destino: '#trayectoria' },
+    { etiqueta: 'Technologies', destino: '#tecnologias' },
+    { etiqueta: 'About', destino: '#sobre-mi' },
+    { etiqueta: 'Education', destino: '#formacion' },
   ],
   interfaz: {
     saltarContenido: 'Skip to main content',
@@ -57,15 +57,20 @@ export const contenidoEn = {
     verCodigo: 'View code',
     verDemo: 'View demo',
     verDocumentacion: 'View documentation',
-    demoProximamente: 'Demo coming soon',
-    repositorioProximamente: 'Repository coming soon',
   },
   presentacion: {
     etiqueta: '// BACKEND — FULL STACK',
     titulo: 'Software development from the logic that supports it.',
     descripcion:
-      'Software Engineering student focused on backend with Java/Spring Boot and C#/.NET. I build REST APIs and full stack applications centered on business logic, architecture, and data management.',
+      'Software Engineering student focused on web applications and REST APIs with Java, Spring Boot, and .NET. I also have hands-on experience building full stack solutions with React, Next.js, and Angular.',
+    enfoque:
+      'I am particularly interested in software architecture, business logic, databases, and building maintainable solutions.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
+    arquitectura: 'Clean Architecture',
+    arquitecturaCapas: ['API', 'Application', 'Domain', 'Infrastructure'],
+    diseno: 'Repository · Unit of Work',
+    disenoDetalles: ['Batch inserts', 'Async processing'],
+    pruebas: 'JUnit · xUnit · Jasmine · Postman',
     panel: {
       titulo: 'Technical focus',
       nucleo: 'Backend',
@@ -91,12 +96,12 @@ export const contenidoEn = {
       id: 'ibatch',
       indice: '01',
       nombre: 'iBatch Financial Operations',
-      tipo: 'CSV transaction processing platform',
-      reconocimiento: '2nd place — Hackathon UPS × ÉPICO Guayaquil',
+      tipo: 'CSV transaction processing',
+      reconocimiento: 'Second place at the Hackathon',
       contexto:
-        'Built during a hackathon organized by Universidad Politécnica Salesiana together with ÉPICO Guayaquil.',
+        'Built during a Hackathon organized by Universidad Politécnica Salesiana together with ÉPICO Guayaquil.',
       descripcion:
-        'A platform that processes CSV files with financial transactions, with validations, progress tracking, and audit history.',
+        'A platform that processes CSV files containing financial transactions and tracks processing, validations, progress, and history.',
       tecnologias: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'],
       destacados: [
         'API built with Spring Boot and data access through Spring Data JDBC.',
@@ -106,78 +111,60 @@ export const contenidoEn = {
         'Validation of amounts, accounts, and dates.',
         'Error logging and audit history throughout processing.',
       ],
-      arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       visual: {
         tipo: 'procesamiento',
         etapas: ['CSV file', 'Validation', 'Processing', 'Audit'],
       },
-      enlaces: {
-        repositorio: 'https://github.com/cristhianl10/iBatch',
-        demo: null,
-        documentacion: null,
-      },
-      media: { portada: null, alt: 'iBatch Financial Operations', capturas: [] },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
     {
       id: 'banco-horizonte',
       indice: '02',
       nombre: 'Banco Horizonte — Claims Management',
       tipo: 'Full stack application',
-      contexto:
-        'A system designed to manage bank claims end to end, with automatic prioritization based on business rules.',
       descripcion:
-        'Priority is not assigned in isolation: it comes from cumulative rules that also determine the SLA and shape the controlled status flow.',
-      tecnologias: ['C#', '.NET', 'Angular', 'PostgreSQL', 'Supabase', 'Entity Framework Core'],
+        'A full stack platform for managing bank claims end to end. Priority is not assigned in isolation: it comes from business rules that also determine the SLA and shape the subsequent flow.',
+      explicacionVisual:
+        'Rules accumulate criteria; the resulting priority determines the SLA before the claim continues through a controlled status flow.',
+      tecnologias: ['C#', '.NET 10', 'Angular 20', 'PostgreSQL', 'Supabase'],
       arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       destacados: [
-        'REST API with .NET and frontend with Angular.',
+        'REST API with .NET and frontend with Angular 20, Angular Signals, and reactive forms.',
         'Clean Architecture with API, Application, Domain, and Infrastructure layers.',
-        'Automatic prioritization engine based on cumulative rules.',
+        'Automatic prioritization engine based on cumulative business rules.',
         'Dynamic priority and SLA calculation.',
-        'Controlled status flow with complete history and traceability.',
-        'Supabase Auth, JWT, and role-based authorization.',
-        'Unit tests with xUnit and Jasmine/Karma.',
+        'Controlled status flow with validations, complete history, and traceability.',
+        'Supabase Auth, JWT authentication, and role-based authorization.',
+        'Backend unit tests with xUnit and frontend tests with Jasmine/Karma.',
       ],
       roles: ['Operator', 'Analyst', 'Supervisor', 'Administrator'],
       visual: {
         tipo: 'priorizacion',
         etapas: ['Claim', 'Cumulative rules', 'Priority', 'SLA', 'Status flow', 'Traceability'],
       },
-      enlaces: {
-        repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos',
-        demo: null,
-        documentacion: null,
-      },
-      media: { portada: null, alt: 'Banco Horizonte Claims Management', capturas: [] },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
     {
       id: 'pos-api',
       indice: '03',
       nombre: 'POS API',
       tipo: 'Backend for a point-of-sale system',
-      contexto:
-        'A learning-oriented project focused on applying clean architecture in a REST API backend.',
       descripcion:
-        'Its value lies in the backend structure and the use of patterns to keep responsibilities separate.',
-      tecnologias: ['C#', '.NET', 'Entity Framework', 'SQL Server'],
+        'Backend for a point-of-sale system built as a REST API. Its value lies in the backend structure and the use of patterns to keep responsibilities separate.',
+      tecnologias: ['C#', '.NET', 'Entity Framework', 'SQL Server', 'REST API'],
       arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       destacados: [
         'Layered organization: API, Application, Domain, and Infrastructure.',
         'Data access through Entity Framework.',
-        'Repository Pattern and Unit of Work.',
+        'Repository Pattern and Unit of Work implementation.',
         'Separation of responsibilities across backend layers.',
-        'Endpoints tested via HTTP requests with Postman.',
+        'REST API endpoints tested via HTTP requests.',
       ],
       visual: {
         tipo: 'capas',
         etapas: ['API', 'Application', 'Domain', 'Infrastructure'],
       },
-      enlaces: {
-        repositorio: null,
-        demo: null,
-        documentacion: null,
-      },
-      media: { portada: null, alt: 'POS API', capturas: [] },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
   ],
   tecnologias: {
@@ -186,109 +173,60 @@ export const contenidoEn = {
     introduccion:
       'Skills are organized by their role in a solution and connected to the projects where they were applied.',
     categorias: [
-      {
-        id: 'backend',
-        nombre: 'Backend',
-        items: ['Java', 'Spring Boot', 'C#', '.NET', 'REST APIs', 'Entity Framework'],
-      },
-      {
-        id: 'frontend',
-        nombre: 'Frontend',
-        items: ['JavaScript', 'React', 'Next.js', 'Angular', 'HTML', 'CSS'],
-      },
-      {
-        id: 'datos',
-        nombre: 'Databases',
-        items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Oracle SQL', 'Supabase'],
-      },
-      {
-        id: 'arquitectura',
-        nombre: 'Architecture & practices',
-        items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work'],
-      },
-      {
-        id: 'testing',
-        nombre: 'Testing',
-        items: ['xUnit', 'Jasmine/Karma'],
-      },
-      {
-        id: 'herramientas',
-        nombre: 'Tools & infrastructure',
-        items: ['Git', 'GitHub', 'Docker', 'Linux', 'Postman'],
-      },
+      { id: 'backend', nombre: 'Backend', items: ['Java', 'Spring Boot', 'C#', '.NET', 'REST APIs', 'Entity Framework'] },
+      { id: 'frontend', nombre: 'Frontend', items: ['JavaScript', 'React', 'Next.js', 'Angular', 'HTML', 'CSS'] },
+      { id: 'datos', nombre: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Oracle SQL', 'Supabase'] },
+      { id: 'arquitectura', nombre: 'Architecture', items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work'] },
+      { id: 'herramientas', nombre: 'Tools', items: ['Git', 'GitHub'] },
     ],
     porProyecto: [
-      {
-        nombre: 'iBatch',
-        items: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'],
-      },
-      {
-        nombre: 'Banco Horizonte',
-        items: ['C#', '.NET', 'Angular', 'PostgreSQL', 'Supabase', 'Entity Framework Core'],
-      },
-      {
-        nombre: 'POS API',
-        items: ['C#', '.NET', 'Entity Framework', 'SQL Server'],
-      },
+      { nombre: 'iBatch', items: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'] },
+      { nombre: 'Banco Horizonte', items: ['C#', '.NET 10', 'Angular 20', 'PostgreSQL', 'Supabase'] },
+      { nombre: 'POS API', items: ['C#', '.NET', 'Entity Framework', 'SQL Server'] },
     ],
     relacionTitulo: 'Technologies connected to real projects',
   },
+  sistema: {
+    etiqueta: '// THE SYSTEM',
+    titulo: 'The system, at a glance.',
+    barrasNota: 'technical highlights per project',
+    nucleoNota: 'core proven in academic production',
+    arquitectura: 'ARCHITECTURE', patrones: 'PATTERNS', pruebas: 'TESTING',
+  },
   metodologia: {
-    etiqueta: '// HOW I BUILD',
+    etiqueta: '// METHODOLOGY',
     titulo: 'How I build.',
-    panel: {
-      titulo: 'Result',
-      nucleo: 'Verifiable solutions',
-      descripcion:
-        'Every decision is documented and backed by tests and real evidence of expected behavior.',
-    },
     pasos: [
-      { numero: '01', titulo: 'Understand the problem', texto: 'I identify the context, constraints, and rules the solution must follow.' },
-      { numero: '02', titulo: 'Separate responsibilities', texto: 'I design the data model and distribute logic across layers with clear responsibilities.' },
-      { numero: '03', titulo: 'Implement and validate', texto: 'I build critical cases, test main scenarios, and verify expected behavior.' },
-      { numero: '04', titulo: 'Document and prepare', texto: 'I record technical decisions, clean the code, and prepare the solution for deployment.' },
+      { numero: '01', titulo: 'Understand the problem', texto: 'I identify the context and model the rules the solution must follow.' },
+      { numero: '02', titulo: 'Separate responsibilities', texto: 'I design the data model and distribute logic across clear layers.' },
+      { numero: '03', titulo: 'Implement and validate', texto: 'I build critical cases and check their main scenarios.' },
+      { numero: '04', titulo: 'Test and prepare', texto: 'I document decisions, test the solution, and prepare its deployment.' },
     ],
   },
-  trayectoria: {
-    etiqueta: '// CAREER',
-    titulo: 'Training and growth.',
-    formacion: {
-      programa: 'Software Engineering',
-      institucion: 'Universidad de Guayaquil',
-      periodo: 'October 2023 — Present',
-      estado: 'Currently pursuing degree.',
-    },
-    hitos: [
-      {
-        titulo: 'Hackathon UPS × ÉPICO Guayaquil',
-        descripcion: '2nd place with iBatch Financial Operations.',
-        fecha: '2024',
-      },
-      {
-        titulo: 'Tech Lab UG',
-        descripcion: 'Project related to GNU/Linux and local web server.',
-        fecha: '2024',
-      },
-      {
-        titulo: 'ÉPICO Sales School',
-        descripcion: 'Complementary training in communication, sales, and product.',
-        fecha: '2024',
-      },
-    ],
-    idiomas: {
-      titulo: 'Languages',
-      lista: ['Native Spanish', 'Intermediate English'],
-    },
+  reconocimiento: {
+    titulo: 'Second place',
+    evento: 'Universidad Politécnica Salesiana × ÉPICO Guayaquil Hackathon',
+    proyecto: 'iBatch Financial Operations',
+    descripcion:
+      'The submitted project was a platform for processing CSV files with financial transactions, validations, progress tracking, and audit history.',
   },
   sobreMi: {
-    etiqueta: '// ABOUT',
+    etiqueta: '// PROFILE',
     titulo: 'Software beyond the interface.',
     parrafos: [
-      'I am a Software Engineering student. I am interested in understanding software beyond its interface: how it is structured, how business logic is organized, and how data is managed.',
-      'I am drawn to architecture, enterprise systems, and building maintainable solutions. I complement backend knowledge with frontend and UX to understand the complete product.',
-      'I am looking to keep growing professionally through real projects and technical challenges that let me apply what I learn.',
+      'I am a Software Engineering student at Universidad de Guayaquil, and I have oriented much of my training toward backend and full stack development. My primary focus is Java/Spring Boot and C#/.NET, complemented by frontend technologies such as React, Next.js, and Angular.',
+      'I am interested in understanding an application beyond its interface: how it is structured, how business logic is organized, how data is managed, and how responsibilities remain properly separated within the software.',
+      'Through my projects, I have worked with REST APIs, relational databases, layered architecture, Clean Architecture, authentication, authorization, asynchronous processing, and testing.',
     ],
-    aspectos: ['Software architecture', 'Business logic', 'Enterprise systems', 'Continuous growth'],
+    aspectos: ['Software architecture', 'Business logic', 'Data management', 'Separation of responsibilities'],
+  },
+  formacion: {
+    titulo: 'Education',
+    programa: 'Software Engineering',
+    institucion: 'Universidad de Guayaquil',
+    periodo: 'October 2023 — Present',
+    estado: 'Currently pursuing a Software Engineering degree.',
+    idiomasTitulo: 'Languages',
   },
   contacto: {
     etiqueta: '// CONTACT',

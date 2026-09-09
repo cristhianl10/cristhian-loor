@@ -1,5 +1,5 @@
-import { contenidoEs } from './es.js';
-import { contenidoEn } from './en.js';
+import { contenidoEs } from './es';
+import { contenidoEn } from './en';
 
 const contenidos = {
   es: contenidoEs,

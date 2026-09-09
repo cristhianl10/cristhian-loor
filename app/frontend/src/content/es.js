@@ -3,10 +3,10 @@ export const contenidoEs = {
   metadata: {
     title: 'Cristhian Loor | Desarrollador Backend & Full Stack',
     description:
-      'Portfolio de Cristhian Loor, estudiante de Ingeniería de Software enfocado en backend con Java/Spring Boot y C#/.NET.',
+      'Portfolio de Cristhian Loor, desarrollador Backend & Full Stack. Proyectos con Java, Spring Boot, C#, .NET, React, Next.js y Angular.',
     author: 'Cristhian José Loor Quimí',
     url: 'https://cristhian-loor.vercel.app/',
-    image: 'https://cristhian-loor.vercel.app/social-card.png',
+    image: 'https://cristhian-loor.vercel.app/social-card.svg',
   },
   persona: {
     nombreCompleto: 'Cristhian José Loor Quimí',
@@ -21,9 +21,9 @@ export const contenidoEs = {
   },
   navegacion: [
     { etiqueta: 'Proyectos', destino: '#proyectos' },
-    { etiqueta: 'Stack', destino: '#tecnologias' },
-    { etiqueta: 'Cómo construyo', destino: '#metodologia' },
-    { etiqueta: 'Trayectoria', destino: '#trayectoria' },
+    { etiqueta: 'Tecnologías', destino: '#tecnologias' },
+    { etiqueta: 'Sobre mí', destino: '#sobre-mi' },
+    { etiqueta: 'Formación', destino: '#formacion' },
   ],
   interfaz: {
     saltarContenido: 'Saltar al contenido principal',
@@ -57,15 +57,20 @@ export const contenidoEs = {
     verCodigo: 'Ver código',
     verDemo: 'Ver demo',
     verDocumentacion: 'Ver documentación',
-    demoProximamente: 'Demo próximamente',
-    repositorioProximamente: 'Repositorio próximamente',
   },
   presentacion: {
     etiqueta: '// BACKEND — FULL STACK',
     titulo: 'Desarrollo de software desde la lógica que lo sostiene.',
     descripcion:
-      'Estudiante de Ingeniería de Software enfocado en backend con Java/Spring Boot y C#/.NET. Desarrollo APIs REST y aplicaciones full stack centradas en lógica de negocio, arquitectura y gestión de datos.',
+      'Estudiante de Ingeniería de Software enfocado en el desarrollo de aplicaciones web y APIs REST con Java, Spring Boot y .NET. También cuento con experiencia práctica desarrollando soluciones full stack con React, Next.js y Angular.',
+    enfoque:
+      'Me interesa especialmente la arquitectura de software, la lógica de negocio, las bases de datos y la construcción de soluciones mantenibles.',
     focos: ['Java / Spring Boot', 'C# / .NET', 'Backend / Full Stack'],
+    arquitectura: 'Clean Architecture',
+    arquitecturaCapas: ['API', 'Application', 'Domain', 'Infrastructure'],
+    diseno: 'Repository · Unit of Work',
+    disenoDetalles: ['Inserts por lotes', 'Procesamiento asíncrono'],
+    pruebas: 'JUnit · xUnit · Jasmine · Postman',
     panel: {
       titulo: 'Enfoque técnico',
       nucleo: 'Backend',
@@ -92,92 +97,74 @@ export const contenidoEs = {
       indice: '01',
       nombre: 'iBatch Financial Operations',
       tipo: 'Procesamiento de transacciones desde archivos CSV',
-      reconocimiento: 'Segundo lugar — Hackathon UPS × ÉPICO Guayaquil',
+      reconocimiento: 'Segundo lugar en Hackathon',
       contexto:
-        'Proyecto desarrollado durante una hackathon organizada por la Universidad Politécnica Salesiana junto con ÉPICO Guayaquil.',
+        'Proyecto desarrollado durante una Hackathon organizada por la Universidad Politécnica Salesiana junto con ÉPICO Guayaquil.',
       descripcion:
-        'Plataforma para procesar archivos CSV con transacciones financieras, con validaciones, seguimiento de progreso e historial de auditoría.',
+        'Plataforma para procesar archivos CSV que contienen transacciones financieras y permitir el seguimiento de su procesamiento, validaciones, progreso e historial.',
       tecnologias: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'],
       destacados: [
         'API desarrollada con Spring Boot y acceso a datos mediante Spring Data JDBC.',
-        'Interfaz construida con Next.js y React.',
+        'Interfaz desarrollada con Next.js y React.',
         'Procesamiento asíncrono e inserciones de registros por lotes.',
         'Actualización periódica del progreso y consulta paginada de registros.',
         'Validación de montos, cuentas y fechas.',
         'Registro de errores e historial de auditoría durante el procesamiento.',
       ],
-      arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       visual: {
         tipo: 'procesamiento',
         etapas: ['Archivo CSV', 'Validaciones', 'Procesamiento', 'Auditoría'],
       },
-      enlaces: {
-        repositorio: 'https://github.com/cristhianl10/iBatch',
-        demo: null,
-        documentacion: null,
-      },
-      media: { portada: null, alt: 'iBatch Financial Operations', capturas: [] },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
     {
       id: 'banco-horizonte',
       indice: '02',
       nombre: 'Banco Horizonte — Gestión de Reclamos',
       tipo: 'Aplicación full stack',
-      contexto:
-        'Sistema diseñado para gestionar reclamos bancarios de extremo a extremo, con priorización automática basada en reglas de negocio.',
       descripcion:
-        'La prioridad no se asigna de forma aislada: surge de reglas acumulativas que también determinan el SLA y condicionan el flujo de estados controlado.',
-      tecnologias: ['C#', '.NET', 'Angular', 'PostgreSQL', 'Supabase', 'Entity Framework Core'],
+        'Plataforma full stack desarrollada para gestionar reclamos bancarios de extremo a extremo. La prioridad no se asigna de forma aislada: surge de reglas de negocio que también determinan el SLA y condicionan el flujo posterior.',
+      explicacionVisual:
+        'Las reglas acumulan criterios; la prioridad resultante determina el SLA antes de que el reclamo continúe por un flujo de estados controlado.',
+      tecnologias: ['C#', '.NET 10', 'Angular 20', 'PostgreSQL', 'Supabase'],
       arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       destacados: [
-        'API REST con .NET y frontend con Angular.',
+        'API REST con .NET y frontend con Angular 20, Angular Signals y formularios reactivos.',
         'Clean Architecture con capas API, Application, Domain e Infrastructure.',
-        'Motor de priorización automática basado en reglas acumulativas.',
+        'Motor de priorización automática basado en reglas de negocio acumulativas.',
         'Cálculo dinámico de prioridad y del SLA correspondiente.',
-        'Flujo de estados controlado con historial completo y trazabilidad.',
-        'Supabase Auth, JWT y autorización basada en roles.',
-        'Pruebas unitarias con xUnit y Jasmine/Karma.',
+        'Flujo de estados controlado mediante validaciones, historial completo y trazabilidad.',
+        'Supabase Auth, autenticación mediante JWT y autorización basada en roles.',
+        'Pruebas unitarias backend con xUnit y pruebas frontend con Jasmine/Karma.',
       ],
       roles: ['Operador', 'Analista', 'Supervisor', 'Administrador'],
       visual: {
         tipo: 'priorizacion',
         etapas: ['Reclamo', 'Reglas acumulativas', 'Prioridad', 'SLA', 'Flujo de estados', 'Trazabilidad'],
       },
-      enlaces: {
-        repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos',
-        demo: null,
-        documentacion: null,
-      },
-      media: { portada: null, alt: 'Banco Horizonte Gestión de Reclamos', capturas: [] },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
     {
       id: 'pos-api',
       indice: '03',
       nombre: 'POS API',
       tipo: 'Backend para un sistema de punto de venta',
-      contexto:
-        'Proyecto orientado al aprendizaje y aplicación de arquitectura limpia en un backend de API REST.',
       descripcion:
-        'Su valor está en la estructura del backend y en la aplicación de patrones para mantener separadas las responsabilidades.',
-      tecnologias: ['C#', '.NET', 'Entity Framework', 'SQL Server'],
+        'Backend de un sistema de punto de venta desarrollado mediante una API REST. Su importancia está en la estructura del backend y en la aplicación de patrones para mantener separadas las responsabilidades.',
+      tecnologias: ['C#', '.NET', 'Entity Framework', 'SQL Server', 'REST API'],
       arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       destacados: [
         'Organización por capas: API, Application, Domain e Infrastructure.',
         'Acceso a datos mediante Entity Framework.',
-        'Repository Pattern y Unit of Work.',
+        'Aplicación de Repository Pattern y Unit of Work.',
         'Separación de responsabilidades entre las capas del backend.',
-        'Endpoints probados mediante peticiones HTTP/Postman.',
+        'Endpoints de la API REST probados mediante peticiones HTTP.',
       ],
       visual: {
         tipo: 'capas',
         etapas: ['API', 'Application', 'Domain', 'Infrastructure'],
       },
-      enlaces: {
-        repositorio: null,
-        demo: null,
-        documentacion: null,
-      },
-      media: { portada: null, alt: 'POS API', capturas: [] },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
   ],
   tecnologias: {
@@ -203,18 +190,13 @@ export const contenidoEs = {
       },
       {
         id: 'arquitectura',
-        nombre: 'Arquitectura y prácticas',
+        nombre: 'Arquitectura',
         items: ['Clean Architecture', 'SOLID', 'Repository Pattern', 'Unit of Work'],
       },
       {
-        id: 'testing',
-        nombre: 'Testing',
-        items: ['xUnit', 'Jasmine/Karma'],
-      },
-      {
         id: 'herramientas',
-        nombre: 'Herramientas e infraestructura',
-        items: ['Git', 'GitHub', 'Docker', 'Linux', 'Postman'],
+        nombre: 'Herramientas',
+        items: ['Git', 'GitHub'],
       },
     ],
     porProyecto: [
@@ -224,7 +206,7 @@ export const contenidoEs = {
       },
       {
         nombre: 'Banco Horizonte',
-        items: ['C#', '.NET', 'Angular', 'PostgreSQL', 'Supabase', 'Entity Framework Core'],
+        items: ['C#', '.NET 10', 'Angular 20', 'PostgreSQL', 'Supabase'],
       },
       {
         nombre: 'POS API',
@@ -233,62 +215,47 @@ export const contenidoEs = {
     ],
     relacionTitulo: 'Tecnologías relacionadas con proyectos reales',
   },
+  sistema: {
+    etiqueta: '// EL SISTEMA',
+    titulo: 'El sistema, de un vistazo.',
+    barrasNota: 'aspectos técnicos por proyecto',
+    nucleoNota: 'núcleo verificado en producción académica',
+    arquitectura: 'ARQUITECTURA', patrones: 'PATRONES', pruebas: 'PRUEBAS',
+  },
   metodologia: {
-    etiqueta: '// CÓMO CONSTRUYO',
+    etiqueta: '// METODOLOGÍA',
     titulo: 'Cómo construyo.',
-    panel: {
-      titulo: 'Resultado',
-      nucleo: 'Soluciones verificables',
-      descripcion:
-        'Cada decisión queda documentada y respaldada por pruebas y evidencia real del comportamiento esperado.',
-    },
     pasos: [
-      { numero: '01', titulo: 'Entender el problema', texto: 'Identifico el contexto, las restricciones y las reglas que debe cumplir la solución.' },
-      { numero: '02', titulo: 'Separar responsabilidades', texto: 'Diseño el modelo de datos y distribuyo la lógica en capas con responsabilidades claras.' },
-      { numero: '03', titulo: 'Implementar y validar', texto: 'Construyo los casos críticos, pruebo escenarios principales y compruebo el comportamiento esperado.' },
-      { numero: '04', titulo: 'Documentar y preparar', texto: 'Registro decisiones técnicas, limpio el código y preparo la solución para su despliegue.' },
+      { numero: '01', titulo: 'Entender el problema', texto: 'Identifico el contexto y modelo las reglas que debe cumplir la solución.' },
+      { numero: '02', titulo: 'Separar responsabilidades', texto: 'Diseño el modelo de datos y distribuyo la lógica en capas claras.' },
+      { numero: '03', titulo: 'Implementar y validar', texto: 'Construyo los casos críticos y compruebo sus escenarios principales.' },
+      { numero: '04', titulo: 'Probar y preparar', texto: 'Documento las decisiones, pruebo la solución y preparo su despliegue.' },
     ],
   },
-  trayectoria: {
-    etiqueta: '// TRAYECTORIA',
-    titulo: 'Formación y evolución.',
-    formacion: {
-      programa: 'Ingeniería de Software',
-      institucion: 'Universidad de Guayaquil',
-      periodo: 'Octubre de 2023 — Actualidad',
-      estado: 'Actualmente cursando.',
-    },
-    hitos: [
-      {
-        titulo: 'Hackathon UPS × ÉPICO Guayaquil',
-        descripcion: 'Segundo lugar con iBatch Financial Operations.',
-        fecha: '2024',
-      },
-      {
-        titulo: 'Tech Lab UG',
-        descripcion: 'Proyecto relacionado con GNU/Linux y servidor web local.',
-        fecha: '2024',
-      },
-      {
-        titulo: 'Escuela de Ventas de ÉPICO',
-        descripcion: 'Formación complementaria en comunicación, ventas y producto.',
-        fecha: '2024',
-      },
-    ],
-    idiomas: {
-      titulo: 'Idiomas',
-      lista: ['Español nativo', 'Inglés intermedio'],
-    },
+  reconocimiento: {
+    titulo: 'Segundo lugar',
+    evento: 'Hackathon Universidad Politécnica Salesiana × ÉPICO Guayaquil',
+    proyecto: 'iBatch Financial Operations',
+    descripcion:
+      'El proyecto presentado fue una plataforma para procesar archivos CSV con transacciones financieras, validaciones, seguimiento de progreso e historial de auditoría.',
   },
   sobreMi: {
-    etiqueta: '// SOBRE MÍ',
+    etiqueta: '// PERFIL',
     titulo: 'El software más allá de la interfaz.',
     parrafos: [
-      'Soy estudiante de Ingeniería de Software. Me interesa comprender el software más allá de la interfaz: cómo se estructura, cómo se organiza la lógica de negocio y cómo se gestionan los datos.',
-      'Me atraen la arquitectura, los sistemas empresariales y la construcción de soluciones mantenibles. Complemento el conocimiento de backend con frontend y UX para comprender el producto completo.',
-      'Busco seguir creciendo profesionalmente mediante proyectos reales y retos técnicos que me permitan aplicar lo que aprendo.',
+      'Soy estudiante de Ingeniería de Software en la Universidad de Guayaquil y he orientado gran parte de mi formación hacia el desarrollo backend y full stack. Mi enfoque principal está en Java/Spring Boot y C#/.NET, complementado con tecnologías frontend como React, Next.js y Angular.',
+      'Me interesa comprender una aplicación más allá de su interfaz: cómo se estructura, cómo se organiza la lógica de negocio, cómo se gestionan los datos y cómo mantener una separación adecuada de responsabilidades dentro del software.',
+      'A través de mis proyectos he trabajado con APIs REST, bases de datos relacionales, arquitectura por capas, Clean Architecture, autenticación, autorización, procesamiento asíncrono y pruebas.',
     ],
-    aspectos: ['Arquitectura de software', 'Lógica de negocio', 'Sistemas empresariales', 'Crecimiento continuo'],
+    aspectos: ['Arquitectura de software', 'Lógica de negocio', 'Gestión de datos', 'Separación de responsabilidades'],
+  },
+  formacion: {
+    titulo: 'Formación',
+    programa: 'Ingeniería de Software',
+    institucion: 'Universidad de Guayaquil',
+    periodo: 'Octubre de 2023 — Actualidad',
+    estado: 'Actualmente cursando Ingeniería de Software.',
+    idiomasTitulo: 'Idiomas',
   },
   contacto: {
     etiqueta: '// CONTACTO',
