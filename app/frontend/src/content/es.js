@@ -116,7 +116,7 @@ export const contenidoEs = {
         tipo: 'procesamiento',
         etapas: ['Archivo CSV', 'Validaciones', 'Procesamiento', 'Auditoría'],
       },
-      enlaces: { repositorio: 'https://github.com/cristhianl10/iBatch', demo: 'https://i-batch.vercel.app', documentacion: 'https://github.com/cristhianl10/iBatch#readme' },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/iBatch', demo: 'https://i-batch.vercel.app/login', documentacion: 'https://github.com/cristhianl10/iBatch#readme' },
       media: { portada: null, alt: 'Diagrama del procesamiento de transacciones de iBatch', capturas: [] },
     },
     {
@@ -144,7 +144,7 @@ export const contenidoEs = {
         tipo: 'priorizacion',
         etapas: ['Reclamo', 'Reglas acumulativas', 'Prioridad', 'SLA', 'Flujo de estados', 'Trazabilidad'],
       },
-      enlaces: { repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos', demo: 'https://banco-horizonte-reclamos.vercel.app', documentacion: 'https://github.com/cristhianl10/banco-horizonte-reclamos/tree/main/docs' },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos', demo: 'https://banco-horizonte-reclamos.vercel.app/login', documentacion: 'https://github.com/cristhianl10/banco-horizonte-reclamos/tree/main/docs' },
       media: { portada: null, alt: 'Diagrama del flujo de reclamos bancarios', capturas: [] },
     },
     {

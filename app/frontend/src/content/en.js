@@ -116,7 +116,7 @@ export const contenidoEn = {
         tipo: 'procesamiento',
         etapas: ['CSV file', 'Validation', 'Processing', 'Audit'],
       },
-      enlaces: { repositorio: 'https://github.com/cristhianl10/iBatch', demo: 'https://i-batch.vercel.app', documentacion: 'https://github.com/cristhianl10/iBatch#readme' },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/iBatch', demo: 'https://i-batch.vercel.app/login', documentacion: 'https://github.com/cristhianl10/iBatch#readme' },
       media: { portada: null, alt: 'iBatch transaction processing diagram', capturas: [] },
     },
     {
@@ -144,7 +144,7 @@ export const contenidoEn = {
         tipo: 'priorizacion',
         etapas: ['Claim', 'Cumulative rules', 'Priority', 'SLA', 'Status flow', 'Traceability'],
       },
-      enlaces: { repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos', demo: 'https://banco-horizonte-reclamos.vercel.app', documentacion: 'https://github.com/cristhianl10/banco-horizonte-reclamos/tree/main/docs' },
+      enlaces: { repositorio: 'https://github.com/cristhianl10/banco-horizonte-reclamos', demo: 'https://banco-horizonte-reclamos.vercel.app/login', documentacion: 'https://github.com/cristhianl10/banco-horizonte-reclamos/tree/main/docs' },
       media: { portada: null, alt: 'Bank claims workflow diagram', capturas: [] },
     },
     {
