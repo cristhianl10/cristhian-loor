@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cristhian-loor.vercel.app/sitemap.xml

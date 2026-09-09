@@ -69,6 +69,7 @@ function Hero({ contenido }) {
         <p className="hero-descripcion">{presentacion.descripcion}</p>
         <div className="hero-acciones" aria-label={interfaz.enlacesPrincipales}>
           <a className="boton boton-principal" href="#proyectos">{presentacion.acciones.proyectos}<ArrowDown aria-hidden="true" size={17} /></a>
+          <a className="boton boton-secundario" href={persona.cv} download="Cristhian-Loor-CV.pdf">{presentacion.acciones.cv}<ArrowDown aria-hidden="true" size={17} /></a>
           <a className="boton boton-secundario" href={persona.github} target="_blank" rel="noreferrer" aria-label={`${presentacion.acciones.github}, ${interfaz.abrirNuevaPestana}`}><Github aria-hidden="true" size={17} />{presentacion.acciones.github}</a>
           <a className="boton boton-secundario" href={persona.linkedin} target="_blank" rel="noreferrer" aria-label={`${presentacion.acciones.linkedin}, ${interfaz.abrirNuevaPestana}`}><Linkedin aria-hidden="true" size={17} />{presentacion.acciones.linkedin}</a>
         </div>
@@ -124,7 +125,7 @@ function Sistema({ contenido }) {
         </article>
 
         <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">ARQUITECTURA</span>
+          <span className="mono">{sistema.arquitectura}</span>
           <strong>{presentacion.arquitectura}</strong>
           <ol className="bento-detalle">
             {presentacion.arquitecturaCapas.map((capa) => <li key={capa}>{capa}</li>)}
@@ -132,7 +133,7 @@ function Sistema({ contenido }) {
         </article>
 
         <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">PATRONES</span>
+          <span className="mono">{sistema.patrones}</span>
           <strong>{presentacion.diseno}</strong>
           <ol className="bento-detalle">
             {presentacion.disenoDetalles.map((detalle) => <li key={detalle}>{detalle}</li>)}
@@ -150,7 +151,7 @@ function Sistema({ contenido }) {
         </article>
 
         <article className="tarjeta-bento bento-mini" data-foco>
-          <span className="mono">PRUEBAS</span>
+          <span className="mono">{sistema.pruebas}</span>
           <strong>{presentacion.pruebas}</strong>
         </article>
       </div>
@@ -270,11 +271,14 @@ function Metodologia({ contenido }) {
         </ol>
         <div className="metodologia-visual" ref={visualRef} onPointerMove={inclinar} onPointerLeave={enRatonFuera} data-reveal="panel">
           <div className="metodologia-visual-inner">
-            <div className="pila-capas" aria-hidden="true">
-              <span className="pila-pila">Business</span>
-              <span className="pila-pila">Domain</span>
-              <span className="pila-pila">Application</span>
-              <span className="pila-pila pila-activa">API</span>
+            <div className="pila-capas" aria-label={presentacion.panel.titulo}>
+              {presentacion.capasVisual.map((capa, indice) => (
+                <div className="pila-pila" key={capa}>
+                  <span aria-hidden="true">0{indice + 1}</span>
+                  <strong>{capa}</strong>
+                  <i aria-hidden="true" />
+                </div>
+              ))}
             </div>
             <div className="metodologia-tarjeta" data-foco>
               <span className="mono">{presentacion.panel.titulo}</span>
@@ -335,7 +339,7 @@ function Pie({ contenido }) {
       <div className="pie-contenido">
         <div className="pie-cta" data-reveal="slice">
           <span className="mono">{pie.cta}</span>
-          <h2>{contenido.contacto.titulo}</h2>
+          <p className="pie-titulo">{contenido.contacto.titulo}</p>
           <a className="boton-lima" href={`mailto:${persona.correo}`}><span>{pie.cta}</span><ArrowUpRight aria-hidden="true" size={19} /></a>
         </div>
         <div className="pie-inferior">
@@ -356,7 +360,10 @@ function Pie({ contenido }) {
 }
 
 function App() {
-  const [idioma, setIdioma] = useState(() => obtenerPreferencia('portfolio-idioma', 'es', ['es', 'en']));
+  const [idioma, setIdioma] = useState(() => {
+    const ruta = window.location.pathname.split('/').filter(Boolean)[0];
+    return ['es', 'en'].includes(ruta) ? ruta : obtenerPreferencia('portfolio-idioma', 'es', ['es', 'en']);
+  });
   const [tema, setTema] = useState(() => obtenerPreferencia('portfolio-tema', window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark', ['light', 'dark']));
   const contenido = obtenerContenido(idioma);
 
@@ -365,10 +372,16 @@ function App() {
     document.documentElement.lang = contenido.locale;
     document.title = metadata.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', metadata.description);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', metadata.url);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.title);
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.description);
+    document.querySelector('meta[property="og:image"]')?.setAttribute('content', metadata.image);
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', idioma === 'es' ? 'es_ES' : 'en_US');
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${metadata.url}${idioma === 'es' ? 'es' : 'en'}`);
     document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', metadata.title);
     document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', metadata.description);
+    document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', metadata.image);
+    window.history.replaceState({}, '', `/${idioma}`);
     try { localStorage.setItem('portfolio-idioma', idioma); } catch { /* La preferencia sigue funcionando durante la sesión. */ }
   }, [contenido, idioma]);
 
@@ -381,12 +394,11 @@ function App() {
   useEffect(() => {
     const iluminar = (evento) => {
       if (evento.pointerType === 'touch') return;
-      for (const nodo of document.querySelectorAll('[data-foco]')) {
-        const rect = nodo.getBoundingClientRect();
-        if (evento.clientX < rect.left || evento.clientX > rect.right || evento.clientY < rect.top || evento.clientY > rect.bottom) continue;
-        nodo.style.setProperty('--f-x', `${((evento.clientX - rect.left) / rect.width) * 100}%`);
-        nodo.style.setProperty('--f-y', `${((evento.clientY - rect.top) / rect.height) * 100}%`);
-      }
+      const nodo = evento.target.closest?.('[data-foco]');
+      if (!nodo) return;
+      const rect = nodo.getBoundingClientRect();
+      nodo.style.setProperty('--f-x', `${((evento.clientX - rect.left) / rect.width) * 100}%`);
+      nodo.style.setProperty('--f-y', `${((evento.clientY - rect.top) / rect.height) * 100}%`);
     };
     window.addEventListener('pointermove', iluminar, { passive: true });
     return () => window.removeEventListener('pointermove', iluminar);

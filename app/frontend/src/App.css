@@ -715,6 +715,9 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 .proyecto-detalles ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 24px; margin: 0; padding: 0; list-style: none; }
 .proyecto-detalles li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; color: var(--texto-suave); font-size: 0.8rem; line-height: 1.5; }
 .proyecto-detalles li svg { margin-top: 2px; color: var(--menta); }
+.proyecto-enlaces { display: flex; flex-wrap: wrap; gap: 10px; padding: 18px 28px 28px; border-top: 1px solid var(--linea); }
+.proyecto-enlaces a { min-height: 42px; display: inline-flex; align-items: center; padding: 0 14px; color: var(--menta); border: 1px solid var(--linea-activa); border-radius: 10px; font-size: .86rem; font-weight: 600; text-decoration: none; }
+.proyecto-enlaces a:hover { background: var(--hover); }
 
 /* ── Tecnologías ── */
 .constelacion-tecnica { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
@@ -838,6 +841,12 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
   display: flex;
   flex-direction: column;
   width: min(300px, 80%);
+  gap: 8px;
+  padding: 10px;
+  background: color-mix(in srgb, var(--superficie-solida) 72%, transparent);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-sm);
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--sombra) 45%, transparent);
 }
 
 :root[data-theme='dark'] .pila-pila,
@@ -874,7 +883,6 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 }
 
 :root[data-theme='light'] .pila-pila { color: #101828; background: #ffffff; border-color: rgba(16, 24, 40, 0.24); }
-:root[data-theme='light'] .pila-pila.pila-activa { color: var(--accion-texto); background: var(--menta); border-color: transparent; }
 :root[data-theme='light'] .metodologia-tarjeta { color: #101828; background: rgba(255, 255, 255, 0.92); border-color: rgba(16, 24, 40, 0.24); }
 :root[data-theme='light'] .metodologia-tarjeta .mono { color: #08735a; }
 :root[data-theme='light'] .metodologia-tarjeta strong { color: #101828; }
@@ -883,9 +891,13 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 
 .pila-pila {
   display: grid;
-  place-items: center;
-  min-height: 46px;
-  margin-top: -10px;
+  grid-template-columns: 30px 1fr 8px;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  width: 100%;
+  margin: 0;
+  padding: 0 15px;
   font-family: var(--fuente-mono);
   font-size: 10px;
   letter-spacing: 0.16em;
@@ -893,21 +905,39 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
   color: var(--texto-suave);
   background: var(--superficie-elevada);
   border: 1px solid var(--linea);
-  border-radius: var(--radio);
-  box-shadow: 0 10px 28px color-mix(in srgb, var(--sombra) 55%, transparent);
+  border-radius: 12px;
+  box-shadow: none;
   transition: background 180ms ease-out, border-color 180ms ease-out;
 }
 
-.pila-pila:nth-child(1) { margin-top: 0; transform: translateZ(-30px); }
-.pila-pila:nth-child(2) { margin-inline: 18px; transform: translateZ(0); }
-.pila-pila:nth-child(3) { margin-inline: 34px; transform: translateZ(30px); }
-.pila-pila:nth-child(4) { margin-inline: 50px; color: var(--accion-texto); background: var(--menta); border-color: transparent; transform: translateZ(60px); box-shadow: 0 14px 38px color-mix(in srgb, var(--menta) 34%, transparent); }
+.pila-pila > span { color: var(--texto-tenue); font-family: var(--fuente-mono); font-size: 9px; letter-spacing: .12em; }
+.pila-pila strong { color: var(--texto); font-family: var(--fuente-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.pila-pila i { width: 7px; height: 7px; border-radius: 50%; background: var(--menta); box-shadow: 0 0 12px var(--menta); }
+
+/* La tarjeta de capas conserva la paleta de referencia en ambos temas. */
+.pila-capas,
+:root[data-theme='dark'] .pila-capas,
+:root:not([data-theme='light']) .pila-capas {
+  background: #dfe3e8;
+  border-color: #c9ced5;
+}
+.pila-capas .pila-pila,
+:root[data-theme='dark'] .pila-capas .pila-pila,
+:root:not([data-theme='light']) .pila-capas .pila-pila {
+  color: #263247;
+  background: #ffffff;
+  border-color: #e4e7eb;
+  box-shadow: 0 4px 10px rgba(36, 48, 67, 0.12);
+}
+.pila-capas .pila-pila > span { color: #9aa3af; }
+.pila-capas .pila-pila strong { color: #263247; }
+.pila-capas .pila-pila i { background: #0d8068; box-shadow: 0 0 12px rgba(13, 128, 104, 0.42); }
 
 .metodologia-tarjeta {
   position: relative;
   z-index: 2;
   width: min(360px, 92%);
-  margin-top: -26px;
+  margin-top: 16px;
   padding: 24px 26px;
   color: var(--texto);
   background: var(--vidrio-intenso);
@@ -997,7 +1027,7 @@ h1, h2, h3, h4 { font-family: var(--fuente-titulos); }
 .pie-contenido { position: relative; width: min(calc(100% - 32px), var(--ancho)); margin-inline: auto; padding: clamp(48px, 6vw, 84px) 0 28px; }
 .pie-cta { display: grid; gap: 18px; justify-items: start; max-width: 760px; }
 .pie-cta .mono { color: #84f5ce; }
-.pie-cta h2 { margin: 0; color: #fff; font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 0.95; }
+.pie-cta .pie-titulo { margin: 0; color: #fff; font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 0.95; }
 
 .boton-lima {
   position: relative;

@@ -5,7 +5,8 @@ export const contenidoEn = {
     description:
       'Cristhian Loor’s portfolio: Backend & Full Stack development with Java, Spring Boot, C#, .NET, React, Next.js, and Angular.',
     author: 'Cristhian José Loor Quimí',
-    url: 'https://portfolio-cristhian-loor.vercel.app/',
+    url: 'https://cristhian-loor.vercel.app/',
+    image: 'https://cristhian-loor.vercel.app/social-card.svg',
   },
   persona: {
     nombreCompleto: 'Cristhian José Loor Quimí',
@@ -15,6 +16,7 @@ export const contenidoEn = {
     correo: 'cristhian.loor25@outlook.com',
     github: 'https://github.com/cristhianl10',
     linkedin: 'https://www.linkedin.com/in/cristhian-loor/',
+    cv: '/cv-cristhian-loor.pdf',
     idiomas: ['Native Spanish', 'Intermediate English'],
   },
   navegacion: [
@@ -51,6 +53,10 @@ export const contenidoEn = {
     de: 'of',
     abrirNuevaPestana: 'opens in a new tab',
     progresoLectura: 'Reading progress',
+    enlacesProyecto: 'Project links',
+    verCodigo: 'View code',
+    verDemo: 'View demo',
+    verDocumentacion: 'View documentation',
   },
   presentacion: {
     etiqueta: '// BACKEND — FULL STACK',
@@ -71,8 +77,10 @@ export const contenidoEn = {
       principales: ['Java / Spring Boot', 'C# / .NET'],
       flujo: ['API', 'Logic', 'Data'],
     },
+    capasVisual: ['Business', 'Domain', 'Application', 'API'],
     acciones: {
       proyectos: 'View projects',
+      cv: 'Download CV',
       github: 'GitHub',
       linkedin: 'LinkedIn',
     },
@@ -107,6 +115,7 @@ export const contenidoEn = {
         tipo: 'procesamiento',
         etapas: ['CSV file', 'Validation', 'Processing', 'Audit'],
       },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
     {
       id: 'banco-horizonte',
@@ -133,6 +142,7 @@ export const contenidoEn = {
         tipo: 'priorizacion',
         etapas: ['Claim', 'Cumulative rules', 'Priority', 'SLA', 'Status flow', 'Traceability'],
       },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
     {
       id: 'pos-api',
@@ -154,6 +164,7 @@ export const contenidoEn = {
         tipo: 'capas',
         etapas: ['API', 'Application', 'Domain', 'Infrastructure'],
       },
+      enlaces: { repositorio: null, demo: null, documentacion: null },
     },
   ],
   tecnologias: {
@@ -180,14 +191,16 @@ export const contenidoEn = {
     titulo: 'The system, at a glance.',
     barrasNota: 'technical highlights per project',
     nucleoNota: 'core proven in academic production',
+    arquitectura: 'ARCHITECTURE', patrones: 'PATTERNS', pruebas: 'TESTING',
   },
   metodologia: {
     etiqueta: '// METHODOLOGY',
     titulo: 'How I build.',
     pasos: [
-      { numero: '01', titulo: 'Model the logic', texto: 'Business rules define priority, SLA, and flow before the interface.' },
-      { numero: '02', titulo: 'Structure in layers', texto: 'API, Application, Domain, and Infrastructure with separated responsibilities.' },
-      { numero: '03', titulo: 'Validate and audit', texto: 'Validations, history, and traceability in every operation.' },
+      { numero: '01', titulo: 'Understand the problem', texto: 'I identify the context and model the rules the solution must follow.' },
+      { numero: '02', titulo: 'Separate responsibilities', texto: 'I design the data model and distribute logic across clear layers.' },
+      { numero: '03', titulo: 'Implement and validate', texto: 'I build critical cases and check their main scenarios.' },
+      { numero: '04', titulo: 'Test and prepare', texto: 'I document decisions, test the solution, and prepare its deployment.' },
     ],
   },
   reconocimiento: {

@@ -1,35 +1,27 @@
 # Cristhian Loor — Portfolio
 
-Portfolio profesional de Software Engineering y Software Development.
+Portafolio bilingüe de Cristhian Loor, estudiante de Ingeniería de Software en la Universidad de Guayaquil, orientado al desarrollo backend y full stack con Java/Spring Boot y C#/.NET.
+
+Producción: https://cristhian-loor.vercel.app/
+
+Presenta tres casos técnicos: iBatch Financial Operations, Banco Horizonte — Gestión de Reclamos y POS API. Incluye contexto, decisiones de arquitectura, lógica de negocio, tecnologías y evidencia disponible.
+
+Incluye `/es` y `/en`, modo claro y oscuro, navegación responsive, menú móvil accesible, teclado, `prefers-reduced-motion`, SEO, JSON-LD, `robots.txt`, sitemap e imagen social.
+
 ## Stack
 
-- React 18 + Vite
-- Framer Motion
-- Lucide React
-- CSS vanilla con design tokens
+React 18, Vite, JavaScript, CSS con design tokens y Lucide React. El contenido está en `app/frontend/src/content` y los componentes en `app/frontend/src/components`.
 
-## Secciones
-
-- **Hero** — posicionamiento profesional y enlaces principales
-- **About** — perfil e intereses
-- **Core stack** — tecnologías y prácticas por área
-- **Selected projects** — cuatro casos con contexto técnico
-- **Beyond the stack** — ingeniería, integración de IA y UX/UI
-- **Contact** — LinkedIn, GitHub, email y CV
-
-## Correr local
+## Desarrollo
 
 ```bash
 cd app/frontend
-npm install
+npm ci
 npm run dev
 ```
 
-## Por qué existe esto
+Scripts: `npm run dev`, `npm run build`, `npm run preview`, `npm run lint` y `npm test`.
 
-Para mostrar una pieza de mi portfolio. Una parte de mi profesión y desarrollo académico.
-Una forma de expresar mi identidad a través de lo que me gusta
-y lo que hago. La  emoción de lo cotidiano y la formación de procesos constructivos con esfuerzo y pasión.
+## Despliegue y estado
 
----
-Hecha en Guayaquil, Ecuador.
+Vercel construye `app/frontend` y publica `app/frontend/dist`. Los repositorios y demos de los casos se incorporarán cuando sus URLs públicas estén confirmadas.
