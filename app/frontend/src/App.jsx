@@ -1,35 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+import './App.css';
+import { obtenerContenido } from './content';
+import AuroraBlur from './components/AuroraBlur';
 import {
   ArrowDown,
   ArrowUpRight,
   Check,
-  Database,
+  ChevronDown,
+  Copy,
   Github,
-  Layers3,
   Linkedin,
   Mail,
   MapPin,
-  Server,
-  TestTube2,
-  Wrench,
-} from 'lucide-react';
-import './App.css';
-import { obtenerContenido } from './content';
-import AuroraBlur from './components/AuroraBlur';
+} from './components/Icono';
 import MotionController from './components/MotionController';
 import Navbar from './components/Navbar';
-import ProjectCarousel from './components/ProjectCarousel';
+import ProjectGrid from './components/ProjectGrid';
 import SectionHeading from './components/SectionHeading';
-import CareerTimeline from './components/CareerTimeline';
 
-const iconosCategoria = {
-  backend: Server,
-  frontend: Layers3,
-  datos: Database,
-  arquitectura: Layers3,
-  herramientas: Wrench,
-  testing: TestTube2,
-};
+const transicionBoton = { duration: 0.16, ease: [0.4, 0, 0.2, 1] };
 
 const obtenerPreferencia = (clave, alternativa, valoresPermitidos) => {
   try {
@@ -48,6 +38,9 @@ function Hero({ contenido }) {
   const { persona, presentacion, interfaz } = contenido;
   const [primero, ...resto] = persona.nombreProfesional.split(' ');
   const maquetaRef = useRef(null);
+  const reducirMovimiento = useReducedMotion();
+  const interaccion = reducirMovimiento ? {} : { whileHover: { y: -2 }, whileTap: { scale: 0.98 } };
+  const interaccionIcono = reducirMovimiento ? {} : { whileHover: { scale: 1.05 }, whileTap: { scale: 0.96 } };
 
   const seguirPuntero = (evento) => {
     const nodo = maquetaRef.current;
@@ -68,10 +61,10 @@ function Hero({ contenido }) {
         <p className="hero-rol">{persona.rol}</p>
         <p className="hero-descripcion">{presentacion.descripcion}</p>
         <div className="hero-acciones" aria-label={interfaz.enlacesPrincipales}>
-          <a className="boton boton-principal" href="#proyectos">{presentacion.acciones.proyectos}<ArrowDown aria-hidden="true" size={17} /></a>
-          <a className="boton boton-secundario" href={persona.cv} download="Cristhian-Loor-CV.pdf">{presentacion.acciones.cv}<ArrowDown aria-hidden="true" size={17} /></a>
-          <a className="boton boton-secundario" href={persona.github} target="_blank" rel="noreferrer" aria-label={`${presentacion.acciones.github}, ${interfaz.abrirNuevaPestana}`}><Github aria-hidden="true" size={17} />{presentacion.acciones.github}</a>
-          <a className="boton boton-secundario" href={persona.linkedin} target="_blank" rel="noreferrer" aria-label={`${presentacion.acciones.linkedin}, ${interfaz.abrirNuevaPestana}`}><Linkedin aria-hidden="true" size={17} />{presentacion.acciones.linkedin}</a>
+          <motion.a className="boton boton-principal" href="#proyectos" transition={transicionBoton} {...interaccion}>{presentacion.acciones.proyectos}<ArrowDown aria-hidden="true" size={17} /></motion.a>
+          <motion.a className="boton boton-secundario" href={persona.cv} download="Cristhian-Loor-CV.pdf" transition={transicionBoton} {...interaccion}>{presentacion.acciones.cv}<ArrowDown aria-hidden="true" size={17} /></motion.a>
+          <motion.a className="boton boton-secundario boton-icono" href={persona.github} target="_blank" rel="noreferrer" title={presentacion.acciones.github} aria-label={`${presentacion.acciones.github}, ${interfaz.abrirNuevaPestana}`} transition={transicionBoton} {...interaccionIcono}><Github aria-hidden="true" size={18} /></motion.a>
+          <motion.a className="boton boton-secundario boton-icono" href={persona.linkedin} target="_blank" rel="noreferrer" title={presentacion.acciones.linkedin} aria-label={`${presentacion.acciones.linkedin}, ${interfaz.abrirNuevaPestana}`} transition={transicionBoton} {...interaccionIcono}><Linkedin aria-hidden="true" size={18} /></motion.a>
         </div>
       </div>
 
@@ -89,149 +82,112 @@ function Hero({ contenido }) {
 }
 
 function Proyectos({ contenido }) {
-  const { seccionProyectos, proyectos, interfaz } = contenido;
+  const { seccionProyectos, proyectos, landings, interfaz } = contenido;
+  const { grupos, landingsVacio } = seccionProyectos;
   return (
     <section className="seccion proyectos" id="proyectos" aria-labelledby="titulo-proyectos">
       <SectionHeading id="titulo-proyectos" etiqueta={seccionProyectos.etiqueta} titulo={seccionProyectos.titulo} descripcion={seccionProyectos.descripcion} />
-      <ProjectCarousel proyectos={proyectos} interfaz={interfaz} />
-    </section>
-  );
-}
-
-function Tecnologias({ contenido }) {
-  const { tecnologias, proyectos, interfaz } = contenido;
-  const [proyectoActivo, setProyectoActivo] = useState(0);
-  const selectores = useRef([]);
-  const proyecto = tecnologias.porProyecto[proyectoActivo];
-  const caso = proyectos[proyectoActivo];
-
-  const navegarConTeclado = (evento, indice) => {
-    const teclas = { ArrowRight: indice + 1, ArrowLeft: indice - 1, Home: 0, End: tecnologias.porProyecto.length - 1 };
-    if (!(evento.key in teclas)) return;
-    evento.preventDefault();
-    const siguiente = (teclas[evento.key] + tecnologias.porProyecto.length) % tecnologias.porProyecto.length;
-    setProyectoActivo(siguiente);
-    selectores.current[siguiente]?.focus();
-  };
-
-  return (
-    <section className="seccion tecnologias" id="tecnologias" aria-labelledby="titulo-tecnologias">
-      <SectionHeading id="titulo-tecnologias" etiqueta={tecnologias.etiqueta} titulo={tecnologias.titulo} descripcion={tecnologias.introduccion} />
-      <div className="constelacion-tecnica" data-reveal="cluster">
-        {tecnologias.categorias.map((categoria) => {
-          const Icono = iconosCategoria[categoria.id];
-          return (
-            <article className={`categoria-tecnica categoria-${categoria.id}`} key={categoria.id} data-foco>
-              <div className="categoria-titulo"><Icono aria-hidden="true" size={19} /><h3>{categoria.nombre}</h3></div>
-              <Etiquetas items={categoria.items} etiqueta={interfaz.tecnologias} />
-            </article>
-          );
-        })}
+      <div className="grupo-proyectos" aria-labelledby="titulo-fullstack">
+        <header className="grupo-proyectos-cabecera">
+          <span className="mono">{grupos.fullstack.etiqueta}</span>
+          <h3 id="titulo-fullstack">{grupos.fullstack.titulo}</h3>
+          <p>{grupos.fullstack.descripcion}</p>
+        </header>
+        <ProjectGrid proyectos={proyectos} interfaz={interfaz} />
       </div>
-
-      <div className="stack-contexto" data-reveal="panel" data-foco>
-        <div className="stack-contexto-cabecera">
-          <h3>{tecnologias.relacionTitulo}</h3>
-          <div role="tablist" aria-label={interfaz.tecnologiasPorProyecto}>
-            {tecnologias.porProyecto.map((item, indice) => (
-              <button
-                ref={(elemento) => { selectores.current[indice] = elemento; }}
-                type="button"
-                role="tab"
-                id={`stack-selector-${indice}`}
-                aria-controls="stack-panel"
-                aria-selected={indice === proyectoActivo}
-                tabIndex={indice === proyectoActivo ? 0 : -1}
-                key={item.nombre}
-                onClick={() => setProyectoActivo(indice)}
-                onKeyDown={(evento) => navegarConTeclado(evento, indice)}
-              >{item.nombre}</button>
-            ))}
+      <div className="grupo-proyectos" aria-labelledby="titulo-frontend">
+        <header className="grupo-proyectos-cabecera">
+          <span className="mono">{grupos.frontend.etiqueta}</span>
+          <h3 id="titulo-frontend">{grupos.frontend.titulo}</h3>
+          <p>{grupos.frontend.descripcion}</p>
+        </header>
+        {landings.length ? (
+          <ProjectGrid proyectos={landings} interfaz={interfaz} />
+        ) : (
+          <div className="proyectos-vacio" data-foco>
+            <h4>{landingsVacio.titulo}</h4>
+            <p>{landingsVacio.descripcion}</p>
           </div>
-        </div>
-        <div className="stack-contexto-activo" id="stack-panel" role="tabpanel" aria-labelledby={`stack-selector-${proyectoActivo}`} key={proyecto.nombre}>
-          <span>{interfaz.proyecto}</span><strong>{proyecto.nombre}</strong><Etiquetas items={proyecto.items} etiqueta={interfaz.tecnologiasProyecto} variante="etiquetas-compactas" />
-          {caso?.visual && (
-            <div className="stack-flujo" aria-hidden="true">
-              {caso.visual.etapas.map((etapa, i) => (
-                <span key={etapa}>{etapa}{i < caso.visual.etapas.length - 1 ? <i /> : null}</span>
-              ))}
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </section>
   );
 }
 
-function Metodologia({ contenido }) {
-  const { metodologia, presentacion } = contenido;
-  const visualRef = useRef(null);
-
-  const inclinar = (evento) => {
-    const nodo = visualRef.current;
-    if (!nodo || window.matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches) return;
-    const rect = nodo.getBoundingClientRect();
-    const px = ((evento.clientX - rect.left) / rect.width - 0.5) * 2;
-    const py = ((evento.clientY - rect.top) / rect.height - 0.5) * 2;
-    nodo.style.setProperty('--ix', `${px}`);
-    nodo.style.setProperty('--iy', `${py}`);
-  };
-
-  const enRatonFuera = () => {
-    const nodo = visualRef.current;
-    if (!nodo) return;
-    nodo.style.setProperty('--ix', '0');
-    nodo.style.setProperty('--iy', '0');
-  };
-
+function Experiencia({ contenido }) {
+  const { experiencia, interfaz } = contenido;
   return (
-    <section className="metodologia" aria-labelledby="titulo-metodologia">
-      <span className="mono">{metodologia.etiqueta}</span>
-      <h2 id="titulo-metodologia">{metodologia.titulo}</h2>
-      <div className="metodologia-reticula">
-        <ol className="metodologia-pasos" data-reveal="flow">
-          {metodologia.pasos.map((paso) => (
-            <li key={paso.numero}>
-              <span className="paso-numero" aria-hidden="true">{paso.numero}</span>
-              <div><h3>{paso.titulo}</h3><p>{paso.texto}</p></div>
-            </li>
-          ))}
-        </ol>
-        <div className="metodologia-visual" ref={visualRef} onPointerMove={inclinar} onPointerLeave={enRatonFuera} data-reveal="panel">
-          <div className="metodologia-visual-inner">
-            <div className="pila-capas" aria-label={presentacion.panel.titulo}>
-              {presentacion.capasVisual.map((capa, indice) => (
-                <div className="pila-pila" key={capa}>
-                  <span aria-hidden="true">0{indice + 1}</span>
-                  <strong>{capa}</strong>
-                  <i aria-hidden="true" />
-                </div>
-              ))}
-            </div>
-            <div className="metodologia-tarjeta" data-foco>
-              <span className="mono">{metodologia.panelEtiqueta}</span>
-              <strong>{metodologia.panelTitulo}</strong>
-              <p>{metodologia.panelDescripcion}</p>
-            </div>
-          </div>
-        </div>
+    <section className="seccion experiencia" id="experiencia" aria-labelledby="titulo-experiencia">
+      <SectionHeading id="titulo-experiencia" etiqueta={experiencia.etiqueta} titulo={experiencia.titulo} descripcion={experiencia.descripcion} />
+      <div className="experiencia-lista">
+        {experiencia.puestos.map((puesto) => (
+          <article className="experiencia-puesto" data-foco key={`${puesto.empresa}-${puesto.rol}`}>
+            <header className="experiencia-cabecera">
+              <div>
+                <h3>{puesto.rol}</h3>
+                <p className="experiencia-empresa">{puesto.empresa}</p>
+              </div>
+              <p className="experiencia-periodo mono">{puesto.periodo}</p>
+            </header>
+            <p className="experiencia-resumen">{puesto.resumen}</p>
+            <ul className="experiencia-puntos" aria-label={interfaz.responsabilidades}>
+              {puesto.puntos.map((punto) => <li key={punto}><span>{punto}</span></li>)}
+            </ul>
+            <Etiquetas items={puesto.tecnologias} etiqueta={interfaz.tecnologias} />
+          </article>
+        ))}
       </div>
     </section>
   );
 }
 
 function Perfil({ contenido }) {
-  const { sobreMi, interfaz } = contenido;
+  const { perfil, sobreMi, ux, formacion, persona, interfaz } = contenido;
   return (
-    <section className="seccion perfil" id="sobre-mi" aria-labelledby="titulo-sobre-mi">
-      <SectionHeading id="titulo-sobre-mi" etiqueta={sobreMi.etiqueta} titulo={sobreMi.titulo} />
+    <section className="seccion perfil" id="perfil" aria-labelledby="titulo-perfil">
+      <SectionHeading id="titulo-perfil" etiqueta={perfil.etiqueta} titulo={perfil.titulo} descripcion={perfil.descripcion} />
       <div className="perfil-reticula">
-        <div className="sobre-mi-texto" data-reveal="flow">
+        <div className="perfil-bloque perfil-sobre" data-reveal="flow">
+          <h3>{sobreMi.titulo}</h3>
           {sobreMi.parrafos.map((parrafo) => <p key={parrafo}>{parrafo}</p>)}
           <div className="sobre-mi-principios" aria-label={interfaz.aspectosInteres}>{sobreMi.aspectos.map((item) => <span key={item}><Check aria-hidden="true" size={16} />{item}</span>)}</div>
         </div>
 
+        <div className="perfil-bloque perfil-ux">
+          <h3>{ux.titulo}</h3>
+          <p className="perfil-intro">{ux.descripcion}</p>
+          <div className="perfil-ux-lista">
+            {ux.casos.map((caso) => (
+              <details className="ux-caso" key={caso.nombre}>
+                <summary>
+                  <span className="ux-caso-cabecera"><span className="mono ux-tipo">{caso.tipo}</span><strong>{caso.nombre}</strong></span>
+                  <ChevronDown aria-hidden="true" size={18} />
+                </summary>
+                <div className="ux-caso-cuerpo">
+                  <ul className="ux-puntos">
+                    {caso.puntos.map((punto) => <li key={punto}><Check aria-hidden="true" size={16} /><span>{punto}</span></li>)}
+                  </ul>
+                  <Etiquetas items={caso.tecnologias} etiqueta={interfaz.tecnologias} />
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <div className="perfil-bloque perfil-formacion">
+          <h3>{formacion.titulo}</h3>
+          <div className="formacion">
+            <p className="mono formacion-etiqueta">{formacion.periodo}</p>
+            <h4>{formacion.programa}</h4>
+            <p className="formacion-institucion">{formacion.institucion}</p>
+            <p className="formacion-estado">{formacion.estado}</p>
+            <div className="idiomas"><h5>{formacion.idiomasTitulo}</h5>{persona.idiomas.map((idioma) => <p key={idioma}>{idioma}</p>)}</div>
+          </div>
+          <details className="formacion-hitos">
+            <summary>{formacion.hitosTitulo}<ChevronDown aria-hidden="true" size={18} /></summary>
+            <ol>{formacion.hitos.map((hito) => <li key={hito.titulo}><strong>{hito.titulo}</strong><span>{hito.descripcion}</span></li>)}</ol>
+          </details>
+        </div>
       </div>
     </section>
   );
@@ -239,11 +195,38 @@ function Perfil({ contenido }) {
 
 function Contacto({ contenido }) {
   const { contacto, persona, interfaz } = contenido;
+  const [copiado, setCopiado] = useState(false);
+  const reducirMovimiento = useReducedMotion();
+  const copiarCorreo = async () => {
+    try {
+      await navigator.clipboard.writeText(persona.correo);
+      setCopiado(true);
+      window.setTimeout(() => setCopiado(false), 2200);
+    } catch {
+      window.location.href = `mailto:${persona.correo}`;
+    }
+  };
+
   return (
     <section className="seccion contacto" id="contacto" aria-labelledby="titulo-contacto">
       <div className="contacto-intro" data-reveal="slice"><span className="mono">{contacto.etiqueta}</span><h2 id="titulo-contacto">{contacto.titulo}</h2><p>{contacto.descripcion}</p></div>
       <div className="contacto-enlaces" data-reveal="flow">
-        <a className="contacto-correo" data-foco href={`mailto:${persona.correo}`}><Mail aria-hidden="true" size={18} />{persona.correo}<ArrowUpRight aria-hidden="true" size={17} /></a>
+        <div className="contacto-correo-fila">
+          <a className="contacto-correo" data-foco href={`mailto:${persona.correo}`}><Mail aria-hidden="true" size={18} />{persona.correo}<ArrowUpRight aria-hidden="true" size={17} /></a>
+          <motion.button
+            className="contacto-copiar"
+            type="button"
+            onClick={copiarCorreo}
+            aria-label={copiado ? interfaz.correoCopiado : interfaz.copiarCorreo}
+            whileTap={reducirMovimiento ? undefined : { scale: 0.97 }}
+            whileHover={reducirMovimiento ? undefined : { y: -1 }}
+            transition={transicionBoton}
+          >
+            {copiado ? <Check aria-hidden="true" size={18} /> : <Copy aria-hidden="true" size={18} />}
+            <span>{copiado ? interfaz.correoCopiado : interfaz.copiarCorreo}</span>
+          </motion.button>
+          <span className="solo-lector" role="status" aria-live="polite">{copiado ? interfaz.correoCopiado : ''}</span>
+        </div>
         <a data-foco href={persona.linkedin} target="_blank" rel="noreferrer" aria-label={`LinkedIn, ${interfaz.abrirNuevaPestana}`}><Linkedin aria-hidden="true" size={18} />LinkedIn<ArrowUpRight aria-hidden="true" size={17} /></a>
         <a data-foco href={persona.github} target="_blank" rel="noreferrer" aria-label={`GitHub, ${interfaz.abrirNuevaPestana}`}><Github aria-hidden="true" size={18} />GitHub<ArrowUpRight aria-hidden="true" size={17} /></a>
         <p data-foco><MapPin aria-hidden="true" size={18} /><span><small>{contacto.ubicacionEtiqueta}</small>{persona.ubicacion}</span></p>
@@ -345,9 +328,7 @@ function App() {
           <MotionController etiqueta={contenido.interfaz.progresoLectura} />
           <Hero contenido={contenido} />
           <Proyectos contenido={contenido} />
-          <Tecnologias contenido={contenido} />
-          <Metodologia contenido={contenido} />
-          <CareerTimeline contenido={contenido} />
+          <Experiencia contenido={contenido} />
           <Perfil contenido={contenido} />
           <Contacto contenido={contenido} />
         </main>

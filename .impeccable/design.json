@@ -1,25 +1,41 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-08T04:40:00Z",
+  "generatedAt": "2026-11-15T00:00:00Z",
   "title": "Design System: Portfolio profesional de Cristhian Loor",
   "extensions": {
     "colorMeta": {
-      "background": { "role": "neutral", "displayName": "Fondo profundo", "canonical": "#060914" },
-      "surface": { "role": "neutral", "displayName": "Vidrio", "canonical": "rgba(18, 24, 45, 0.58)" },
+      "background": { "role": "neutral", "displayName": "Lienzo negro", "canonical": "#000000" },
+      "shell": { "role": "neutral", "displayName": "Cápsula obsidiana", "canonical": "#0c0c0c" },
+      "surface": { "role": "neutral", "displayName": "Vidrio translúcido", "canonical": "rgba(255, 255, 255, 0.03)" },
       "mint": { "role": "primary", "displayName": "Menta de señal", "canonical": "#84f5ce" },
-      "amber": { "role": "tertiary", "displayName": "Ámbar de logro", "canonical": "#ffc66d" }
+      "blue": { "role": "secondary", "displayName": "Azul de flujo", "canonical": "#7db4ff" },
+      "violet": { "role": "secondary", "displayName": "Violeta de capa", "canonical": "#b4a2ff" },
+      "amber": { "role": "tertiary", "displayName": "Ámbar reservado", "canonical": "#ffc66d" },
+      "light-shell": { "role": "neutral", "displayName": "Cápsula clara", "canonical": "#ffffff" },
+      "light-text": { "role": "neutral", "displayName": "Texto claro", "canonical": "#101828" },
+      "light-mint": { "role": "primary", "displayName": "Menta clara", "canonical": "#08735a" }
     },
     "typographyMeta": {
-      "display": { "displayName": "Presentación", "purpose": "Presentación principal y titulares de gran escala." },
-      "body": { "displayName": "Lectura", "purpose": "Descripciones de proyecto y contenido explicativo." }
+      "display": { "displayName": "Presentación", "purpose": "Nombre y titulares de gran escala en la presentación." },
+      "heading": { "displayName": "Sección", "purpose": "Títulos h2 de Proyectos, Experiencia y Perfil." },
+      "body": { "displayName": "Lectura", "purpose": "Descripciones de proyecto y contenido explicativo." },
+      "mono": { "displayName": "Etiqueta", "purpose": "Categorías, índices, periodos y metadatos breves." }
     },
-    "shadows": [],
+    "shadows": [
+      { "name": "capsula", "value": "0 30px 120px rgba(0, 0, 0, 0.55)", "purpose": "Separa la cápsula flotante del lienzo negro." },
+      { "name": "navegacion", "value": "0 12px 48px rgba(0, 0, 0, 0.55)", "purpose": "Eleva la barra fija sobre el contenido." },
+      { "name": "proyecto-abierto", "value": "0 24px 80px rgba(0, 0, 0, 0.55)", "purpose": "Destaca la tarjeta expandida a ancho completo." }
+    ],
     "motion": [
-      { "name": "entrada-principal", "value": "850ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Revelado inicial de la presentación." },
-      { "name": "estado-control", "value": "170ms ease-out", "purpose": "Hover de botones y enlaces." }
+      { "name": "apertura-proyecto", "value": "320ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Transición FLIP/layout al abrir una tarjeta de proyecto." },
+      { "name": "detalle-proyecto", "value": "200ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Entrada y salida del contenido expandido con AnimatePresence." },
+      { "name": "microinteraccion-control", "value": "160ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Hover y pulsación de botones, enlaces y copiar correo." },
+      { "name": "revelado-seccion", "value": "620ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Aparición de bloques al entrar en el viewport." },
+      { "name": "movimiento-reducido", "value": "0-120ms sin desplazamiento", "purpose": "Ruta accesible que conserva el contenido visible y elimina el parallax." }
     ],
     "breakpoints": [
-      { "name": "estructura", "value": "960px" },
+      { "name": "presentacion", "value": "1080px" },
+      { "name": "proyectos", "value": "900px" },
       { "name": "movil", "value": "760px" },
       { "name": "movil-estrecho", "value": "480px" }
     ]
@@ -29,49 +45,66 @@
       "name": "Botón principal",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Acción principal menta sobre fondo oscuro.",
+      "description": "Acción principal menta en píldora sobre el lienzo oscuro.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Ver proyectos</a>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;min-height:46px;padding:0 17px;color:#07110f;background:#84f5ce;border-radius:12px;text-decoration:none;font:600 .87rem 'Spline Sans',sans-serif;transition:transform 170ms ease-out,background 170ms ease-out}.ds-btn-primary:hover{transform:translateY(-2px);background:#a0fadd}.ds-btn-primary:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:16px 32px;color:#000;background:#84f5ce;border:0;border-radius:999px;text-decoration:none;font:700 .86rem 'Space Grotesk',system-ui,sans-serif;box-shadow:0 0 30px rgba(132,245,206,.3);transition:transform 170ms cubic-bezier(.4,0,.2,1),background 170ms ease-out}.ds-btn-primary:hover{transform:translateY(-2px)}.ds-btn-primary:active{transform:scale(.98)}.ds-btn-primary:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
     },
     {
       "name": "Botón secundario",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Acción secundaria sobre vidrio oscuro.",
+      "description": "Acción secundaria de vidrio con borde tenue.",
       "html": "<a class=\"ds-btn-secondary\" href=\"#\">GitHub</a>",
-      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;min-height:46px;padding:0 17px;color:#f7f8ff;background:rgba(19,25,45,.58);border:1px solid rgba(214,225,255,.16);border-radius:12px;text-decoration:none;font:600 .87rem 'Spline Sans',sans-serif}.ds-btn-secondary:hover{background:rgba(31,39,66,.72)}.ds-btn-secondary:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 24px;color:#ebebeb;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:999px;text-decoration:none;font:700 .86rem 'Space Grotesk',system-ui,sans-serif;backdrop-filter:blur(16px);transition:transform 170ms cubic-bezier(.4,0,.2,1),border-color 170ms ease-out}.ds-btn-secondary:hover{transform:translateY(-2px);border-color:rgba(132,245,206,.4)}.ds-btn-secondary:active{transform:scale(.98)}.ds-btn-secondary:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
     },
     {
       "name": "Etiqueta tecnológica",
       "kind": "chip",
-      "description": "Clasifica tecnología sin expresar nivel de dominio.",
+      "description": "Píldora mono que clasifica tecnología sin expresar nivel.",
       "html": "<span class=\"ds-chip\">Spring Boot</span>",
-      "css": ".ds-chip{display:inline-block;padding:7px 9px;color:#dce3f7;background:rgba(255,255,255,.06);border:1px solid rgba(218,227,255,.11);border-radius:8px;font:400 .7rem 'Spline Sans',sans-serif}"
+      "css": ".ds-chip{display:inline-block;padding:6px 11px;color:rgba(235,235,235,.6);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:999px;font:500 10px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em}"
     },
     {
-      "name": "Caso de proyecto",
+      "name": "Tarjeta de proyecto",
       "kind": "card",
       "refersTo": "glass-card",
-      "description": "Superficie principal para evidencia técnica.",
-      "html": "<article class=\"ds-project\"><h3>iBatch Financial Operations</h3><p>Procesamiento, validaciones y auditoría.</p></article>",
-      "css": ".ds-project{padding:34px;color:#f7f8ff;background:linear-gradient(135deg,rgba(24,31,55,.69),rgba(10,15,29,.59));border:1px solid rgba(211,222,255,.18);border-radius:16px}.ds-project h3{margin:0;font:700 2rem/1.03 Manrope,sans-serif;letter-spacing:-.038em}.ds-project p{color:#c5cee8;font:400 1rem/1.7 'Spline Sans',sans-serif}"
+      "description": "Superficie de vidrio para el resumen de un caso, expandible a ancho completo.",
+      "html": "<article class=\"ds-project\"><div class=\"ds-project-summary\"><span class=\"ds-project-index\">01</span><h3>PayFlow</h3><p class=\"ds-project-type\">TRANSFERENCIAS ATÓMICAS</p><p>Billetera digital con transferencias idempotentes y libro contable.</p><button class=\"ds-project-action\" type=\"button\">Ver caso →</button></div></article>",
+      "css": ".ds-project{padding:24px;color:#ebebeb;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:32px;backdrop-filter:blur(16px)}.ds-project-summary{display:flex;flex-direction:column;gap:12px}.ds-project-index{align-self:flex-start;padding:6px 12px;color:#84f5ce;background:rgba(132,245,206,.09);border:1px solid rgba(132,245,206,.22);border-radius:999px;font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em}.ds-project h3{margin:0;font:700 1.8rem/1.12 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.04em}.ds-project-type{margin:0;color:#7d8698;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase}.ds-project p{color:rgba(235,235,235,.6);font:400 .9rem/1.6 'Space Grotesk',system-ui,sans-serif}.ds-project-action{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:10px 16px;color:#ebebeb;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;cursor:pointer;font:600 .85rem 'Space Grotesk',system-ui,sans-serif;transition:background 160ms ease-out,border-color 160ms ease-out}.ds-project-action:hover{background:rgba(255,255,255,.06);border-color:rgba(132,245,206,.4)}.ds-project-action:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
     },
     {
       "name": "Navegación",
       "kind": "nav",
-      "description": "Barra redondeada de vidrio con acción menta.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\">CL</a><a href=\"#\">Proyectos</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:18px;min-height:60px;padding:8px 14px;color:#f7f8ff;background:rgba(10,14,28,.7);border:1px solid rgba(214,225,255,.16);border-radius:28px}.ds-nav a{color:inherit;text-decoration:none;font:500 .84rem 'Spline Sans',sans-serif}.ds-nav a:hover{color:#84f5ce}.ds-nav a:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
+      "refersTo": "navigation",
+      "description": "Píldora fija con tres anclas, Contacto, idioma y tema.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#inicio\">CL</a><a href=\"#proyectos\">Proyectos</a><a href=\"#experiencia\">Experiencia</a><a href=\"#perfil\">Perfil</a><a class=\"ds-nav-contact\" href=\"#contacto\">Contacto</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:14px;min-height:56px;padding:6px 8px;color:#ebebeb;background:rgba(12,12,12,.9);border:1px solid rgba(255,255,255,.1);border-radius:999px;box-shadow:0 12px 48px rgba(0,0,0,.55);backdrop-filter:blur(18px) saturate(140%)}.ds-nav a{display:inline-flex;align-items:center;min-height:38px;padding:9px 15px;color:rgba(235,235,235,.6);border-radius:999px;text-decoration:none;font:500 .83rem 'Space Grotesk',system-ui,sans-serif;transition:color 160ms ease-out,background 160ms ease-out}.ds-nav a:hover{color:#ebebeb;background:rgba(255,255,255,.06)}.ds-nav a:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}.ds-nav .ds-nav-contact{color:#ebebeb;font-weight:600}"
+    },
+    {
+      "name": "Cápsula de página",
+      "kind": "custom",
+      "description": "Contenedor flotante que enmarca toda la lectura.",
+      "html": "<div class=\"ds-capsule\"><div style=\"padding:32px;color:#ebebeb;font:400 1rem/1.7 'Space Grotesk',system-ui,sans-serif\">Contenido del portfolio</div></div>",
+      "css": ".ds-capsule{width:min(calc(100% - 24px),1600px);margin:12px auto;overflow:clip;background:#0c0c0c;border:1px solid rgba(255,255,255,.1);border-radius:40px;box-shadow:0 30px 120px rgba(0,0,0,.55)}"
     }
   ],
   "narrative": {
     "northStar": "Arquitectura tras el vidrio",
-    "overview": "Paneles de vidrio oscuro hacen visible la estructura técnica. El color funciona como señal y los proyectos conservan la mayor presencia visual.",
-    "keyCharacteristics": ["Paneles translúcidos", "Acento menta", "Casos de proyecto amplios", "Movimiento mínimo"],
+    "overview": "El sistema presenta la estructura técnica de los proyectos como capas detrás de superficies translúcidas. Una cápsula flotante de 40px de radio se monta sobre un lienzo negro; dentro, el vidrio, los bordes de un píxel y las etiquetas mono separan contexto, decisiones y enlaces. Space Grotesk sostiene títulos y lectura; JetBrains Mono marca etiquetas, índices y metadatos. La paleta es obsidiana con menta como señal funcional, mientras azul y violeta aparecen en diagramas y en el haz aurora del fondo.",
+    "keyCharacteristics": ["Cápsula flotante de 40px", "Haz aurora con parallax", "Vidrio y bordes de un píxel", "Dos grupos de proyectos", "Perfil fusionado", "Controles en píldora"],
     "rules": [
-      { "name": "Regla de señal", "body": "El color indica función o significado; no se distribuye como adorno uniforme.", "section": "colors" }
+      { "name": "Regla de señal", "body": "El color indica función o significado; no se distribuye como adorno uniforme.", "section": "colors" },
+      { "name": "Regla de la etiqueta mono", "body": "JetBrains Mono se reserva para categorías, índices y metadatos breves; nunca para párrafos.", "section": "typography" }
     ],
-    "dos": ["Mantener los proyectos como superficies dominantes.", "Respetar la preferencia de movimiento reducido."],
-    "donts": ["No usar métricas personales o niveles subjetivos.", "No añadir copy o funcionalidades no confirmadas."]
+    "dos": [
+      "Mantener los proyectos como evidencia dominante y explicar la arquitectura dentro de cada caso.",
+      "Conservar los dos grupos de proyectos y la retícula 2x2 con expansión a ancho completo.",
+      "Respetar prefers-reduced-motion y dejar visible el contenido sin animación."
+    ],
+    "donts": [
+      "No reintroducir el carrusel ni secciones separadas de Tecnologías, Metodología o Trayectoria.",
+      "No duplicar el perfil: Sobre mí, UX y Formación comparten una sola sección.",
+      "No usar métricas personales, porcentajes, barras de progreso ni copy no confirmado."
+    ]
   }
 }

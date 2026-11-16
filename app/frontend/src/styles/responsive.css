@@ -3,13 +3,6 @@
   .hero { grid-template-columns: 1fr; }
   .hero-contenido, .hero-maqueta { grid-column: 1 / -1; }
   .hero-maqueta { max-width: 560px; }
-  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .bento-grande { grid-column: span 2; grid-row: span 1; }
-  .bento-alta { grid-column: span 1; grid-row: span 1; }
-  .bento-acento { grid-column: 1 / -1; }
-  .proyecto-historia { grid-template-columns: 1fr; }
-  .metodologia-reticula { grid-template-columns: 1fr; }
-  .perfil-reticula { grid-template-columns: 1fr; }
   .contacto { grid-template-columns: 1fr; }
   .pie-inferior { grid-template-columns: 1fr; gap: 16px; }
   .pie-inferior p { justify-self: start; text-align: start; }
@@ -51,80 +44,51 @@
   .hero-ubicacion { display: flex; margin: 0 0 16px; }
   .seccion { padding: 36px 0; }
   .encabezado-seccion { margin-bottom: 22px; }
-  .bento { grid-template-columns: 1fr; }
-  .bento-grande, .bento-alta, .bento-acento { grid-column: 1 / -1; grid-row: auto; }
-  .bento-acento { grid-template-columns: 1fr; gap: 14px; }
-  .bento-acento-numero { font-size: 3rem; }
-  .carrusel-pista { overflow-x: auto; grid-template-columns: repeat(3, minmax(230px, 1fr)); padding: 5px 5px 12px; scroll-snap-type: x mandatory; scrollbar-width: thin; touch-action: pan-x pan-y; }
-  .selector-proyecto { scroll-snap-align: start; }
-  .proyecto-cabecera { padding: 22px 20px 14px; }
-  .proyecto-historia { padding: 12px 20px 20px; }
-  .proyecto-detalles { margin-inline: 20px; }
-  .proyecto-detalles ul { grid-template-columns: 1fr; }
-  .visual-procesamiento { display: grid; grid-template-columns: 1fr 1fr; }
-  .visual-procesamiento .flujo-fragmento i,
-  .visual-priorizacion .flujo-fragmento i { display: none; }
-  .visual-priorizacion { grid-template-columns: 1fr 1fr; }
-  .constelacion-tecnica { grid-template-columns: 1fr; }
-  .categoria-backend,
-  .categoria-frontend,
-  .categoria-datos,
-  .categoria-arquitectura,
-  .categoria-testing,
-  .categoria-herramientas { grid-column: auto; min-height: auto; }
-  .stack-contexto { grid-template-columns: 1fr; gap: 14px; }
-  .stack-contexto-cabecera [role='tablist'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .stack-contexto-cabecera button { min-width: 0; padding-inline: 8px; text-align: center; overflow-wrap: anywhere; }
-  .metodologia { border-radius: var(--radio-sm); }
-  .metodologia-pasos li { grid-template-columns: 52px 1fr; gap: 14px; }
-  .paso-numero { width: 48px; height: 48px; }
   .contacto-enlaces { grid-template-columns: 1fr; }
+  .contacto-correo-fila { grid-template-columns: 1fr; }
   .contacto-enlaces .contacto-correo { grid-column: auto; }
-  .proyecto-enlaces { padding: 18px 20px 22px; }
   .hero-acciones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero-acciones .boton { padding: 12px; min-width: 0; font-size: .82rem; }
+  .hero-acciones .boton { padding: 12px; min-width: 0; font-size: 0.82rem; }
   .hero-acciones .boton:nth-child(-n+2) { grid-column: 1 / -1; }
+  .hero-acciones .boton-icono { width: auto; min-width: 48px; }
   .proyecto-enlaces > * { flex: 1 1 140px; justify-content: center; text-align: center; }
 }
 
 @media (max-width: 480px) {
   .hero-acciones { display: grid; grid-template-columns: 1fr 1fr; }
   .hero-acciones .boton-principal { grid-column: 1 / -1; }
-  .carrusel-pista { grid-template-columns: repeat(3, minmax(210px, 78vw)); }
-  .visual-procesamiento,
-  .visual-priorizacion { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .aurora-capa,
+  .aurora-haz,
   .hero-contenido,
   .hero-maqueta,
-  .proyecto-activo,
-  .stack-contexto-activo,
-  .metodologia-tarjeta,
+  .proyecto-tarjeta,
+  .proyecto-tarjeta-detalle,
+  .ux-caso-cuerpo,
+  .formacion-hitos ol,
   .menu.menu-abierto { animation: none; }
   .maqueta-foco { display: none; }
-  .metodologia-visual-inner { transform: none !important; }
-  .pila-pila { margin-inline: 0; transform: none; }
   .boton,
   .boton-lima,
-  .selector-proyecto,
-  .categoria-tecnica,
-  .tarjeta-bento,
-  .contacto-enlaces > a { transition-duration: 120ms; }
+  .proyecto-tarjeta,
+  .proyecto-tarjeta-boton,
+  .contacto-enlaces > a,
+  .contacto-copiar,
+  .ux-caso summary,
+  .formacion-hitos summary { transition-duration: 120ms; }
 }
 
 @media (forced-colors: active) {
   .progreso-lectura span { background: Highlight; }
   .capsula,
   .maqueta,
-  .tarjeta-bento,
-  .bento-acento,
-  .proyecto-activo,
-  .categoria-tecnica,
-  .stack-contexto,
+  .proyecto-tarjeta,
+  .proyecto-arquitectura,
+  .ux-caso,
   .formacion,
+  .formacion-hitos,
   .contacto-enlaces > a,
   .contacto-enlaces > p { border: 1px solid CanvasText; }
 }

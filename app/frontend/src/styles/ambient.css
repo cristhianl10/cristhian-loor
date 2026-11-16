@@ -1,7 +1,10 @@
-/* ── Esferas de brillo (glow spheres, blur 120px) ── */
+/* ── Haz de luz ambiental (aurora beam) ── */
 .aurora {
-  --puntero-x: 52%;
-  --puntero-y: 22%;
+  --par-x: 0px;
+  --par-y: 0px;
+  --aurora-menta: #84f5ce;
+  --aurora-azul: #7db4ff;
+  --aurora-violeta: #b4a2ff;
   position: fixed;
   z-index: -1;
   inset: 0;
@@ -17,21 +20,82 @@
   position: absolute;
   inset: 0;
   background-image: var(--ruido);
-  opacity: 0.15;
+  opacity: 0.13;
 }
 
-.aurora-capa { position: absolute; width: 560px; height: 560px; border-radius: 50%; filter: blur(120px); }
-.aurora-capa-uno { top: -180px; left: -140px; background: radial-gradient(circle, color-mix(in srgb, var(--menta) 26%, transparent), transparent 68%); animation: aurora-flotar 18s ease-in-out infinite alternate; }
-.aurora-capa-dos { top: 22vh; right: -200px; background: radial-gradient(circle, color-mix(in srgb, var(--azul) 24%, transparent), transparent 68%); animation: aurora-flotar 23s ease-in-out -7s infinite alternate-reverse; }
-.aurora-capa-tres { top: 58vh; left: 24vw; width: 460px; height: 380px; background: radial-gradient(circle, color-mix(in srgb, var(--violeta) 20%, transparent), transparent 68%); animation: aurora-respirar 16s ease-in-out infinite alternate; }
-.aurora-reflejo { display: none; }
-
-@keyframes aurora-flotar {
-  from { transform: translate3d(0, 0, 0) scale(0.96); }
-  to { transform: translate3d(6vw, 5vh, 0) scale(1.08); }
+.aurora-halo {
+  position: absolute;
+  inset: -24%;
+  background:
+    radial-gradient(ellipse 54% 42% at 50% 0%, color-mix(in srgb, var(--aurora-menta) 22%, transparent), transparent 72%),
+    radial-gradient(ellipse 42% 34% at 82% 18%, color-mix(in srgb, var(--aurora-azul) 18%, transparent), transparent 70%);
+  filter: blur(38px);
+  opacity: 0.9;
 }
 
-@keyframes aurora-respirar {
-  from { transform: translate3d(-3vw, 0, 0) scale(1); }
-  to { transform: translate3d(5vw, 6vh, 0) scale(1.12); }
+.aurora-haz {
+  position: absolute;
+  top: -32vh;
+  left: 50%;
+  width: 138vmax;
+  height: 148vh;
+  transform-origin: 50% 0;
+  translate: calc(-50% + var(--par-x)) var(--par-y);
+  rotate: var(--giro, 0deg);
+  background: conic-gradient(
+    from 176deg at 50% 0,
+    transparent 0deg,
+    transparent 44deg,
+    color-mix(in srgb, var(--aurora-menta) 24%, transparent) 48deg,
+    color-mix(in srgb, var(--aurora-azul) 16%, transparent) 52deg,
+    transparent 57deg,
+    transparent 360deg
+  );
+  filter: blur(46px);
+  opacity: 0.54;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(to bottom, #000000 0%, #000000 42%, transparent 84%);
+  -webkit-mask-image: linear-gradient(to bottom, #000000 0%, #000000 42%, transparent 84%);
+  animation: haz-respirar 26s ease-in-out infinite alternate;
+  will-change: opacity, scale;
+}
+
+.aurora-haz-uno { --giro: -17deg; }
+
+.aurora-haz-dos {
+  --giro: 9deg;
+  top: -26vh;
+  background: conic-gradient(
+    from 168deg at 50% 0,
+    transparent 0deg,
+    transparent 42deg,
+    color-mix(in srgb, var(--aurora-violeta) 20%, transparent) 48deg,
+    color-mix(in srgb, var(--aurora-azul) 13%, transparent) 52deg,
+    transparent 58deg,
+    transparent 360deg
+  );
+  opacity: 0.38;
+  animation-delay: -9s;
+}
+
+.aurora-haz-tres {
+  --giro: 29deg;
+  top: -14vh;
+  width: 118vmax;
+  background: conic-gradient(
+    from 188deg at 50% 0,
+    transparent 0deg,
+    transparent 46deg,
+    color-mix(in srgb, var(--aurora-azul) 17%, transparent) 50deg,
+    color-mix(in srgb, var(--aurora-menta) 11%, transparent) 53deg,
+    transparent 58deg,
+    transparent 360deg
+  );
+  opacity: 0.28;
+  animation-delay: -16s;
+}
+
+@keyframes haz-respirar {
+  from { opacity: 0.32; scale: 0.97 1; }
+  to { opacity: 0.62; scale: 1.04 1; }
 }

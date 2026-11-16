@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Menu, Moon, Sun, X } from './Icono';
 
 function Navbar({ enlaces, interfaz, idioma, tema, cambiarIdioma, cambiarTema }) {
   const [abierto, setAbierto] = useState(false);

@@ -12,8 +12,8 @@ function AuroraBlur() {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         if (!fondo.current) return;
-        fondo.current.style.setProperty('--puntero-x', `${(evento.clientX / window.innerWidth) * 100}%`);
-        fondo.current.style.setProperty('--puntero-y', `${(evento.clientY / window.innerHeight) * 100}%`);
+        fondo.current.style.setProperty('--par-x', `${(evento.clientX / window.innerWidth - 0.5) * 28}px`);
+        fondo.current.style.setProperty('--par-y', `${(evento.clientY / window.innerHeight - 0.28) * 18}px`);
       });
     };
 
@@ -26,10 +26,10 @@ function AuroraBlur() {
 
   return (
     <div className="aurora" ref={fondo} aria-hidden="true">
-      <span className="aurora-capa aurora-capa-uno" />
-      <span className="aurora-capa aurora-capa-dos" />
-      <span className="aurora-capa aurora-capa-tres" />
-      <span className="aurora-reflejo" />
+      <span className="aurora-halo" />
+      <span className="aurora-haz aurora-haz-uno" />
+      <span className="aurora-haz aurora-haz-dos" />
+      <span className="aurora-haz aurora-haz-tres" />
     </div>
   );
 }

@@ -1,26 +1,27 @@
 # Cristhian Loor — Portfolio
 
-Portafolio bilingüe de Cristhian Loor, estudiante de Ingeniería de Software en la Universidad de Guayaquil, orientado al desarrollo backend y full stack con Java/Spring Boot y C#/.NET.
+Portafolio bilingüe de Cristhian Loor, desarrollador Fullstack Junior con experiencia en Global Hitss Ecuador. Enfocado en backend con Java/Spring Boot y C#/.NET, y complementado con frontend Angular/React y UX Research.
 
 Producción: https://cristhian-loor.vercel.app/
 
-Presenta tres casos técnicos: iBatch Financial Operations, Banco Horizonte — Gestión de Reclamos y POS API. Incluye contexto, decisiones de arquitectura, lógica de negocio, tecnologías y evidencia disponible.
+Presenta cuatro casos técnicos: PayFlow, iBatch Financial Operations, Banco Horizonte — Gestión de Reclamos y Noche Cero. Incluye contexto, decisiones de arquitectura, lógica de negocio, tecnologías y evidencia disponible. Además incluye experiencia profesional, dos grupos de proyectos, un perfil fusionado con Sobre mí, UX Research y Formación, y contacto.
 
 Incluye `/es` y `/en`, modo claro y oscuro, navegación responsive, menú móvil accesible, teclado, `prefers-reduced-motion`, SEO por idioma, JSON-LD, `robots.txt`, sitemap e imagen social PNG de 1200×630.
 
 ## Estructura y proyectos
 
-La página se compone como navegación, hero, proyectos destacados, stack aplicado, metodología, trayectoria/formación, perfil, contacto y footer. Los casos viven en `app/frontend/src/content/es.js` y `en.js`; cada uno expone `enlaces.demo`, `enlaces.repositorio` y `enlaces.documentacion`, además de `media` para capturas reales.
+La página se compone como navegación con tres anclas —Proyectos, Experiencia y Perfil— más Contacto, hero, proyectos agrupados en aplicaciones fullstack y landings/frontend, experiencia, perfil fusionado y contacto. Los proyectos usan una retícula 2x2 con tarjetas expandibles; la tarjeta abierta ocupa el ancho completo. El grupo frontend/landings muestra un estado vacío accesible mientras se publican esos proyectos. Los casos viven en `app/frontend/src/content/es.js` y `en.js`; cada uno expone `enlaces.demo`, `enlaces.api`, `enlaces.repositorio` y `enlaces.documentacion`, además de `media` para capturas reales.
 
+- PayFlow: [código](https://github.com/cristhianl10/payflow), [demo](https://payflow-alpha-brown.vercel.app) y [API](https://payflow-backend-p76b.onrender.com).
 - iBatch: [código](https://github.com/cristhianl10/iBatch), [demo](https://i-batch.vercel.app) y README técnico.
 - Banco Horizonte: [código](https://github.com/cristhianl10/banco-horizonte-reclamos), [demo](https://banco-horizonte-reclamos.vercel.app) y documentación en `docs`.
-- POS API: estructura lista; sus URLs permanecen `null` hasta confirmar un repositorio público y una demo real.
+- Noche Cero: [código](https://github.com/Freddys21333/proxyendpoint-Noche-Cero); su demo permanece `null` hasta confirmar una URL pública.
 
 Las demos pendientes muestran un estado accesible y no generan enlaces rotos. Las capturas se incorporarán como WebP/AVIF cuando existan demos verificables.
 
 ## Stack
 
-React 18, Vite, JavaScript, CSS con design tokens y Lucide React. El contenido está en `app/frontend/src/content` y los componentes en `app/frontend/src/components`.
+React 18, Vite, JavaScript, CSS con design tokens, Motion para animaciones, Hugeicons para iconos y un haz aurora CSS de fondo. El contenido está en `app/frontend/src/content` y los componentes en `app/frontend/src/components`.
 
 ## Desarrollo
 

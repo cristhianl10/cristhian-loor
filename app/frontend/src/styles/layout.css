@@ -17,9 +17,11 @@
   inset: 0;
   pointer-events: none;
   background-image:
+    radial-gradient(ellipse 78% 52% at 46% -16%, color-mix(in srgb, var(--menta) 8%, transparent), transparent 66%),
+    radial-gradient(ellipse 48% 38% at 86% 2%, color-mix(in srgb, var(--azul) 7%, transparent), transparent 70%),
     linear-gradient(color-mix(in srgb, var(--texto) 5%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in srgb, var(--texto) 5%, transparent) 1px, transparent 1px);
-  background-size: 60px 60px;
+  background-size: auto, auto, 60px 60px, 60px 60px;
   mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
 }

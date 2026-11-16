@@ -1,8 +1,4 @@
-import { Check, Trophy } from 'lucide-react';
-
-function EtiquetasProyecto({ items, etiqueta }) {
-  return <ul className="etiquetas-proyecto" aria-label={etiqueta}>{items.map((item) => <li key={item}>{item}</li>)}</ul>;
-}
+import { Check } from './Icono';
 
 function VisualProyecto({ visual }) {
   if (visual.tipo === 'capas') {
@@ -26,54 +22,41 @@ function MetadatosProyecto({ proyecto, interfaz }) {
 
   return (
     <div className="proyecto-meta">
-      {proyecto.roles && (
-        <div className="proyecto-meta-grupo">
-          <h4>{interfaz.rolesImplementados}</h4>
-          <ul>{proyecto.roles.map((rol) => <li key={rol}>{rol}</li>)}</ul>
-        </div>
-      )}
+      <div className="proyecto-meta-grupo">
+        <h5>{interfaz.rolesImplementados}</h5>
+        <ul>{proyecto.roles.map((rol) => <li key={rol}>{rol}</li>)}</ul>
+      </div>
     </div>
   );
 }
 
 function ProjectCase({ proyecto, interfaz }) {
   return (
-    <article className={`proyecto-activo proyecto-${proyecto.id}`} data-foco>
-      <header className="proyecto-cabecera">
-        <div className="proyecto-identidad">
-          <span className="proyecto-indice" aria-hidden="true">{proyecto.indice}</span>
-          {proyecto.reconocimiento && <p className="proyecto-reconocimiento"><Trophy aria-hidden="true" size={15} />{proyecto.reconocimiento}</p>}
-        </div>
-        <h3>{proyecto.nombre}</h3>
-        <p className="proyecto-tipo">{proyecto.tipo}</p>
-      </header>
+    <div className="proyecto-caso">
+      <div className="proyecto-caso-texto">
+        {proyecto.contexto && <p className="proyecto-contexto">{proyecto.contexto}</p>}
+        <p className="proyecto-descripcion">{proyecto.descripcion}</p>
+        <MetadatosProyecto proyecto={proyecto} interfaz={interfaz} />
+      </div>
 
-      <div className="proyecto-historia">
-        <div className="proyecto-resumen">
-          {proyecto.contexto && <p className="proyecto-contexto">{proyecto.contexto}</p>}
-          <p>{proyecto.descripcion}</p>
-          <EtiquetasProyecto items={proyecto.tecnologias} etiqueta={interfaz.tecnologiasProyecto} />
-          <MetadatosProyecto proyecto={proyecto} interfaz={interfaz} />
-        </div>
-
-        <div className="proyecto-arquitectura">
-          <VisualProyecto visual={proyecto.visual} />
-          {proyecto.explicacionVisual && <p>{proyecto.explicacionVisual}</p>}
-          {proyecto.arquitectura && <p className="capas-texto">{interfaz.capas}: {proyecto.arquitectura.join(' · ')}</p>}
-        </div>
+      <div className="proyecto-arquitectura">
+        <VisualProyecto visual={proyecto.visual} />
+        {proyecto.explicacionVisual && <p>{proyecto.explicacionVisual}</p>}
+        {proyecto.arquitectura && <p className="capas-texto">{interfaz.capas}: {proyecto.arquitectura.join(' · ')}</p>}
       </div>
 
       <section className="proyecto-detalles" aria-labelledby={`detalles-${proyecto.id}`}>
-        <h4 id={`detalles-${proyecto.id}`}>{interfaz.aspectosDestacados}</h4>
+        <h5 id={`detalles-${proyecto.id}`}>{interfaz.aspectosDestacados}</h5>
         <ul>{proyecto.destacados.map((destacado) => <li key={destacado}><Check aria-hidden="true" size={16} /><span>{destacado}</span></li>)}</ul>
       </section>
+
       <div className="proyecto-enlaces" aria-label={interfaz.enlacesProyecto}>
         {proyecto.enlaces?.demo ? <a className="boton boton-principal" href={proyecto.enlaces.demo} target="_blank" rel="noopener noreferrer">{interfaz.verDemo}</a> : <span className="proyecto-demo-pendiente" aria-label={interfaz.demoProximamente}>{interfaz.demoProximamente}</span>}
+        {proyecto.enlaces?.api && <a className="boton boton-secundario" href={proyecto.enlaces.api} target="_blank" rel="noopener noreferrer">{interfaz.verApi}</a>}
         {proyecto.enlaces?.repositorio && <a className="boton boton-secundario" href={proyecto.enlaces.repositorio} target="_blank" rel="noopener noreferrer">{interfaz.verCodigo}</a>}
         {proyecto.enlaces?.documentacion && <a className="boton boton-secundario proyecto-documentacion" href={proyecto.enlaces.documentacion} target="_blank" rel="noopener noreferrer">{interfaz.verDocumentacion}</a>}
       </div>
-
-    </article>
+    </div>
   );
 }
 
