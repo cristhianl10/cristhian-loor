@@ -241,11 +241,6 @@ function Pie({ contenido }) {
     <footer className="pie-pagina">
       <p className="pie-marca" aria-hidden="true">{pie.marca}</p>
       <div className="pie-contenido">
-        <div className="pie-cta" data-reveal="slice">
-          <span className="mono">{pie.cta}</span>
-          <p className="pie-titulo">{contenido.contacto.titulo}</p>
-          <a className="boton-lima" href={`mailto:${persona.correo}`}><span>{pie.cta}</span><ArrowUpRight aria-hidden="true" size={19} /></a>
-        </div>
         <div className="pie-inferior">
           <nav aria-label={interfaz.navegacionPie}>
             {navegacion.map((enlace) => <a key={enlace.destino} href={enlace.destino}>{enlace.etiqueta}</a>)}

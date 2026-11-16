@@ -128,17 +128,17 @@ La interfaz usa un lienzo negro y una cápsula obsidiana (`#0c0c0c`) en modo osc
 - **Display** (700, `clamp(3.4rem, 8vw, 7rem)`, `0.98`): nombre en la presentación; el apellido usa menta y un resplandor contenido.
 - **Encabezado de sección** (700, `clamp(1.9rem, 1.3rem + 2vw, 2.9rem)`, `1.08`): títulos `h2` de Proyectos, Experiencia y Perfil.
 - **Contacto** (700, `clamp(2.6rem, 5.2vw, 4.4rem)`, `0.92`): título de la sección de contacto.
-- **Título de tarjeta** (700, `clamp(1.35rem, 1.1rem + 1.1vw, 1.8rem)`, `1.12`): nombres de proyecto.
+- **Título de tarjeta** (700, `clamp(1.25rem, 1.05rem + 0.7vw, 1.5rem)`, `1.15`): nombres de proyecto, por debajo del encabezado de grupo para no competir con él.
 - **Cuerpo** (400, `1rem`, `1.7`): descripciones y contenido explicativo, con medidas de 56–68 caracteres.
 - **Etiquetas** (500, `10px`, `0.2em`): mayúsculas mono para categorías, índices y estados.
 
 ## Layout
 
-La página vive dentro de una cápsula de hasta `1600px` con 24px de margen mínimo en escritorio; el `main` interior limita a `1240px` con 32px de margen mínimo. La presentación usa una retícula de 12 columnas con reparto 7/5 y pasa a una columna en `1080px`.
+La página vive dentro de una cápsula de hasta `1600px` con 24px de margen mínimo en escritorio; el `main` interior limita a `1240px` con 32px de margen mínimo. La presentación usa una retícula de 12 columnas con reparto 7/5 y pasa a una columna en `900px`; la maqueta se centra al apilarse.
 
 Los proyectos se agrupan en aplicaciones fullstack y landings/frontend. Cada grupo usa una retícula de dos columnas con 12px de separación; al abrir una tarjeta, esta ocupa ambas columnas y muestra el caso completo. En `900px` la retícula pasa a una columna. El perfil combina tres bloques en escritorio, dos en `1180px` y uno en `760px`.
 
-La navegación se compone de tres anclas —Proyectos, Experiencia y Perfil— más Contacto. Los puntos de adaptación principales son `1080px`, `900px`, `760px` y `480px`; en móvil el menú se convierte en panel sólido y los flujos se reorganizan sin desplazamiento horizontal.
+La navegación se compone de tres anclas —Proyectos, Experiencia y Perfil— más Contacto. Los puntos de adaptación principales son `900px`, `760px` y `480px`; en móvil el menú se convierte en panel sólido y los flujos se reorganizan sin desplazamiento horizontal.
 
 ## Elevation & Depth
 
@@ -157,7 +157,7 @@ La cápsula usa `40px`, las tarjetas `32px`, las superficies pequeñas `24px` y 
 - El botón principal es una píldora menta de 48px mínimo, texto oscuro y `padding: 16px 32px`; hover desplaza 2px hacia arriba y active reduce a `0.98`.
 - Los secundarios usan vidrio translúcido y borde tenue; los botones de icono son círculos de 48px.
 - El foco visible usa un anillo menta de 3px con separación de 4px.
-- La llamada final del pie usa una píldora de 60px con relleno deslizante al hover.
+- El pie es compacto: navegación, redes, correo y copyright; no repite el CTA de contacto.
 
 ### Chips
 
@@ -165,7 +165,7 @@ Las etiquetas tecnológicas son píldoras con fondo tenue, borde translúcido y 
 
 ### Project Cards
 
-Cada proyecto es una tarjeta de vidrio de 32px con resumen, tipo, etiquetas y un botón de expansión. La retícula muestra dos tarjetas por fila; al abrir, la tarjeta ocupa el ancho completo y revela el caso con su arquitectura, destacados, roles y enlaces. El chevron rota 180° y el botón cambia a estado activo con menta.
+Cada proyecto es una tarjeta de vidrio de 32px con resumen, tipo, etiquetas y un botón de expansión. La retícula muestra dos tarjetas por fila y las iguala a la misma altura; las etiquetas y el CTA forman un pie anclado abajo para que “Ver proyecto” quede alineado entre ambas. Al abrir, la tarjeta ocupa el ancho completo y revela el caso con su arquitectura, destacados, roles y enlaces. El chevron rota 180° y el botón cambia a estado activo con menta.
 
 ### Navigation
 
@@ -182,6 +182,14 @@ El fondo combina un halo radial y tres haces cónicos con menta, azul y violeta,
 ### Icons
 
 Los iconos provienen de Hugeicons y se renderizan con `strokeWidth` de 1.7. No se usan como decoración: acompañan acciones, estados y metadatos.
+
+## Accessibility
+
+- Objetivo WCAG 2.2 AA; axe sin violaciones en ES/EN, claro/oscuro y 390/768/1440 px, incluidos menú móvil y proyecto abierto.
+- Controles táctiles de al menos 44 px; enlaces del pie con 44 px de alto y copyright de 11 px como mínimo.
+- Navegación por teclado con skip link, foco visible, Escape en el menú móvil y `details/summary` nativos.
+- Sin scroll horizontal entre 320 y 1920 px; el contenido se refluye a 640 px de ancho equivalente a 200 % de zoom.
+- Movimiento reducido elimina parallax y animaciones; el contenido permanece visible.
 
 ## Do's and Don'ts
 

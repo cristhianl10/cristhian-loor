@@ -34,7 +34,7 @@
       { "name": "movimiento-reducido", "value": "0-120ms sin desplazamiento", "purpose": "Ruta accesible que conserva el contenido visible y elimina el parallax." }
     ],
     "breakpoints": [
-      { "name": "presentacion", "value": "1080px" },
+      { "name": "presentacion", "value": "900px" },
       { "name": "proyectos", "value": "900px" },
       { "name": "movil", "value": "760px" },
       { "name": "movil-estrecho", "value": "480px" }
@@ -68,9 +68,9 @@
       "name": "Tarjeta de proyecto",
       "kind": "card",
       "refersTo": "glass-card",
-      "description": "Superficie de vidrio para el resumen de un caso, expandible a ancho completo.",
-      "html": "<article class=\"ds-project\"><div class=\"ds-project-summary\"><span class=\"ds-project-index\">01</span><h3>PayFlow</h3><p class=\"ds-project-type\">TRANSFERENCIAS ATÓMICAS</p><p>Billetera digital con transferencias idempotentes y libro contable.</p><button class=\"ds-project-action\" type=\"button\">Ver caso →</button></div></article>",
-      "css": ".ds-project{padding:24px;color:#ebebeb;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:32px;backdrop-filter:blur(16px)}.ds-project-summary{display:flex;flex-direction:column;gap:12px}.ds-project-index{align-self:flex-start;padding:6px 12px;color:#84f5ce;background:rgba(132,245,206,.09);border:1px solid rgba(132,245,206,.22);border-radius:999px;font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em}.ds-project h3{margin:0;font:700 1.8rem/1.12 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.04em}.ds-project-type{margin:0;color:#7d8698;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase}.ds-project p{color:rgba(235,235,235,.6);font:400 .9rem/1.6 'Space Grotesk',system-ui,sans-serif}.ds-project-action{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:10px 16px;color:#ebebeb;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;cursor:pointer;font:600 .85rem 'Space Grotesk',system-ui,sans-serif;transition:background 160ms ease-out,border-color 160ms ease-out}.ds-project-action:hover{background:rgba(255,255,255,.06);border-color:rgba(132,245,206,.4)}.ds-project-action:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
+      "description": "Superficie de vidrio para el resumen de un proyecto, de altura uniforme en la retícula 2x2, con pie de etiquetas y CTA anclado abajo; se expande a ancho completo.",
+      "html": "<article class=\"ds-project\"><div class=\"ds-project-summary\"><span class=\"ds-project-index\">01</span><h3>PayFlow</h3><p class=\"ds-project-type\">TRANSFERENCIAS ATÓMICAS</p><p>Billetera digital con transferencias idempotentes y libro contable.</p><button class=\"ds-project-action\" type=\"button\">Ver proyecto →</button></div></article>",
+      "css": ".ds-project{padding:24px;color:#ebebeb;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:32px;backdrop-filter:blur(16px)}.ds-project-summary{display:flex;flex-direction:column;gap:12px}.ds-project-index{align-self:flex-start;padding:6px 12px;color:#84f5ce;background:rgba(132,245,206,.09);border:1px solid rgba(132,245,206,.22);border-radius:999px;font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em}.ds-project h3{margin:0;font:700 clamp(1.25rem,1.05rem + .7vw,1.5rem)/1.15 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.04em}.ds-project-type{margin:0;color:#7d8698;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase}.ds-project p{color:rgba(235,235,235,.6);font:400 .9rem/1.6 'Space Grotesk',system-ui,sans-serif}.ds-project-action{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:10px 16px;color:#ebebeb;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;cursor:pointer;font:600 .85rem 'Space Grotesk',system-ui,sans-serif;transition:background 160ms ease-out,border-color 160ms ease-out}.ds-project-action:hover{background:rgba(255,255,255,.06);border-color:rgba(132,245,206,.4)}.ds-project-action:focus-visible{outline:3px solid #84f5ce;outline-offset:4px}"
     },
     {
       "name": "Navegación",
@@ -91,7 +91,7 @@
   "narrative": {
     "northStar": "Arquitectura tras el vidrio",
     "overview": "El sistema presenta la estructura técnica de los proyectos como capas detrás de superficies translúcidas. Una cápsula flotante de 40px de radio se monta sobre un lienzo negro; dentro, el vidrio, los bordes de un píxel y las etiquetas mono separan contexto, decisiones y enlaces. Space Grotesk sostiene títulos y lectura; JetBrains Mono marca etiquetas, índices y metadatos. La paleta es obsidiana con menta como señal funcional, mientras azul y violeta aparecen en diagramas y en el haz aurora del fondo.",
-    "keyCharacteristics": ["Cápsula flotante de 40px", "Haz aurora con parallax", "Vidrio y bordes de un píxel", "Dos grupos de proyectos", "Perfil fusionado", "Controles en píldora"],
+    "keyCharacteristics": ["Cápsula flotante de 40px", "Haz aurora con parallax", "Vidrio y bordes de un píxel", "Dos grupos de proyectos", "Tarjetas 2x2 de altura uniforme", "Perfil fusionado", "Controles en píldora"],
     "rules": [
       { "name": "Regla de señal", "body": "El color indica función o significado; no se distribuye como adorno uniforme.", "section": "colors" },
       { "name": "Regla de la etiqueta mono", "body": "JetBrains Mono se reserva para categorías, índices y metadatos breves; nunca para párrafos.", "section": "typography" }

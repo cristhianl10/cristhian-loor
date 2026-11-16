@@ -66,11 +66,61 @@ for (const language of ['es', 'en']) {
 
 test('intermediate widths reflow without clipped controls', async ({ page }) => {
   await page.goto('/es');
-  for (const width of [320, 360, 480, 600, 760, 761, 900, 1080, 1081, 1280, 1920]) {
+  for (const width of [320, 360, 480, 600, 760, 761, 900, 901, 1024, 1080, 1081, 1180, 1280, 1920]) {
     await page.setViewportSize({ width, height: 900 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     expect(await page.locator('.hero-acciones a, .nav-utilidades button, .proyecto-tarjeta-boton').evaluateAll(nodes => nodes.every(n => n.scrollWidth <= n.clientWidth + 1))).toBe(true);
   }
+});
+
+test('project cards keep equal heights and aligned actions in two-column layouts', async ({ page }) => {
+  await page.goto('/es');
+  await page.evaluate(() => document.fonts.ready);
+
+  for (const width of [1440, 1280, 1180, 1080, 1000, 950, 901]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.waitForTimeout(120);
+    const cards = await page.locator('.proyecto-tarjeta').evaluateAll(nodes => nodes.map(node => ({
+      top: Math.round(node.getBoundingClientRect().top),
+      height: Math.round(node.getBoundingClientRect().height),
+      action: Math.round(node.querySelector('.proyecto-tarjeta-boton')?.getBoundingClientRect().top ?? 0),
+    })));
+
+    for (let index = 0; index < cards.length; index += 2) {
+      const pair = cards.slice(index, index + 2);
+      if (pair.length < 2 || pair[0].top !== pair[1].top) continue;
+      expect(Math.abs(pair[0].height - pair[1].height), `card heights at ${width}px`).toBeLessThanOrEqual(1);
+      expect(Math.abs(pair[0].action - pair[1].action), `action alignment at ${width}px`).toBeLessThanOrEqual(1);
+    }
+  }
+});
+
+test('interactive targets meet the 24px minimum on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.goto('/es');
+  const undersized = await page.locator('a, button, summary').evaluateAll(nodes => nodes
+    .filter(el => !el.closest('.saltar-contenido') && el.checkVisibility() && el.getBoundingClientRect().width > 0)
+    .map(el => ({
+      label: (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 40),
+      width: Math.round(el.getBoundingClientRect().width),
+      height: Math.round(el.getBoundingClientRect().height),
+    }))
+    .filter(({ width, height }) => width < 24 || height < 24));
+  expect(undersized).toEqual([]);
+});
+
+test('mobile menu and open project pass WCAG A/AA checks', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/es');
+  await page.locator('.menu-boton').click();
+  await expect(page.locator('.menu')).toBeVisible();
+  let audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+  expect(audit.violations.map(v => v.id)).toEqual([]);
+  await page.keyboard.press('Escape');
+  await page.locator('#boton-payflow').click();
+  await expect(page.locator('#detalle-payflow')).toBeVisible();
+  audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+  expect(audit.violations.map(v => v.id)).toEqual([]);
 });
 
 test('default motion, skip link, theme and language controls remain usable', async ({ page }) => {

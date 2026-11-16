@@ -47,8 +47,8 @@ export const contenidoEn = {
     abrirNuevaPestana: 'opens in a new tab',
     progresoLectura: 'Reading progress',
     enlacesProyecto: 'Project links',
-    verCaso: 'View case',
-    cerrarCaso: 'Close case',
+    verProyecto: 'View project',
+    cerrarProyecto: 'Close project',
     verCodigo: 'View code',
     verDemo: 'View demo',
     verApi: 'View API',
@@ -60,7 +60,7 @@ export const contenidoEn = {
   presentacion: {
     etiqueta: '// JUNIOR FULL STACK — BACKEND',
     descripcion:
-      'I build microservices with Spring Boot and interfaces with Angular and React. I work with REST APIs, JWT authentication, relational databases, and CI/CD pipelines. I complement backend development with UX research and design.',
+      'I build Spring Boot microservices and Angular/React interfaces with REST APIs, JWT, databases, and CI/CD. I complement backend work with UX Research.',
     panel: {
       titulo: 'Technical focus',
       nucleo: 'Backend',
@@ -79,12 +79,12 @@ export const contenidoEn = {
     etiqueta: '// WORK',
     titulo: 'Projects that show how I build.',
     descripcion:
-      'First, the full stack applications, where architecture, business logic, and data are central. Then the landing pages and frontend sites I will keep publishing.',
+      'Full stack applications with architecture, business logic, and data at the center; then landing pages and frontend sites.',
     grupos: {
       fullstack: {
         etiqueta: '// FULL STACK',
         titulo: 'Full stack applications',
-        descripcion: 'Backend, frontend, and persistence in one case. Open one to see the architecture, decisions, and links.',
+        descripcion: 'Backend, frontend, and persistence in one project. Open one to see architecture, decisions, and links.',
       },
       frontend: {
         etiqueta: '// FRONTEND',
@@ -94,7 +94,7 @@ export const contenidoEn = {
     },
     landingsVacio: {
       titulo: 'Landing pages in progress',
-      descripcion: 'I am building a selection of landing pages and frontend sites. Once published, they will appear here with their link and design decisions.',
+      descripcion: 'I am preparing landing pages and frontend sites. Published work will appear here with its link.',
     },
   },
   proyectos: [
@@ -103,7 +103,7 @@ export const contenidoEn = {
       indice: '01',
       nombre: 'PayFlow — Digital wallet',
       tipo: 'Atomic and idempotent transfers',
-      resumen: 'Atomic and idempotent transfers with a ledger and JWT sessions.',
+      resumen: 'Atomic and idempotent transfers with a ledger and JWT.',
       descripcion:
         'A demo digital wallet with user registration, account-to-account transfers, and transaction history. The focus is keeping balances consistent and ensuring a transfer never runs twice.',
       explicacionVisual:
@@ -131,7 +131,7 @@ export const contenidoEn = {
       indice: '02',
       nombre: 'iBatch Financial Operations',
       tipo: 'CSV transaction processing',
-      resumen: 'Asynchronous CSV transaction processing with an audit trail.',
+      resumen: 'Asynchronous CSV processing with auditing and paginated queries.',
       reconocimiento: 'Second place at the Hackathon',
       contexto:
         'Built during a Hackathon organized by Universidad Politécnica Salesiana together with ÉPICO Guayaquil.',
@@ -193,7 +193,7 @@ export const contenidoEn = {
       indice: '04',
       nombre: 'Noche Cero — Epidemiological simulation',
       tipo: 'Hackathon finalist',
-      resumen: 'SEIR outbreak simulation and comparison of vaccination strategies.',
+      resumen: 'SEIR simulation to compare vaccination strategies.',
       reconocimiento: 'Hackathon finalist',
       descripcion:
         'A web application that simulates a fictional outbreak with a SEIR model and compares vaccination strategies for a city government.',
@@ -222,18 +222,18 @@ export const contenidoEn = {
     etiqueta: '// EXPERIENCE',
     titulo: 'Professional experience.',
     descripcion:
-      'Since September 2026 I have been part of the development team at Global Hitss Ecuador, working with microservices, Java applications, and controlled releases.',
+      'Since September 2026 I have worked at Global Hitss Ecuador on Java microservices and controlled releases.',
     puestos: [
       {
         empresa: 'Global Hitss Ecuador',
         rol: 'Software Development Intern',
         periodo: 'Sep 2026 — Present',
         resumen:
-          'I join the development team building microservices and modernizing the client’s Java applications.',
+          'I build microservices and modernize the client’s Java applications.',
         puntos: [
-          'Microservices with Spring Boot and interfaces with Angular within the team delivery cycle.',
-          'Java application migrations and environment management to validate changes before release.',
-          'Quality and deployment: GitLab, Jenkins, and SonarQube pipelines, plus production releases on OpenShift.',
+          'Spring Boot microservices and Angular interfaces.',
+          'Java migrations and environment management.',
+          'CI/CD with GitLab, Jenkins, and SonarQube; deployments on OpenShift.',
         ],
         tecnologias: ['Spring Boot', 'Angular', 'Java', 'GitLab', 'Jenkins', 'SonarQube', 'OpenShift', 'CI/CD'],
       },
@@ -248,7 +248,7 @@ export const contenidoEn = {
     etiqueta: '// UX RESEARCH',
     titulo: 'Research and UX design.',
     descripcion:
-      'Qualitative research and interface design applied in academic projects. The process matters as much as the final screen.',
+      'Qualitative research and interface design in academic projects.',
     casos: [
       {
         nombre: 'Catequesis',
@@ -275,8 +275,8 @@ export const contenidoEn = {
   sobreMi: {
     titulo: 'Software beyond the interface.',
     parrafos: [
-      'I like building software where business rules and data are well defined. I enjoy turning ambiguous requirements into a clear model and a flow that can be tested.',
-      'I complement backend work with UX Research: interviews, personas, and journey maps to understand the problem before implementing. That mix helps me make better product decisions.',
+      'I like building software with well-defined business rules and data. I enjoy turning ambiguous requirements into clear models and testable flows.',
+      'I complement backend work with UX Research to understand the problem before implementing.',
     ],
     aspectos: ['Software architecture', 'Business logic', 'Data management', 'UX research'],
   },
@@ -285,7 +285,7 @@ export const contenidoEn = {
     programa: 'Software Engineering',
     institucion: 'Universidad de Guayaquil',
     periodo: '2023 — Present · 7th semester',
-    estado: 'Currently in the 7th semester of Software Engineering.',
+    estado: 'In the 7th semester of Software Engineering.',
     idiomasTitulo: 'Languages',
     hitosTitulo: 'Courses and certifications',
     hitos: [
@@ -297,7 +297,7 @@ export const contenidoEn = {
     etiqueta: '// CONTACT',
     titulo: 'Professional contact',
     descripcion:
-      'Explore my repositories, view my professional profile, or reach me directly by email.',
+      'Explore my repositories, view my profile, or send me an email.',
     correoEtiqueta: 'Email',
     ubicacionEtiqueta: 'Location',
   },
@@ -305,7 +305,6 @@ export const contenidoEn = {
     descripcion: 'Junior Full Stack Developer · Guayaquil, Ecuador',
     volver: 'Back to top',
     marca: 'CRISTHIAN',
-    cta: 'Write to me',
     derechos: '© 2026 Cristhian Loor — All rights reserved',
   },
 };

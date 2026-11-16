@@ -38,20 +38,22 @@ function ProjectGrid({ proyectos, interfaz }) {
               <h4>{proyecto.nombre}</h4>
               <p className="proyecto-tipo">{proyecto.tipo}</p>
               <p className="proyecto-tarjeta-texto">{proyecto.resumen}</p>
-              <EtiquetasProyecto items={proyecto.tecnologias} etiqueta={interfaz.tecnologiasProyecto} />
-              <motion.button
-                className="proyecto-tarjeta-boton"
-                id={`boton-${proyecto.id}`}
-                type="button"
-                aria-expanded={abierto}
-                aria-controls={`detalle-${proyecto.id}`}
-                onClick={() => alternar(proyecto.id)}
-                whileTap={reducirMovimiento ? undefined : { scale: 0.98 }}
-                transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
-              >
-                <span>{abierto ? interfaz.cerrarCaso : interfaz.verCaso}</span>
-                <ChevronDown aria-hidden="true" size={17} />
-              </motion.button>
+              <div className="proyecto-tarjeta-pie">
+                <EtiquetasProyecto items={proyecto.tecnologias} etiqueta={interfaz.tecnologiasProyecto} />
+                <motion.button
+                  className="proyecto-tarjeta-boton"
+                  id={`boton-${proyecto.id}`}
+                  type="button"
+                  aria-expanded={abierto}
+                  aria-controls={`detalle-${proyecto.id}`}
+                  onClick={() => alternar(proyecto.id)}
+                  whileTap={reducirMovimiento ? undefined : { scale: 0.98 }}
+                  transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
+                >
+                  <span>{abierto ? interfaz.cerrarProyecto : interfaz.verProyecto}</span>
+                  <ChevronDown aria-hidden="true" size={17} />
+                </motion.button>
+              </div>
             </div>
             <AnimatePresence initial={false}>
               {abierto && (

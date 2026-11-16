@@ -47,8 +47,8 @@ export const contenidoEs = {
     abrirNuevaPestana: 'abre en una pestaña nueva',
     progresoLectura: 'Progreso de lectura',
     enlacesProyecto: 'Enlaces del proyecto',
-    verCaso: 'Ver caso',
-    cerrarCaso: 'Cerrar caso',
+    verProyecto: 'Ver proyecto',
+    cerrarProyecto: 'Cerrar proyecto',
     verCodigo: 'Ver código',
     verDemo: 'Ver demo',
     verApi: 'Ver API',
@@ -60,7 +60,7 @@ export const contenidoEs = {
   presentacion: {
     etiqueta: '// FULLSTACK JUNIOR — BACKEND',
     descripcion:
-      'Desarrollo microservicios con Spring Boot e interfaces con Angular y React. Trabajo con APIs REST, autenticación JWT, bases de datos relacionales y pipelines CI/CD. Complemento el backend con investigación y diseño UX.',
+      'Construyo microservicios con Spring Boot e interfaces con Angular y React, con APIs REST, JWT, bases de datos y CI/CD. Complemento el backend con UX Research.',
     panel: {
       titulo: 'Enfoque técnico',
       nucleo: 'Backend',
@@ -79,22 +79,22 @@ export const contenidoEs = {
     etiqueta: '// TRABAJO',
     titulo: 'Proyectos que explican cómo construyo.',
     descripcion:
-      'Primero las aplicaciones fullstack, donde la arquitectura, la lógica de negocio y los datos son el centro. Después, las landings y sitios frontend que iré publicando.',
+      'Aplicaciones fullstack con arquitectura, lógica de negocio y datos en el centro; después, landings y sitios frontend.',
     grupos: {
       fullstack: {
         etiqueta: '// FULLSTACK',
         titulo: 'Aplicaciones fullstack',
-        descripcion: 'Backend, frontend y persistencia en un mismo caso. Abre uno para ver la arquitectura, las decisiones y los enlaces.',
+        descripcion: 'Backend, frontend y persistencia en un mismo proyecto. Abre uno para ver arquitectura, decisiones y enlaces.',
       },
       frontend: {
         etiqueta: '// FRONTEND',
         titulo: 'Landings y sitios frontend',
-        descripcion: 'Trabajos de interfaz y sitios de una sola página. La selección se irá ampliando.',
+        descripcion: 'Trabajos de interfaz y sitios de una página. La selección irá creciendo.',
       },
     },
     landingsVacio: {
       titulo: 'Landings en preparación',
-      descripcion: 'Estoy construyendo una selección de landings y sitios frontend. Cuando estén publicados, aparecerán aquí con su enlace y las decisiones de diseño.',
+      descripcion: 'Estoy preparando landings y sitios frontend. Cuando estén publicados, aparecerán aquí con su enlace.',
     },
   },
   proyectos: [
@@ -103,7 +103,7 @@ export const contenidoEs = {
       indice: '01',
       nombre: 'PayFlow — Billetera digital',
       tipo: 'Transferencias atómicas e idempotentes',
-      resumen: 'Transferencias atómicas e idempotentes con libro contable y sesiones JWT.',
+      resumen: 'Transferencias atómicas e idempotentes con libro contable y JWT.',
       descripcion:
         'Billetera digital de demostración con registro de usuarios, transferencias entre cuentas e historial de movimientos. El foco está en que el saldo no se descuadre y en que una transferencia no se ejecute dos veces.',
       explicacionVisual:
@@ -131,7 +131,7 @@ export const contenidoEs = {
       indice: '02',
       nombre: 'iBatch Financial Operations',
       tipo: 'Procesamiento de transacciones desde archivos CSV',
-      resumen: 'Carga y procesamiento asíncrono de transacciones desde CSV, con auditoría.',
+      resumen: 'Procesamiento asíncrono de CSV con auditoría y consultas paginadas.',
       reconocimiento: 'Segundo lugar en Hackathon',
       contexto:
         'Proyecto desarrollado durante una Hackathon organizada por la Universidad Politécnica Salesiana junto con ÉPICO Guayaquil.',
@@ -193,7 +193,7 @@ export const contenidoEs = {
       indice: '04',
       nombre: 'Noche Cero — Simulación epidemiológica',
       tipo: 'Finalista de hackathon',
-      resumen: 'Simulación SEIR de brotes y comparación de estrategias de vacunación.',
+      resumen: 'Simulación SEIR para comparar estrategias de vacunación.',
       reconocimiento: 'Finalista de hackathon',
       descripcion:
         'Aplicación web que simula un brote ficticio con un modelo SEIR y compara estrategias de vacunación para una alcaldía.',
@@ -222,18 +222,18 @@ export const contenidoEs = {
     etiqueta: '// EXPERIENCIA',
     titulo: 'Experiencia profesional.',
     descripcion:
-      'Desde septiembre de 2026 formo parte del equipo de desarrollo de Global Hitss Ecuador, donde trabajo con microservicios, aplicaciones Java y entregas controladas.',
+      'Desde septiembre de 2026 trabajo en Global Hitss Ecuador con microservicios Java y entregas controladas.',
     puestos: [
       {
         empresa: 'Global Hitss Ecuador',
         rol: 'Pasante de Desarrollo de Software',
         periodo: 'Sep 2026 — Actualidad',
         resumen:
-          'Integro el equipo de desarrollo en la construcción de microservicios y en la modernización de aplicaciones Java del cliente.',
+          'Desarrollo microservicios y modernizo aplicaciones Java del cliente.',
         puntos: [
-          'Desarrollo de microservicios con Spring Boot e interfaces con Angular dentro del ciclo de entrega del equipo.',
-          'Migraciones de aplicaciones Java y gestión de ambientes para validar cambios antes de liberarlos.',
-          'Calidad y despliegue: pipelines con GitLab, Jenkins y SonarQube, y pases a producción en OpenShift.',
+          'Microservicios con Spring Boot e interfaces con Angular.',
+          'Migraciones Java y gestión de ambientes.',
+          'CI/CD con GitLab, Jenkins y SonarQube; despliegues en OpenShift.',
         ],
         tecnologias: ['Spring Boot', 'Angular', 'Java', 'GitLab', 'Jenkins', 'SonarQube', 'OpenShift', 'CI/CD'],
       },
@@ -248,7 +248,7 @@ export const contenidoEs = {
     etiqueta: '// UX RESEARCH',
     titulo: 'Investigación y diseño UX.',
     descripcion:
-      'Investigación cualitativa y diseño de interfaces aplicados en proyectos académicos. El proceso importa tanto como la pantalla final.',
+      'Investigación cualitativa y diseño de interfaces en proyectos académicos.',
     casos: [
       {
         nombre: 'Catequesis',
@@ -275,8 +275,8 @@ export const contenidoEs = {
   sobreMi: {
     titulo: 'El software más allá de la interfaz.',
     parrafos: [
-      'Me interesa construir software donde las reglas de negocio y los datos estén bien delimitados. Disfruto convertir requisitos ambiguos en un modelo claro y en un flujo que se pueda probar.',
-      'Complemento el backend con UX Research: entrevistas, personas y journey maps para entender el problema antes de implementar. Esa mezcla me ayuda a tomar mejores decisiones de producto.',
+      'Me interesa construir software con reglas de negocio y datos bien delimitados. Disfruto convertir requisitos ambiguos en modelos claros y flujos testeables.',
+      'Complemento el backend con UX Research para entender el problema antes de implementar.',
     ],
     aspectos: ['Arquitectura de software', 'Lógica de negocio', 'Gestión de datos', 'Investigación UX'],
   },
@@ -285,7 +285,7 @@ export const contenidoEs = {
     programa: 'Ingeniería en Software',
     institucion: 'Universidad de Guayaquil',
     periodo: '2023 — Actualidad · 7.º semestre',
-    estado: 'Actualmente cursando el 7.º semestre de Ingeniería en Software.',
+    estado: 'Cursando el 7.º semestre de Ingeniería en Software.',
     idiomasTitulo: 'Idiomas',
     hitosTitulo: 'Cursos y certificaciones',
     hitos: [
@@ -297,7 +297,7 @@ export const contenidoEs = {
     etiqueta: '// CONTACTO',
     titulo: 'Contacto profesional',
     descripcion:
-      'Puedes consultar mis repositorios, revisar mi perfil profesional o escribirme directamente por correo.',
+      'Revisa mis repositorios, mi perfil profesional o escríbeme por correo.',
     correoEtiqueta: 'Correo',
     ubicacionEtiqueta: 'Ubicación',
   },
@@ -305,7 +305,6 @@ export const contenidoEs = {
     descripcion: 'Desarrollador Fullstack Junior · Guayaquil, Ecuador',
     volver: 'Volver al inicio',
     marca: 'CRISTHIAN',
-    cta: 'Escríbeme',
     derechos: '© 2026 Cristhian Loor — Todos los derechos reservados',
   },
 };
