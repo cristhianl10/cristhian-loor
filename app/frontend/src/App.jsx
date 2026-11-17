@@ -82,33 +82,18 @@ function Hero({ contenido }) {
 }
 
 function Proyectos({ contenido }) {
-  const { seccionProyectos, proyectos, landings, interfaz } = contenido;
-  const { grupos, landingsVacio } = seccionProyectos;
+  const { seccionProyectos, proyectos, interfaz } = contenido;
+  const { grupos } = seccionProyectos;
   return (
     <section className="seccion proyectos" id="proyectos" aria-labelledby="titulo-proyectos">
       <SectionHeading id="titulo-proyectos" etiqueta={seccionProyectos.etiqueta} titulo={seccionProyectos.titulo} descripcion={seccionProyectos.descripcion} />
-      <div className="grupo-proyectos" aria-labelledby="titulo-fullstack">
+      <div className="grupo-proyectos" aria-labelledby="titulo-backend">
         <header className="grupo-proyectos-cabecera">
-          <span className="mono">{grupos.fullstack.etiqueta}</span>
-          <h3 id="titulo-fullstack">{grupos.fullstack.titulo}</h3>
-          <p>{grupos.fullstack.descripcion}</p>
+          <span className="mono">{grupos.backend.etiqueta}</span>
+          <h3 id="titulo-backend">{grupos.backend.titulo}</h3>
+          <p>{grupos.backend.descripcion}</p>
         </header>
         <ProjectGrid proyectos={proyectos} interfaz={interfaz} />
-      </div>
-      <div className="grupo-proyectos" aria-labelledby="titulo-frontend">
-        <header className="grupo-proyectos-cabecera">
-          <span className="mono">{grupos.frontend.etiqueta}</span>
-          <h3 id="titulo-frontend">{grupos.frontend.titulo}</h3>
-          <p>{grupos.frontend.descripcion}</p>
-        </header>
-        {landings.length ? (
-          <ProjectGrid proyectos={landings} interfaz={interfaz} />
-        ) : (
-          <div className="proyectos-vacio" data-foco>
-            <h4>{landingsVacio.titulo}</h4>
-            <p>{landingsVacio.descripcion}</p>
-          </div>
-        )}
       </div>
     </section>
   );

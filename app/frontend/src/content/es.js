@@ -1,9 +1,9 @@
 export const contenidoEs = {
   locale: 'es',
   metadata: {
-    title: 'Cristhian Loor | Desarrollador Fullstack Junior',
+    title: 'Cristhian Loor | Desarrollador Backend',
     description:
-      'Portafolio de Cristhian Loor, desarrollador Fullstack Junior con experiencia en Spring Boot, Angular, React y C#/.NET. Proyectos, decisiones técnicas y UX Research.',
+      'Portafolio de Cristhian Loor, desarrollador backend con experiencia en Java, Spring Boot y C#/.NET. APIs REST, bases de datos y CI/CD.',
     author: 'Cristhian José Loor Quimí',
     url: 'https://cristhian-loor.vercel.app/es',
     image: 'https://cristhian-loor.vercel.app/social-card.png',
@@ -11,7 +11,7 @@ export const contenidoEs = {
   persona: {
     nombreCompleto: 'Cristhian José Loor Quimí',
     nombreProfesional: 'Cristhian Loor',
-    rol: 'Desarrollador Fullstack Junior · Backend Java/Spring Boot',
+    rol: 'Desarrollador Backend · Java / Spring Boot / .NET',
     ubicacion: 'Guayaquil, Ecuador',
     correo: 'cristhian.loor05@outlook.com',
     github: 'https://github.com/cristhianl10',
@@ -58,9 +58,9 @@ export const contenidoEs = {
     correoCopiado: 'Correo copiado',
   },
   presentacion: {
-    etiqueta: '// FULLSTACK JUNIOR — BACKEND',
+    etiqueta: '// BACKEND — JAVA / SPRING BOOT / .NET',
     descripcion:
-      'Construyo microservicios con Spring Boot e interfaces con Angular y React, con APIs REST, JWT, bases de datos y CI/CD. Complemento el backend con UX Research.',
+      'Experiencia en backend con Java, Spring Boot y .NET: APIs REST, autenticación, bases de datos y CI/CD. Enfoque en lógica de negocio, persistencia y servicios mantenibles.',
     panel: {
       titulo: 'Enfoque técnico',
       nucleo: 'Backend',
@@ -77,24 +77,15 @@ export const contenidoEs = {
   },
   seccionProyectos: {
     etiqueta: '// TRABAJO',
-    titulo: 'Proyectos que explican cómo construyo.',
+    titulo: 'Trabajo seleccionado.',
     descripcion:
-      'Aplicaciones fullstack con arquitectura, lógica de negocio y datos en el centro; después, landings y sitios frontend.',
+      'APIs, reglas de negocio y persistencia. Abre un proyecto para ver arquitectura, decisiones y enlaces.',
     grupos: {
-      fullstack: {
-        etiqueta: '// FULLSTACK',
-        titulo: 'Aplicaciones fullstack',
-        descripcion: 'Backend, frontend y persistencia en un mismo proyecto. Abre uno para ver arquitectura, decisiones y enlaces.',
+      backend: {
+        etiqueta: '// BACKEND',
+        titulo: 'Proyectos backend',
+        descripcion: 'Lógica de negocio, APIs y datos. Cada proyecto muestra su arquitectura, decisiones y enlaces.',
       },
-      frontend: {
-        etiqueta: '// FRONTEND',
-        titulo: 'Landings y sitios frontend',
-        descripcion: 'Trabajos de interfaz y sitios de una página. La selección irá creciendo.',
-      },
-    },
-    landingsVacio: {
-      titulo: 'Landings en preparación',
-      descripcion: 'Estoy preparando landings y sitios frontend. Cuando estén publicados, aparecerán aquí con su enlace.',
     },
   },
   proyectos: [
@@ -108,7 +99,7 @@ export const contenidoEs = {
         'Billetera digital de demostración con registro de usuarios, transferencias entre cuentas e historial de movimientos. El foco está en que el saldo no se descuadre y en que una transferencia no se ejecute dos veces.',
       explicacionVisual:
         'La operación se ejecuta de forma atómica e idempotente; el libro contable registra los movimientos para evitar duplicados y descuadres.',
-      tecnologias: ['Java 21', 'Spring Boot', 'React', 'PostgreSQL', 'Docker'],
+      tecnologias: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Docker', 'Flyway'],
       destacados: [
         'Operaciones atómicas e idempotentes con un libro contable para evitar transferencias duplicadas y descuadres de saldo.',
         'Sesiones con JWT y refresh tokens almacenados en cookies HttpOnly.',
@@ -137,7 +128,7 @@ export const contenidoEs = {
         'Proyecto desarrollado durante una Hackathon organizada por la Universidad Politécnica Salesiana junto con ÉPICO Guayaquil.',
       descripcion:
         'Plataforma para cargar, validar y procesar archivos CSV con transacciones financieras, con seguimiento de progreso, auditoría y consultas paginadas.',
-      tecnologias: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'],
+      tecnologias: ['Java', 'Spring Boot', 'Spring Data JDBC', 'MySQL'],
       destacados: [
         'Procesamiento asíncrono de cargas masivas e inserciones de registros por lotes.',
         'Actualización periódica del progreso y consulta paginada de registros.',
@@ -160,20 +151,19 @@ export const contenidoEs = {
       id: 'banco-horizonte',
       indice: '03',
       nombre: 'Banco Horizonte — Gestión de Reclamos',
-      tipo: 'Aplicación full stack',
+      tipo: 'Reglas de prioridad, SLA y estados',
       resumen: 'Reclamos bancarios con reglas de prioridad, SLA y flujo de estados.',
       descripcion:
-        'Plataforma full stack para registrar, asignar y dar seguimiento a reclamos bancarios. La prioridad no se asigna de forma aislada: surge de reglas de negocio que también determinan el SLA y condicionan el flujo posterior.',
+        'Plataforma para registrar, asignar y dar seguimiento a reclamos bancarios. La prioridad no se asigna de forma aislada: surge de reglas de negocio que también determinan el SLA y condicionan el flujo posterior.',
       explicacionVisual:
         'Las reglas acumulan criterios; la prioridad resultante determina el SLA antes de que el reclamo continúe por un flujo de estados controlado.',
-      tecnologias: ['C#', 'ASP.NET Core', 'Angular', 'PostgreSQL', 'Supabase'],
+      tecnologias: ['C#', 'ASP.NET Core', 'PostgreSQL', 'Supabase'],
       arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       destacados: [
         'API REST en ASP.NET Core con autenticación por roles, validaciones e historial de cambios.',
         'Reglas de prioridad y SLA para organizar la atención de los reclamos más urgentes.',
-        'Frontend Angular con guards de rutas, bandeja filtrable y formularios con validación.',
         'Flujo de estados controlado con trazabilidad completa de cada caso.',
-        'Pruebas unitarias backend con xUnit y pruebas frontend con Jasmine/Karma.',
+        'Pruebas unitarias backend con xUnit y validación de reglas de negocio.',
       ],
       roles: ['Operador', 'Analista', 'Supervisor', 'Administrador'],
       visual: {
@@ -199,11 +189,11 @@ export const contenidoEs = {
         'Aplicación web que simula un brote ficticio con un modelo SEIR y compara estrategias de vacunación para una alcaldía.',
       explicacionVisual:
         'El motor SEIR simula escenarios de vacunación; la optimización con NumPy reduce el tiempo de cálculo sin alterar los resultados, verificados por hash.',
-      tecnologias: ['Python', 'NumPy', 'React', 'TypeScript', 'AWS', 'Terraform'],
+      tecnologias: ['Python', 'NumPy', 'AWS', 'Terraform'],
       destacados: [
         'Optimización del motor de simulación con NumPy: de 377,9 s a 44,3 s (8,5x más rápido).',
         'Resultados idénticos verificados por hash antes y después de la optimización.',
-        'Interfaz para ejecutar y monitorear simulaciones.',
+        'Ejecución y monitoreo de simulaciones.',
         'Informe para la alcaldía exportable a PDF y HTML.',
       ],
       visual: {
@@ -217,12 +207,11 @@ export const contenidoEs = {
       media: { portada: null, alt: 'Diagrama del modelo SEIR de Noche Cero', capturas: [] },
     },
   ],
-  landings: [],
   experiencia: {
     etiqueta: '// EXPERIENCIA',
     titulo: 'Experiencia profesional.',
     descripcion:
-      'Desde septiembre de 2026 trabajo en Global Hitss Ecuador con microservicios Java y entregas controladas.',
+      'Experiencia backend en Global Hitss Ecuador desde septiembre de 2026: microservicios Java, migraciones y despliegues controlados.',
     puestos: [
       {
         empresa: 'Global Hitss Ecuador',
@@ -231,11 +220,11 @@ export const contenidoEs = {
         resumen:
           'Desarrollo microservicios y modernizo aplicaciones Java del cliente.',
         puntos: [
-          'Microservicios con Spring Boot e interfaces con Angular.',
+          'Microservicios con Spring Boot y APIs REST.',
           'Migraciones Java y gestión de ambientes.',
           'CI/CD con GitLab, Jenkins y SonarQube; despliegues en OpenShift.',
         ],
-        tecnologias: ['Spring Boot', 'Angular', 'Java', 'GitLab', 'Jenkins', 'SonarQube', 'OpenShift', 'CI/CD'],
+        tecnologias: ['Spring Boot', 'Java', 'GitLab', 'Jenkins', 'SonarQube', 'OpenShift', 'CI/CD'],
       },
     ],
   },
@@ -302,7 +291,7 @@ export const contenidoEs = {
     ubicacionEtiqueta: 'Ubicación',
   },
   pie: {
-    descripcion: 'Desarrollador Fullstack Junior · Guayaquil, Ecuador',
+    descripcion: 'Desarrollador Backend · Guayaquil, Ecuador',
     volver: 'Volver al inicio',
     marca: 'CRISTHIAN',
     derechos: '© 2026 Cristhian Loor — Todos los derechos reservados',

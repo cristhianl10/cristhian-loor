@@ -1,9 +1,9 @@
 export const contenidoEn = {
   locale: 'en',
   metadata: {
-    title: 'Cristhian Loor | Junior Full Stack Developer',
+    title: 'Cristhian Loor | Backend Developer',
     description:
-      'Cristhian Loor’s portfolio: Junior Full Stack Developer with experience in Spring Boot, Angular, React, and C#/.NET. Projects, technical decisions, and UX Research.',
+      'Cristhian Loor’s portfolio: backend developer with experience in Java, Spring Boot, and C#/.NET. REST APIs, databases, and CI/CD.',
     author: 'Cristhian José Loor Quimí',
     url: 'https://cristhian-loor.vercel.app/en',
     image: 'https://cristhian-loor.vercel.app/social-card.png',
@@ -11,7 +11,7 @@ export const contenidoEn = {
   persona: {
     nombreCompleto: 'Cristhian José Loor Quimí',
     nombreProfesional: 'Cristhian Loor',
-    rol: 'Junior Full Stack Developer · Backend Java/Spring Boot',
+    rol: 'Backend Developer · Java / Spring Boot / .NET',
     ubicacion: 'Guayaquil, Ecuador',
     correo: 'cristhian.loor05@outlook.com',
     github: 'https://github.com/cristhianl10',
@@ -58,9 +58,9 @@ export const contenidoEn = {
     correoCopiado: 'Email copied',
   },
   presentacion: {
-    etiqueta: '// JUNIOR FULL STACK — BACKEND',
+    etiqueta: '// BACKEND — JAVA / SPRING BOOT / .NET',
     descripcion:
-      'I build Spring Boot microservices and Angular/React interfaces with REST APIs, JWT, databases, and CI/CD. I complement backend work with UX Research.',
+      'Backend experience with Java, Spring Boot, and .NET: REST APIs, authentication, databases, and CI/CD. Focused on business logic, persistence, and maintainable services.',
     panel: {
       titulo: 'Technical focus',
       nucleo: 'Backend',
@@ -77,24 +77,15 @@ export const contenidoEn = {
   },
   seccionProyectos: {
     etiqueta: '// WORK',
-    titulo: 'Projects that show how I build.',
+    titulo: 'Selected work.',
     descripcion:
-      'Full stack applications with architecture, business logic, and data at the center; then landing pages and frontend sites.',
+      'APIs, business rules, and persistence. Open a project to see its architecture, decisions, and links.',
     grupos: {
-      fullstack: {
-        etiqueta: '// FULL STACK',
-        titulo: 'Full stack applications',
-        descripcion: 'Backend, frontend, and persistence in one project. Open one to see architecture, decisions, and links.',
+      backend: {
+        etiqueta: '// BACKEND',
+        titulo: 'Backend projects',
+        descripcion: 'Business logic, APIs, and data. Each project shows its architecture, decisions, and links.',
       },
-      frontend: {
-        etiqueta: '// FRONTEND',
-        titulo: 'Landing pages and frontend sites',
-        descripcion: 'Interface work and single-page sites. The selection will keep growing.',
-      },
-    },
-    landingsVacio: {
-      titulo: 'Landing pages in progress',
-      descripcion: 'I am preparing landing pages and frontend sites. Published work will appear here with its link.',
     },
   },
   proyectos: [
@@ -108,7 +99,7 @@ export const contenidoEn = {
         'A demo digital wallet with user registration, account-to-account transfers, and transaction history. The focus is keeping balances consistent and ensuring a transfer never runs twice.',
       explicacionVisual:
         'The operation runs atomically and idempotently; a ledger records every movement to prevent duplicates and balance mismatches.',
-      tecnologias: ['Java 21', 'Spring Boot', 'React', 'PostgreSQL', 'Docker'],
+      tecnologias: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Docker', 'Flyway'],
       destacados: [
         'Atomic and idempotent operations backed by a ledger to prevent duplicate transfers and balance mismatches.',
         'Sessions with JWT and refresh tokens stored in HttpOnly cookies.',
@@ -137,7 +128,7 @@ export const contenidoEn = {
         'Built during a Hackathon organized by Universidad Politécnica Salesiana together with ÉPICO Guayaquil.',
       descripcion:
         'A platform to upload, validate, and process CSV files with financial transactions, with progress tracking, auditing, and paginated queries.',
-      tecnologias: ['Java', 'Spring Boot', 'Spring Data JDBC', 'Next.js', 'React', 'MySQL'],
+      tecnologias: ['Java', 'Spring Boot', 'Spring Data JDBC', 'MySQL'],
       destacados: [
         'Asynchronous processing of large uploads and batch record insertion.',
         'Periodic progress updates and paginated record queries.',
@@ -160,20 +151,19 @@ export const contenidoEn = {
       id: 'banco-horizonte',
       indice: '03',
       nombre: 'Banco Horizonte — Claims Management',
-      tipo: 'Full stack application',
+      tipo: 'Priority rules, SLAs, and status flow',
       resumen: 'Bank claims with priority rules, SLAs, and a controlled status flow.',
       descripcion:
-        'A full stack platform to register, assign, and track bank claims. Priority is not assigned in isolation: it comes from business rules that also determine the SLA and shape the subsequent flow.',
+        'A platform to register, assign, and track bank claims. Priority is not assigned in isolation: it comes from business rules that also determine the SLA and shape the subsequent flow.',
       explicacionVisual:
         'Rules accumulate criteria; the resulting priority determines the SLA before the claim continues through a controlled status flow.',
-      tecnologias: ['C#', 'ASP.NET Core', 'Angular', 'PostgreSQL', 'Supabase'],
+      tecnologias: ['C#', 'ASP.NET Core', 'PostgreSQL', 'Supabase'],
       arquitectura: ['API', 'Application', 'Domain', 'Infrastructure'],
       destacados: [
         'REST API in ASP.NET Core with role-based authentication, validations, and change history.',
         'Priority and SLA rules to organize the most urgent claims.',
-        'Angular frontend with route guards, a filterable inbox, and validated forms.',
         'Controlled status flow with complete traceability for every case.',
-        'Backend unit tests with xUnit and frontend tests with Jasmine/Karma.',
+        'Backend unit tests with xUnit and business-rule validation.',
       ],
       roles: ['Operator', 'Analyst', 'Supervisor', 'Administrator'],
       visual: {
@@ -199,11 +189,11 @@ export const contenidoEn = {
         'A web application that simulates a fictional outbreak with a SEIR model and compares vaccination strategies for a city government.',
       explicacionVisual:
         'The SEIR engine simulates vaccination scenarios; NumPy optimization reduces computation time without changing the results, verified by hash.',
-      tecnologias: ['Python', 'NumPy', 'React', 'TypeScript', 'AWS', 'Terraform'],
+      tecnologias: ['Python', 'NumPy', 'AWS', 'Terraform'],
       destacados: [
         'Simulation engine optimization with NumPy: from 377.9 s to 44.3 s (8.5x faster).',
         'Identical results verified by hash before and after optimization.',
-        'Interface to run and monitor simulations.',
+        'Simulation execution and monitoring.',
         'Report for the city government exportable to PDF and HTML.',
       ],
       visual: {
@@ -217,12 +207,11 @@ export const contenidoEn = {
       media: { portada: null, alt: 'Noche Cero SEIR model diagram', capturas: [] },
     },
   ],
-  landings: [],
   experiencia: {
     etiqueta: '// EXPERIENCE',
     titulo: 'Professional experience.',
     descripcion:
-      'Since September 2026 I have worked at Global Hitss Ecuador on Java microservices and controlled releases.',
+      'Backend experience at Global Hitss Ecuador since September 2026: Java microservices, migrations, and controlled releases.',
     puestos: [
       {
         empresa: 'Global Hitss Ecuador',
@@ -231,11 +220,11 @@ export const contenidoEn = {
         resumen:
           'I build microservices and modernize the client’s Java applications.',
         puntos: [
-          'Spring Boot microservices and Angular interfaces.',
+          'Spring Boot microservices and REST APIs.',
           'Java migrations and environment management.',
           'CI/CD with GitLab, Jenkins, and SonarQube; deployments on OpenShift.',
         ],
-        tecnologias: ['Spring Boot', 'Angular', 'Java', 'GitLab', 'Jenkins', 'SonarQube', 'OpenShift', 'CI/CD'],
+        tecnologias: ['Spring Boot', 'Java', 'GitLab', 'Jenkins', 'SonarQube', 'OpenShift', 'CI/CD'],
       },
     ],
   },
@@ -302,7 +291,7 @@ export const contenidoEn = {
     ubicacionEtiqueta: 'Location',
   },
   pie: {
-    descripcion: 'Junior Full Stack Developer · Guayaquil, Ecuador',
+    descripcion: 'Backend Developer · Guayaquil, Ecuador',
     volver: 'Back to top',
     marca: 'CRISTHIAN',
     derechos: '© 2026 Cristhian Loor — All rights reserved',

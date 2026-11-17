@@ -96,7 +96,7 @@ Space Grotesk sostiene títulos y lectura; JetBrains Mono marca etiquetas, índi
 - Cápsula flotante negra en modo oscuro y blanca en modo claro, con 40px de radio.
 - Haz aurora de gradientes cónicos detrás del contenido, con parallax de puntero.
 - Superficies de vidrio de 32px, controles en píldora y etiquetas mono.
-- Dos grupos de proyectos: aplicaciones fullstack y landings/frontend.
+- Un grupo de proyectos backend, con APIs, lógica de negocio y persistencia.
 - Perfil fusionado: Sobre mí, UX Research y Formación en una sola sección.
 
 ## Colors
@@ -136,7 +136,7 @@ La interfaz usa un lienzo negro y una cápsula obsidiana (`#0c0c0c`) en modo osc
 
 La página vive dentro de una cápsula de hasta `1600px` con 24px de margen mínimo en escritorio; el `main` interior limita a `1240px` con 32px de margen mínimo. La presentación usa una retícula de 12 columnas con reparto 7/5 y pasa a una columna en `900px`; la maqueta se centra al apilarse.
 
-Los proyectos se agrupan en aplicaciones fullstack y landings/frontend. Cada grupo usa una retícula de dos columnas con 12px de separación; al abrir una tarjeta, esta ocupa ambas columnas y muestra el caso completo. En `900px` la retícula pasa a una columna. El perfil combina tres bloques en escritorio, dos en `1180px` y uno en `760px`.
+Los proyectos se agrupan bajo un enfoque backend. La retícula usa dos columnas con 12px de separación; al abrir una tarjeta, esta ocupa ambas columnas y muestra el proyecto completo. En `900px` la retícula pasa a una columna. El perfil combina tres bloques en escritorio, dos en `1180px` y uno en `760px`.
 
 La navegación se compone de tres anclas —Proyectos, Experiencia y Perfil— más Contacto. Los puntos de adaptación principales son `900px`, `760px` y `480px`; en móvil el menú se convierte en panel sólido y los flujos se reorganizan sin desplazamiento horizontal.
 
@@ -196,7 +196,7 @@ Los iconos provienen de Hugeicons y se renderizan con `strokeWidth` de 1.7. No s
 ### Do:
 
 - **Do** mantener los proyectos como evidencia dominante y explicar la arquitectura dentro de cada caso.
-- **Do** conservar los dos grupos de proyectos y la retícula 2x2 con expansión a ancho completo.
+- **Do** conservar el grupo backend y la retícula 2x2 con expansión a ancho completo.
 - **Do** reservar menta para acciones, foco y señales técnicas verificables.
 - **Do** respetar `prefers-reduced-motion` y conservar el contenido visible sin animación.
 - **Do** usar píldoras para controles y etiquetas, y `32px` para superficies de contenido.

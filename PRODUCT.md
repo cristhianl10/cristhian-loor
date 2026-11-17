@@ -12,7 +12,7 @@ Personas que visitan el portfolio para comprender y evaluar el perfil técnico d
 
 ## Product Purpose
 
-Presentar de forma directa a Cristhian Loor como desarrollador Fullstack Junior con experiencia profesional en Global Hitss Ecuador, enfoque principal en Java/Spring Boot y C#/.NET, y complemento en Angular/React y UX Research. El portfolio debe permitir entender rápidamente quién es, qué construye, qué tecnologías utiliza, qué decisiones técnicas existen detrás de sus proyectos, su experiencia actual y el segundo lugar obtenido en la Hackathon Universidad Politécnica Salesiana × ÉPICO Guayaquil con iBatch Financial Operations.
+Presentar de forma directa a Cristhian Loor como desarrollador backend con experiencia profesional en Global Hitss Ecuador, enfocado en Java/Spring Boot y C#/.NET, APIs REST, bases de datos y CI/CD, con complemento en UX Research. El portfolio debe permitir entender rápidamente quién es, qué experiencia tiene, qué decisiones técnicas existen detrás de sus proyectos, su experiencia actual y el segundo lugar obtenido en la Hackathon Universidad Politécnica Salesiana × ÉPICO Guayaquil con iBatch Financial Operations.
 
 ## Positioning
 
@@ -29,7 +29,7 @@ La experiencia es un sitio web responsive bilingüe en español e inglés, con p
 - La interfaz ofrece modo oscuro y modo claro con contraste WCAG AA y recuerda la preferencia del visitante.
 - Los datos personales, proyectos, tecnologías, enlaces, formación y textos deben mantenerse centralizados y separados de la presentación.
 - Los proyectos prioritarios son PayFlow, iBatch Financial Operations, Banco Horizonte — Gestión de Reclamos y Noche Cero.
-- Cristhian Loor trabaja como Pasante de Desarrollo de Software en Global Hitss Ecuador desde septiembre de 2026, con microservicios Spring Boot, Angular, migraciones Java, CI/CD y despliegues en OpenShift.
+- Cristhian Loor trabaja como Pasante de Desarrollo de Software en Global Hitss Ecuador desde septiembre de 2026, con microservicios Spring Boot, APIs REST, migraciones Java, CI/CD y despliegues en OpenShift.
 - iBatch Financial Operations obtuvo el segundo lugar en la Hackathon Universidad Politécnica Salesiana × ÉPICO Guayaquil; este es el único reconocimiento de ese tipo confirmado. Noche Cero fue finalista de hackathon.
 - Cristhian Loor estudia Ingeniería en Software en la Universidad de Guayaquil desde 2023 y cursa actualmente el 7.º semestre. No existe una fecha de graduación confirmada.
 - La investigación y el diseño UX se limitan a los proyectos académicos Catequesis y GOB.EC, con Figma, OpenAI Whisper, User Personas y User Journey Mapping.
@@ -42,7 +42,7 @@ La experiencia es un sitio web responsive bilingüe en español e inglés, con p
 - Nombre profesional: Cristhian Loor.
 - Ubicación: Guayaquil, Ecuador.
 - Voz profesional, concreta y basada en hechos verificables.
-- Enfoque principal: desarrollo backend y full stack alrededor de Java/Spring Boot y C#/.NET, con experiencia profesional en microservicios y despliegues.
+- Enfoque principal: desarrollo backend con Java/Spring Boot y C#/.NET, APIs REST, lógica de negocio, persistencia y despliegues.
 - Evitar frases genéricas, adjetivos promocionales no comprobables y copy corporativo vacío.
 - Conservar los nombres oficiales de tecnologías, patrones y proyectos.
 

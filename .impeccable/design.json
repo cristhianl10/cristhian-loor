@@ -91,14 +91,14 @@
   "narrative": {
     "northStar": "Arquitectura tras el vidrio",
     "overview": "El sistema presenta la estructura técnica de los proyectos como capas detrás de superficies translúcidas. Una cápsula flotante de 40px de radio se monta sobre un lienzo negro; dentro, el vidrio, los bordes de un píxel y las etiquetas mono separan contexto, decisiones y enlaces. Space Grotesk sostiene títulos y lectura; JetBrains Mono marca etiquetas, índices y metadatos. La paleta es obsidiana con menta como señal funcional, mientras azul y violeta aparecen en diagramas y en el haz aurora del fondo.",
-    "keyCharacteristics": ["Cápsula flotante de 40px", "Haz aurora con parallax", "Vidrio y bordes de un píxel", "Dos grupos de proyectos", "Tarjetas 2x2 de altura uniforme", "Perfil fusionado", "Controles en píldora"],
+    "keyCharacteristics": ["Cápsula flotante de 40px", "Haz aurora con parallax", "Vidrio y bordes de un píxel", "Proyectos con foco backend", "Tarjetas 2x2 de altura uniforme", "Perfil fusionado", "Controles en píldora"],
     "rules": [
       { "name": "Regla de señal", "body": "El color indica función o significado; no se distribuye como adorno uniforme.", "section": "colors" },
       { "name": "Regla de la etiqueta mono", "body": "JetBrains Mono se reserva para categorías, índices y metadatos breves; nunca para párrafos.", "section": "typography" }
     ],
     "dos": [
       "Mantener los proyectos como evidencia dominante y explicar la arquitectura dentro de cada caso.",
-      "Conservar los dos grupos de proyectos y la retícula 2x2 con expansión a ancho completo.",
+      "Conservar el grupo backend y la retícula 2x2 con expansión a ancho completo.",
       "Respetar prefers-reduced-motion y dejar visible el contenido sin animación."
     ],
     "donts": [
